@@ -1,0 +1,10 @@
+MetaTrader5-5.0.45.dist-info/INSTALLER,sha256=zuuue4knoyJ-UwPPXg8fezS7VCrXJQrAP7zeNuwvFQg,4
+MetaTrader5-5.0.45.dist-info/LICENSE.txt,sha256=Mat7G78hboLg_jC_1IoEaz0xJot2rpsNLXOAYJH9Lrg,1065
+MetaTrader5-5.0.45.dist-info/METADATA,sha256=ljdCr5yIrO08fasN_4I8JMnxaX0z1-a0hfgyC3ZPzaM,2332
+MetaTrader5-5.0.45.dist-info/RECORD,,
+MetaTrader5-5.0.45.dist-info/REQUESTED,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+MetaTrader5-5.0.45.dist-info/WHEEL,sha256=wklNeoByNLhdCl-oEQTdaHIeDl4q9zaQVqAlPxUEgLU,102
+MetaTrader5-5.0.45.dist-info/top_level.txt,sha256=FxZl8Gt0jwFY0ZY4D-Zyv9Y56ACVnOUOUDZbGZRyaWA,12
+MetaTrader5/__init__.py,sha256=YPYBpGB3JnaRaO8q-0NNDNRk90suvOnqDs24-vIt9Z4,17680
+MetaTrader5/__pycache__/__init__.cpython-311.pyc,,
+MetaTrader5/_core.cp311-win_amd64.pyd,sha256=sPPJmgKDKy5h4jXYpSEJD_0JpTFXIF78xu6urb_IDNY,115200
