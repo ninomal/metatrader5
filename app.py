@@ -1,15 +1,21 @@
-import user
 import login
 import time
 
+SERVERDEMO ="MetaQuotes-Demo"
+SERVERREAL ="MetaQuotes-Real"
+MOBILE = False # metatrader5 from mobile (True or False)
+
 def main():
-    print("heloo")
     
-    users = user.User("alaa", 12456)
+    # get struct_time
+    named_tuple = time.localtime() 
+    time_string = time.strftime("%m/%d/%Y, %H:%M:%S", named_tuple)
     
-    print(users)
+    loguin = input("Digit your loguin user") 
+    password = input("Digit your password user")   
     
-    mt5 = login.LoguinMt5("aa",12,4,time.localtime,False)
+      
+    mt5 = login.LoguinMt5(loguin ,password ,SERVERDEMO,time_string ,MOBILE)
     
     print(mt5.server)
     mt5.logar()
