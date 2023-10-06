@@ -1,10 +1,11 @@
 import user
 import MetaTrader5 as mt5
 class LoguinMt5(user.User):
-    def __init__(self,name, passowrd, server, time) :
+    def __init__(self,name, passowrd, server, time,portable) :
        super().__init__(name, passowrd)
        self.server = server
        self.time = time
+       self.portable = portable
        
     def logar(self):   
         
@@ -43,4 +44,18 @@ class LoguinMt5(user.User):
             
             # shut down connection to the MetaTrader 5 terminal
             mt5.shutdown()
+    
+    def deslogar():
+        # establish connection to the MetaTrader 5 terminal
+        if not mt5.initialize():
+            print("initialize() failed")
+            quit()
+        
+        # display data on connection status, server name and trading account
+        print(mt5.terminal_info())
+        # display data on MetaTrader 5 version
+        print(mt5.version())
+        
+        # shut down connection to the MetaTrader 5 terminal
+        mt5.shutdown()
         

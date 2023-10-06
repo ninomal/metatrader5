@@ -1,5 +1,7 @@
 import user
 import login
+import time
+
 def main():
     print("heloo")
     
@@ -7,10 +9,10 @@ def main():
     
     print(users)
     
-    logar = login.LoguinMt5("aa",12,4,5)
+    mt5 = login.LoguinMt5("aa",12,4,time.localtime,False)
     
-    print(logar.server)
-    logar.logar()
+    print(mt5.server)
+    mt5.logar()
     
     
     
