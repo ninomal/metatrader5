@@ -11,11 +11,11 @@ def main():
     named_tuple = time.localtime() 
     time_string = time.strftime("%m/%d/%Y, %H:%M:%S", named_tuple)
     
-    loguin = input("Digit your loguin user") 
-    password = input("Digit your password user")   
+    loguin = input("Digit your loguin user: ") 
+    password = input("Digit your password user: ")   
     
       
-    mt5 = login.LoguinMt5(loguin ,password ,SERVERDEMO,time_string ,MOBILE)
+    mt5 = login.LoguinMt5(loguin ,password ,SERVERREAL,time_string ,MOBILE)
     
     print(mt5.server)
     mt5.logar()
