@@ -6,7 +6,8 @@ class LoguinMt5(user.User):
        self.server = server
        self.time = time
        
-    def logar():   
+    def logar(self):   
+        
         # display data on the MetaTrader 5 package
         print("MetaTrader5 package author: ",mt5.__author__)
         print("MetaTrader5 package version: ",mt5.__version__)
@@ -19,7 +20,7 @@ class LoguinMt5(user.User):
         # display data on MetaTrader 5 version
         print(mt5.version())
         # connect to the trade account without specifying a password and a server
-        account=17221085
+        account= self.user
         authorized=mt5.login(account)  # the terminal database password is applied if connection data is set to be remembered
         if authorized:
             print("connected to account #{}".format(account))
@@ -27,8 +28,8 @@ class LoguinMt5(user.User):
              print("failed to connect at account #{}, error code: {}".format(account, mt5.last_error()))
             
         # now connect to another trading account specifying the password
-        account=25115284
-        authorized=mt5.login(account, password="gqrtz0lbdm")
+        account=self.password
+        authorized=mt5.login(account, password = self.password)
         if authorized:
             # display trading account data 'as is'
             print(mt5.account_info())
