@@ -8,6 +8,7 @@ class LoguinMt5():
        self.time = time
        self.portable = portable
        
+    
     def logar(self):       
         # display data on the MetaTrader 5 package
         print("MetaTrader5 package author: ",mt5.__author__)
@@ -45,7 +46,8 @@ class LoguinMt5():
             # shut down connection to the MetaTrader 5 terminal
             mt5.shutdown()
     
-    def deslogar(self):
+    @classmethod
+    def deslogar():
         # establish connection to the MetaTrader 5 terminal
         if not mt5.initialize():
             print("initialize() failed")

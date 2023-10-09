@@ -4,6 +4,7 @@ import time
 SERVERDEMO ="MetaQuotes-Demo"
 SERVERREAL ="MetaQuotes-Real"
 MOBILE = False # metatrader5 from mobile (True or False)
+SYMBOL = "WINV23" #name of market
 
 def main():
     
