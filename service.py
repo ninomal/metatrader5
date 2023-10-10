@@ -17,6 +17,17 @@ class Service():
     def sell():
         pass
     
+    def lastick(self):
+        #test
+        lasttick= self.symbol
+        print(lasttick)
+        # display tick field values in the form of a list
+        print(f"Show symbol_info_tick({lasttick})._asdict():")
+        symbol_info_tick_dict = lasttick._asdict()
+        for prop in symbol_info_tick_dict:
+            print("  {}={}".format(prop, symbol_info_tick_dict[prop]))
+              
+    
     def __repr__(self) -> str:
         if(buy != 0):
             return f"Buy {self.symbol} market {self.SYMBOL}"
