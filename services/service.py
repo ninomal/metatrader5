@@ -10,7 +10,7 @@ class Service():
         return symbol_info_tick_dict
     
     ATIVO = "WINV23"
-    
+    LOT = 0.1
     VOLUME = 1.0
     ONDAS = 20
     MAGIC = 10
@@ -23,10 +23,11 @@ class Service():
     def comprar(self):
         preco = self.mt5.symbol_info_tick(self.ATIVO).ask
         pontos = self.mt5.symbol_info(self.ATIVO).point
+        print(preco)
         request = ({
             "action": self.mt5.TRADE_ACTION_DEAL,
             "symbol": self.ATIVO,
-            "volume": 0.01,
+            "volume": 1.0,
             "type": self.mt5.ORDER_TYPE_BUY,
             "price": preco,
             "deviation":self. deviation,
@@ -39,6 +40,7 @@ class Service():
         })
         self.mt5.order_send(request)
         resultado = self.mt5.order_send(request)
+        print("aaaa")
         print(resultado)
 
 
@@ -48,14 +50,14 @@ class Service():
         request = ({
             "action": self.mt5.TRADE_ACTION_DEAL,
             "symbol": self.ATIVO,
-            "volume": 0.01,
+            "volume": self.LOT,
             "type": self.mt5.ORDER_TYPE_SELL,
             "price": preco,
             "deviation": self.deviation,
             "sl": preco + 50 * pontos,
             "tp":preco - 50 * pontos,
             "magic": 12345,
-            "comment": "python script buy",
+            "comment": "python script sell",
             "type_time": self.mt5.ORDER_TIME_GTC,
             "type_filling": self.mt5.ORDER_FILLING_RETURN
         })
@@ -66,7 +68,7 @@ class Service():
     
     def lastick(self):
         #test
-        lasttick= self.symbol
+        lasttick= self.mt5.symbol()
         print(lasttick)
         # display tick field values in the form of a list
         print(f"Show symbol_info_tick({lasttick})._asdict():")

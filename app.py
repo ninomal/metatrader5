@@ -1,16 +1,14 @@
-import login
 import time
-import timeflameEnums
-import timeflameException
 import MetaTrader5 as mt5
+from services import service
+import os
 
 SERVERDEMO = "SERVERDEMO" #"MetaQuotes-Demo"
 SERVERREAL ="SERVERREAL" #"MetaQuotes-Real"
 MOBILE = False # metatrader5 from mobile (True or False)
-SYMBOL = "WINV23" #name of market
 
-def main(): 
-    
+os.system('cls')
+def main():    
     #Start
     # get struct_time
     #named_tuple = time.localtime() 
@@ -24,7 +22,16 @@ def main():
                      # 'for hours "2h" ,"3h" ,"4h" ,"6h" ,"8h" ,"12h" ,'
                       #'for days "1d" ,"2d" ,"3d"')
     
-    
+    services = service.Service(mt5)
+    services.comprar()
+    print()
+    services.vender()
+    orders=mt5.orders_total()
+    if orders>0:
+        print("Total orders=",orders)
+    else:
+        print("Orders not found")
+        
     #get timeflame execption
     #timeflameEx = timeflameException.TimeflameException(timeFlameVariable)
     #timeflameEx.timeflameCheck()

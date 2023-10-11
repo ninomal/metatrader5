@@ -1,12 +1,12 @@
 
 
 class LoguinMt5():
-    def __init__(self,name, password, server ,portable, mt5) :
+    def __init__(self,name, password, server ,portableForT, mt5) :
        self.mt5 = mt5
        self.name = name
        self.password = password
        self.server = server
-       self.portable = portable
+       self.portable = portableForT
        
     
     def logar(self):     
