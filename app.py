@@ -23,9 +23,9 @@ def main():
                       #'for days "1d" ,"2d" ,"3d"')
     
     services = service.Service(mt5)
-    services.comprar()
+    services.buy()
     print()
-    services.vender()
+    services.sell()
     orders=mt5.orders_total()
     if orders>0:
         print("Total orders=",orders)

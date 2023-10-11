@@ -9,9 +9,8 @@ class Service():
         symbol_info_tick_dict = self.mt5.symbol_info_tick(self.SYMBOL)
         return symbol_info_tick_dict
     
-    ATIVO = "WINV23"
-    LOT = 0.1
-    VOLUME = 1.0
+    ATIVO = "WINV23" #name of market
+    VOLUME = 1.0 #volume observe compatibility volume error change for 1.0 Demo verion
     ONDAS = 20
     MAGIC = 10
     ONDAS_BOLINGER = 20
@@ -20,7 +19,7 @@ class Service():
     SL_SD = 2
     deviation = 0
 
-    def comprar(self):
+    def buy(self):
         preco = self.mt5.symbol_info_tick(self.ATIVO).ask
         pontos = self.mt5.symbol_info(self.ATIVO).point
         print(preco)
@@ -39,18 +38,18 @@ class Service():
             "type_filling": self.mt5.ORDER_FILLING_RETURN
         })
         self.mt5.order_send(request)
-        resultado = self.mt5.order_send(request)
+        result = self.mt5.order_send(request)
         print("aaaa")
-        print(resultado)
+        print(result)
 
 
-    def vender(self):
+    def sell(self):
         preco = self.mt5.symbol_info_tick(self.ATIVO).bid
         pontos = self.mt5.symbol_info(self.ATIVO).point
         request = ({
             "action": self.mt5.TRADE_ACTION_DEAL,
             "symbol": self.ATIVO,
-            "volume": self.LOT,
+            "volume": self.VOLUME,
             "type": self.mt5.ORDER_TYPE_SELL,
             "price": preco,
             "deviation": self.deviation,
@@ -62,8 +61,8 @@ class Service():
             "type_filling": self.mt5.ORDER_FILLING_RETURN
         })
         self.mt5.order_send(request)
-        resultado = self.mt5.order_send(request)
-        print(resultado)
+        result = self.mt5.order_send(request)
+        print(result)
 
     
     def lastick(self):
