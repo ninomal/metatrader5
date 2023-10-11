@@ -5,12 +5,10 @@ class TimeflameException:
     
     
     def timeflameCheck(self):
-        itens = ITENS
-        for i in range(len(itens)):
-            if self.value == itens[i]:
-                print("aaaa")               
-                break      
-            return print(f"VALUE of {self.value} not acept")
+        for i in range(len(ITENS)):
+            if self.value == ITENS[i]:
+                return i         
+            return print(f"VALUE of {self.value} not acept in TIME FRAME")
     
     
 
