@@ -3,14 +3,17 @@
 class Service():
     def __init__(self, mt5):
         self.mt5 = mt5
-        TIMEFRAME = self.mt5.TIMEFRAME_M1
-    
+        self.TIMEFRAME = self.mt5.TIMEFRAME_M1
+        #self.timeframe = timeframe implement
+        self.buyOrders = 0
+        self.sellOrders = 0
+        
     def symbol(self):
         symbol_info_tick_dict = self.mt5.symbol_info_tick(self.SYMBOL)
         return symbol_info_tick_dict
     
     ATIVO = "WINV23" #name of market
-    VOLUME = 1.0 #volume observe compatibility volume error change for 1.0 Demo verion
+    VOLUME = 1.0 #volume observe compatibility volume error change for 1.0 Demo version
     ONDAS = 20
     MAGIC = 10
     ONDAS_BOLINGER = 20
@@ -39,7 +42,7 @@ class Service():
         })
         self.mt5.order_send(request)
         result = self.mt5.order_send(request)
-        print("aaaa")
+        self.buyOrders += 1
         print(result)
 
 
@@ -62,6 +65,7 @@ class Service():
         })
         self.mt5.order_send(request)
         result = self.mt5.order_send(request)
+        self.sellOrders += 1
         print(result)
 
     
@@ -76,8 +80,8 @@ class Service():
             print("  {}={}".format(prop, symbol_info_tick_dict[prop]))
               
     
-    #def __repr__(self) -> str:
-       # if(buy != 0):
-           # return f"Buy {self.symbol} market {self.SYMBOL}"
-       # elif(sell != 0):
-           # return f"Sell {self.symbol} market {self.SYMBOL}"
+    def __repr__(self) -> str:    
+        if(self.buyOrders != 0):
+            return f"Buy {self.symbol}, {self.buyOrders} Ticks in market {self.SYMBOL}"
+        elif(self.sellOrders != 0):
+            return f"Sell {self.symbol} , {self.sellOrders} TIicks in market {self.SYMBOL}"
