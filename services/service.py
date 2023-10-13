@@ -64,7 +64,8 @@ class Service():
         })
         self.mt5.order_send(request)
         result = self.mt5.order_send(request)
-        self.sellOrders += 1
+        self.sellOrders += -1
+        self.mt5.rates_total()
         print(result)
   
     def lastick(self):
@@ -82,3 +83,5 @@ class Service():
             return f"Buy {self.symbol}, {self.buyOrders} Ticks in market {self.SYMBOL}"
         elif(self.sellOrders != 0):
             return f"Sell {self.symbol}, {self.sellOrders} Ticks in market {self.SYMBOL}"
+        
+        
