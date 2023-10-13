@@ -22,9 +22,7 @@ def main():
     
     #timeFlameVariable = input('for minutes press 1 , 2 , 3 ,4 , 5 ,6 ,10 ,12 ,15 ,20 ,30 ,60 ,'
                      # 'for hours "2h" ,"3h" ,"4h" ,"6h" ,"8h" ,"12h" ,'
-                      #'for days "1d" ,"2d" ,"3d"')
-    
-    
+                      #'for days "1d" ,"2d" ,"3d"')  
     print()
     #services.sell()
     #services.buy()

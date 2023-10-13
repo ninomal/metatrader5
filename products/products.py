@@ -1,13 +1,28 @@
 # implments volume in matplot basead in mt5 
 '''
-class Products:
-    def __init__(self, mt5) :
-        self.mt5 = mt5
-        pass
+ATIVO = "WINV23" #name of market
+POS = 0 # position bar
+COUNT = 0 #position count 
 
-    def OnCalculate(const int rates_total,
+class Products:
+    def __init__(self, mt5):
+        self.COUNT = COUNT
+        self.SYMBOL = ATIVO
+        self.POS = POS
+        self.mt5 = mt5     
+        self.dados = colectDate()
+    
+    def colectDate(self):
+        dateTime()
+        self.mt5.copy_rates_from_pos(SYMBOL, timeframe, self.POS, self.COUNT)
+        
+    def dateTime(self):
+        named_tuple = time.localtime() 
+        timeframe = time.strftime("%m/%d/%Y, %H:%M:%S", named_tuple)
+
+    def onCalculate(dados,
                     const int prev_calculated,
-                    const datetime &time[],
+                    const datetime &time[], 
                     const double &open[],
                     const double &high[],
                     const double &low[],
