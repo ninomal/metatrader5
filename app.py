@@ -2,6 +2,7 @@ import time
 import MetaTrader5 as mt5
 from services import service
 import os
+from products import products
 
 SERVERDEMO = "SERVERDEMO" #"MetaQuotes-Demo"
 SERVERREAL ="SERVERREAL" #"MetaQuotes-Real"
@@ -13,7 +14,9 @@ def main():
     mt5.initialize() 
     mt5.terminal_info()
     services = service.Service(mt5)
+    product = products.Products(mt5)
     print(mt5.terminal_info())
+    print(product.dateTime())
     # get struct_time
     #named_tuple = time.localtime() 
     #time_string = time.strftime("%m/%d/%Y, %H:%M:%S", named_tuple)

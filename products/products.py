@@ -11,27 +11,31 @@ POS = 0 # position bar
 COUNT = 0 #position count 
 
 class Products:
-    def __init__(self, mt5, date):
+    def __init__(self, mt5):
+        self.mt5 = mt5     
         self.COUNT = COUNT
         self.SYMBOL = ATIVO
         self.POS = POS
-        self.date = date
-        self.mt5 = mt5     
+        self.daTime = self.dateTime()        
         self.dados = self.colectDate()
-        self.TIMEFRAME = mt5.TIMEFRAME_M10
+        self.TIMEFRAME = self.mt5.TIMEFRAME_M1
     
     def convertDateHour(self, df):
-        df['time'] = pd.to.datetime(df['time'], unit ='s')
+        df['time'] = pd.to_datetime(df['time'], unit ='s')
         return df
     
     def colectDate(self):
-        date =self.mt5.copy_rates_from_pos(self.SYMBOL,self.TIMEFRAME, self.POS, self.COUNT)
-        date = pd.DateFrame(self.date)
-        date = self.convertDateHour(date)
+        date =self.mt5.copy_rates_from_pos(self.SYMBOL,self.mt5.TIMEFRAME_M1, self.POS, self.COUNT)
+        dateDf = pd.DataFrame(date)
+        dateConvDf = self.convertDateHour(dateDf)
+        return dateConvDf
                 
     def dateTime(self):
         named_tuple = time.localtime() 
         timeframe = time.strftime("%m/%d/%Y, %H:%M:%S", named_tuple)
+        print(timeframe)
+        return timeframe
+        
         
 '''
     def prev_Calc(self):
