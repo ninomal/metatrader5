@@ -1,12 +1,18 @@
-import matplotlib as plt
-from product import Products
-import pandas_ta as ta #calcule average and other function 
 
-class ProductsServices(Products):
+import matplotlib as plt
+import pandas_ta as ta
+from products.product import Products 
+
+class ProductsServices:
        
-    def __init__(self):
-        super().__init__()
-        pass
+    def __init__(self, mt5):
+        self.mt5 = mt5
+        self.Products = Products(self.mt5)
+       
+        
+    def calcAMV(self):
+        media = ta.midprice(self.Products.selectBar('open'), self.Products.selectBar('close'), 0)
+        print(media)
         
     
     

@@ -36,7 +36,17 @@ class Products:
     def lastBar(self):
         lastBarDF = self.colectDate()
         lastBarDFa = lastBarDF.iloc[-1]
-        print(lastBarDFa)
+        return lastBarDFa
         
+    def selectBar(self, name):
+        bar = self.lastBar()
+        select = bar[name]
+        selectConv = self.to_numerics(select)
+        print(selectConv)
+        return selectConv     
+        
+    def to_numerics(self, series):
+        seriesConv = pd.to_numeric(series, downcast='float')
+        return seriesConv
         
         
