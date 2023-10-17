@@ -17,6 +17,7 @@ def main():
     products = product.Products(mt5)
     #print(mt5.terminal_info())
     print(products.dateTime())
+    print(products.lastBar())
     # get struct_time
     #named_tuple = time.localtime() 
     #time_string = time.strftime("%m/%d/%Y, %H:%M:%S", named_tuple)

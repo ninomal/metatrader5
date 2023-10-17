@@ -4,7 +4,7 @@ import time
 from datetime import datetime
 
 ATIVO = "WINV23" #name of market
-POS = 0 # position bar
+POS = 0  #position bar
 COUNT = 0 #position count 
 
 class Products:
@@ -22,8 +22,8 @@ class Products:
         df['time'] = pd.to_datetime(df['time'], unit ='s')
         return df
     
-    def colectDate(self):
-        date =self.mt5.copy_rates_from_pos(self.SYMBOL,self.TIMEFRAME, self.POS, self.COUNT)
+    def colectDate(self, count = 0):
+        date =self.mt5.copy_rates_from_pos(self.SYMBOL,self.TIMEFRAME, self.POS, count)
         dateDf = pd.DataFrame(date)
         dateConvDf = self.convertDateHour(dateDf)
         return dateConvDf
@@ -34,11 +34,9 @@ class Products:
         return timeframe
 
     def lastBar(self):
-        dates = self.dados
-        dates.head()
-        print(dates.head())
-        lastbar = dates['open']
-        print(lastbar['open'])
+        lastBarDF = self.colectDate()
+        lastBarDFa = lastBarDF.iloc[-1]
+        print(lastBarDFa)
         
         
         
