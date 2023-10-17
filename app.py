@@ -2,7 +2,7 @@ import time
 import MetaTrader5 as mt5
 from services import service
 import os
-from products import products
+from products import product
 
 SERVERDEMO = "SERVERDEMO" #"MetaQuotes-Demo"
 SERVERREAL ="SERVERREAL" #"MetaQuotes-Real"
@@ -14,9 +14,9 @@ def main():
     mt5.initialize() 
     mt5.terminal_info()
     services = service.Service(mt5)
-    product = products.Products(mt5)
-    print(mt5.terminal_info())
-    print(product.dateTime())
+    products = product.Products(mt5)
+    #print(mt5.terminal_info())
+    print(products.dateTime())
     # get struct_time
     #named_tuple = time.localtime() 
     #time_string = time.strftime("%m/%d/%Y, %H:%M:%S", named_tuple)
@@ -29,7 +29,7 @@ def main():
     print()
     #services.sell()
     #services.buy()
-    orders= services.buyOrders + services.sellOrders
+    '''orders= services.buyOrders + services.sellOrders
     if orders!= 0:
         print("Total orders=",orders)
     else:
@@ -38,8 +38,7 @@ def main():
     #get timeflame execption
     #timeflameEx = timeflameException.TimeflameException(timeFlameVariable)
     #timeflameEx.timeflameCheck()
-    
-    
-        
+     
+        '''
 if __name__ == "__main__":
     main()

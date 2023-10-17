@@ -1,42 +1,17 @@
-# implments volume in matplot basead in mt5 
-import pandas as pd
-import time
-from datetime import datetime
-import pytz
 import matplotlib as plt
+from product import Products
 import pandas_ta as ta #calcule average and other function 
 
-ATIVO = "WINV23" #name of market
-POS = 0 # position bar
-COUNT = 0 #position count 
-
-class Products:
-    def __init__(self, mt5):
-        self.mt5 = mt5     
-        self.COUNT = COUNT
-        self.SYMBOL = ATIVO
-        self.POS = POS
-        self.daTime = self.dateTime()        
-        self.dados = self.colectDate()
-        self.TIMEFRAME = self.mt5.TIMEFRAME_M1
-    
-    def convertDateHour(self, df):
-        df['time'] = pd.to_datetime(df['time'], unit ='s')
-        return df
-    
-    def colectDate(self):
-        date =self.mt5.copy_rates_from_pos(self.SYMBOL,self.mt5.TIMEFRAME_M1, self.POS, self.COUNT)
-        dateDf = pd.DataFrame(date)
-        dateConvDf = self.convertDateHour(dateDf)
-        return dateConvDf
-                
-    def dateTime(self):
-        named_tuple = time.localtime() 
-        timeframe = time.strftime("%m/%d/%Y, %H:%M:%S", named_tuple)
-        print(timeframe)
-        return timeframe
+class ProductsServices(Products):
+       
+    def __init__(self):
+        super().__init__()
+        pass
         
+    
+    
         
+            
 '''
     def prev_Calc(self):
         prev_calculated,_value = 
@@ -128,3 +103,4 @@ class Products:
     
   
     '''
+
