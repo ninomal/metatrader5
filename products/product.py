@@ -34,15 +34,14 @@ class Products:
         return timeframe
 
     def lastBar(self):
-        lastBarDF = self.colectDate()
+        lastBarDF = self.dados
         lastBarDFa = lastBarDF.iloc[-1]
         return lastBarDFa
         
     def selectBar(self, name):
-        bar = self.lastBar()
-        select = bar[name]
+        bars = self.colectDate()
+        select = bars[name]
         selectConv = self.to_numerics(select)
-        print(selectConv)
         return selectConv     
         
     def to_numerics(self, series):

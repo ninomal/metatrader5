@@ -17,12 +17,15 @@ def main():
     mt5.terminal_info()
     services = service.Service(mt5)
     products = product.Products(mt5)
-    #productsService = productsServices.ProductsServices(mt5)
-    #print(mt5.terminal_info())
+    productsService = productsServices.ProductsServices(mt5)
+    productsService.calcAMV()
+    productsService.calcEma()
+    productsService.adv()
     
-    print(products.lastBar())
-    print('a')
-    products.selectBar('close')
+    #print(mt5.terminal_info())
+    #print(products.lastBar())
+    #print('a')
+    #products.selectBar('close')
     
     # get struct_time
     #named_tuple = time.localtime() 
