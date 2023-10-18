@@ -4,6 +4,7 @@ from services import service
 import os
 from products import product 
 from products import productsServices
+from UI.ui import UI
 
 
 SERVERDEMO = "SERVERDEMO" #"MetaQuotes-Demo"
@@ -18,9 +19,14 @@ def main():
     services = service.Service(mt5)
     products = product.Products(mt5)
     productsService = productsServices.ProductsServices(mt5)
-    productsService.calcAMV()
-    productsService.calcEma()
-    productsService.adv()
+    ui = UI(mt5)
+    ui.teste()
+    ui.construc()
+    #productsService.calcAMV()
+    #productsService.calcEma()
+    #productsService.adv()
+    #productsService.priceVol()
+    
     
     #print(mt5.terminal_info())
     #print(products.lastBar())
