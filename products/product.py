@@ -3,7 +3,7 @@ import pandas as pd
 import time
 from datetime import datetime
 
-ATIVO = "WINV23" #name of market
+ATIVO = "WINZ23" #name of market
 POS = 0  #position bar
 COUNT = 0 #position count 
 

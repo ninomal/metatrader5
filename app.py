@@ -19,19 +19,21 @@ def main():
     services = service.Service(mt5)
     products = product.Products(mt5)
     productsService = productsServices.ProductsServices(mt5)
+    #print(products.lastBar())
+    #print(products.colectDate())
     ui = UI(mt5)
-    ui.teste()
     ui.construc()
+    #ui.construc()
     #productsService.calcAMV()
     #productsService.calcEma()
     #productsService.adv()
-    #productsService.priceVol()
+    print(productsService.priceVol())
     
     
     #print(mt5.terminal_info())
     #print(products.lastBar())
     #print('a')
-    #products.selectBar('close')
+    #print(products.selectBar('close'))
     
     # get struct_time
     #named_tuple = time.localtime() 

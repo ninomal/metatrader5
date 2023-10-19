@@ -1,4 +1,3 @@
-
 import pandas_ta as ta
 from products.product import Products 
 import pandas as pd
@@ -23,8 +22,7 @@ class ProductsServices:
     def calcEma(self):
         mov = ta.ema(self.selectBar('close'), length=10)
         return mov
-        
-     
+          
     #fixing  
     def vwap(self):
         vol = ta.vwap(self.selectBar('high'), self.selectBar('low'), 
@@ -43,5 +41,9 @@ class ProductsServices:
     def priceVol(self):
         pricevol = ta.pvol(self.selectBar('close'), self.selectBar('real_volume'))
         return pricevol
+    
+    def lastbar(self):
+        bar = self.Products.lastBar()
+        return bar
     
     
