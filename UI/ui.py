@@ -29,8 +29,11 @@ class UI(ProductsServices):
         #axs.bar(names, values)
         #fig.suptitle('Categorical Plotting')
         
-        df = self.priceVol()
-        ax = df.plot(kind='bar', x='Length', y= 'PVOL')
-        ax.scatter('Length', 'PVOL')
+        self.calcEma().plot()
+        self.calcAMV().plot()
+        #self.priceVol().plot(layout='constrained')
+        plt.legend('Mov_AVERAGE', 'MID_PRICE')
+        
+        
         
         plt.show()
