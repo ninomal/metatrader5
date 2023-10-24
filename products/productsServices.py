@@ -39,7 +39,12 @@ class ProductsServices:
     
     #Price volume
     def priceVol(self):
-        pricevol = ta.pvol(self.selectBar('close'), self.selectBar('real_volume'))
+        pricevol = ta.pvol(self.selectBar('close'), self.selectBar('real_volume')) 
+        #df = pd.DataFrame(pricevol)
+        #df['media'] = df['PVOL'].rolling(2).mean()
+        #print(df['media'])
+        print(pricevol.head())
+        print(pricevol)
         return pricevol
     
     def lastbar(self):

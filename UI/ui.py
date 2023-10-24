@@ -1,8 +1,6 @@
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
-
-
 from products.productsServices import ProductsServices
 
 
@@ -15,12 +13,14 @@ class UI(ProductsServices):
         
     def teste(self):
         preco = self.priceVol()
-        print(preco)
         preco = preco.to_frame()
+        print(preco)
+        print(preco.head())
+        print(preco.index)
         return preco
         
     def construc(self):
-        #fig, ax = plt.subplots()  # Create a figure containing a single axes.
+        fig, ax = plt.subplots()  # Create a figure containing a single axes.
         #ax.plot([115000, 120000, 125000, 130000], [115200, 120200, 127000, 124000])
         #ax.legend("color ex")
         #ax.yaxis.set_minor_locator()
@@ -33,14 +33,17 @@ class UI(ProductsServices):
         #fig.suptitle('Categorical Plotting') 
         #self.calcEma().plot()
         #self.calcAMV().plot()
-        while self.total <= 20:
-            plt.ion()
-            self.dataframe = self.dataframe[:self.params]
-            self.dataframe.plot(kind= 'bar') 
-            
-            plt.pause(2)
+        #on Dynamic ui
+        plt.style.use('ggplot')
+        plt.ion()
+        while self.total <= 2:
+            self.dataframes = self.dataframe[:self.params]
             plt.cla()
-            plt.clf()    
-            plt.ioff()
+            plt.clf()
+            plt.bar(self.dataframes.index, self.dataframes.values)
+            plt.pause(5)
             self.total += 1
-            self.params += self.params * 2
+            self.params += self.params  
+        plt.ioff()   
+        plt.show()
+        

@@ -23,11 +23,10 @@ def main():
     #print(products.colectDate())
     ui = UI(mt5)
     ui.construc()
-    #ui.construc()
     #productsService.calcAMV()
     #productsService.calcEma()
     #productsService.adv()
-    print(productsService.priceVol())
+    productsService.priceVol()
     
     
     #print(mt5.terminal_info())
