@@ -21,13 +21,22 @@ class Products:
     def convertDateHour(self, df):
         df['time'] = pd.to_datetime(df['time'], unit ='s')
         return df
+
     
     def colectDate(self, count = 0):
         date =self.mt5.copy_rates_from_pos(self.SYMBOL,self.TIMEFRAME, self.POS, count)
         dateDf = pd.DataFrame(date)
+        print('aaaaaaaaaaaa') 
         dateConvDf = self.convertDateHour(dateDf)
-        dateConvDf.set_index('time', inplace=True)
-        return dateConvDf
+        print(dateConvDf)
+         #dateConvDf.set_index('time', inplace=True) 
+        return dateConvDf 
+    
+    def tOtimeFrame(self):
+        df = pd.DataFrame(self.colectDate())
+        df['time'] = df['time']
+        print(df['time'])
+        return df
                 
     def dateTime(self):
         named_tuple = time.localtime() 

@@ -41,9 +41,18 @@ class ProductsServices:
     def priceVol(self):
         pricevol = ta.pvol(self.selectBar('close'), self.selectBar('real_volume')) 
         pricevolConv = pd.DataFrame(pricevol)
-        #df['media'] = df['PVOL'].rolling(2).mean()
-        #print(df.iloc[1])
-        print(pricevolConv.index)
+            #pricevolConv.iat ver
+            #df['media'] = df['PVOL'].rolling(2).mean()
+        '''
+            print(pricevolConv.iloc[1])
+            print('cccc')
+            print(pricevolConv.index)
+            print('aaa')
+            print(pricevolConv.values[0])
+            print('bbbb')
+            print(pricevolConv.index[0])
+            print(pricevolConv.iloc[2])
+            print(len(pricevolConv))'''
         return pricevolConv
     
     def lastbar(self):
@@ -58,10 +67,10 @@ class ProductsServices:
     
     def convertToList(self, x , y):
         lens = 0
-        while x.lenght != lens:
-            x[lens] = x.iloc[lens]
-            y[lens] = y.iloc[lens]
+        while len(x) != lens:
+            x[lens] = x.values[lens]
+            y[lens] = y.values[lens]
             lens +=1
         return x, y
         
-            
+    
