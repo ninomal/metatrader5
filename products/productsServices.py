@@ -40,15 +40,28 @@ class ProductsServices:
     #Price volume
     def priceVol(self):
         pricevol = ta.pvol(self.selectBar('close'), self.selectBar('real_volume')) 
-        #df = pd.DataFrame(pricevol)
+        pricevolConv = pd.DataFrame(pricevol)
         #df['media'] = df['PVOL'].rolling(2).mean()
-        #print(df['media'])
-        print(pricevol.head())
-        print(pricevol)
-        return pricevol
+        #print(df.iloc[1])
+        print(pricevolConv.index)
+        return pricevolConv
     
     def lastbar(self):
         bar = self.Products.lastBar()
         return bar
     
+    def maxLength(self, x):
+        maxlen = 10
+        if maxlen < x.lenght:
+            maxlen = maxlen * 2
+        return maxlen
     
+    def convertToList(self, x , y):
+        lens = 0
+        while x.lenght != lens:
+            x[lens] = x.iloc[lens]
+            y[lens] = y.iloc[lens]
+            lens +=1
+        return x, y
+        
+            
