@@ -26,9 +26,7 @@ class Products:
     def colectDate(self, count = 0):
         date =self.mt5.copy_rates_from_pos(self.SYMBOL,self.TIMEFRAME, self.POS, count)
         dateDf = pd.DataFrame(date)
-        print('aaaaaaaaaaaa') 
         dateConvDf = self.convertDateHour(dateDf)
-        print(dateConvDf)
          #dateConvDf.set_index('time', inplace=True) 
         return dateConvDf 
     

@@ -7,7 +7,11 @@ class ProductsServices:
     def __init__(self, mt5):
         self.mt5 = mt5
         self.Products = Products(self.mt5)
+        self.pd = pd
         
+    def  toTimeFrame(self):
+        return self.Products.tOtimeFrame()
+              
     #name for dateframes func    
     def selectBar(self, valor):
         bar = self.Products.selectBar(valor)
@@ -26,8 +30,7 @@ class ProductsServices:
     #fixing  
     def vwap(self):
         vol = ta.vwap(self.selectBar('high'), self.selectBar('low'), 
-              self.selectBar('close'), self.selectBar('real_volume'), anchor= 'W')
-    
+              self.selectBar('close'), self.selectBar('real_volume'), anchor= 'W') 
         return vol
     
     #Accumulation/Distribution Index
@@ -68,9 +71,11 @@ class ProductsServices:
     def convertToList(self, x , y):
         lens = 0
         while len(x) != lens:
-            x[lens] = x.values[lens]
-            y[lens] = y.values[lens]
+            x[lens] = x.loc[lens]
+            y[lens] = y.loc[lens]
             lens +=1
+        print('aeeee')
+        print(x, y)
         return x, y
         
     

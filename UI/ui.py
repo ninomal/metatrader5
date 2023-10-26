@@ -14,7 +14,7 @@ class UI(ProductsServices):
     def teste(self):
         preco = self.priceVol()
         return preco
-    '''   
+     
     def construc(self):
             #fig, ax = plt.subplots( )  # Create a figure containing a single axes.
             #ax.scatter(self.priceVol().index, self.priceVol().values) 
@@ -31,29 +31,26 @@ class UI(ProductsServices):
             #valoriloc = self.priceVol().iloc[0]
             #df = self.dataframe.iloc[[0, 10]]
             #values = df['PVOL']
-            #print(values)
-        precos = self.dataframe.value_counts()[:10]
-        times = self.dataframe[:10]
-        precos.to_frame()
-        print('timessss')
-        print(times.index)
-        print('aaaa')
-        print(precos)
+            #print(values)    
+        dfvalues = self.priceVol()
+        dfindex = self.toTimeFrame()
+        print(dfindex)
+        x = self.convertToList(dfindex['time'], dfvalues['PVOL'])
+        x = x[:10]
+        print('aaaa') 
         print('cccc')
-        print(precos.index)
         plt.figure()
-        plt.bar(times.index,  times.values)
+        #plt.bar(x,  x)
             #precos.plot(kind='bar')
-            #fig, axs = plt.subplots(figsize=(10, 5), layout='constrained')
-            #axs.bar(df.index, values.values)
+        fig, axs = plt.subplots(figsize=(10, 5), layout='constrained')
+        axs.bar(x, x)
             #fig.suptitle('Categorical Plotting') 
             #self.calcEma().plot()
             #self.calcAMV().plot()
         #on Dynamic ui
         plt.show()
         
-        
-        
+        '''
         plt.style.use('ggplot')
         plt.ion()
         while self.total <= 2:
