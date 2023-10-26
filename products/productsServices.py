@@ -8,7 +8,7 @@ class ProductsServices:
         self.mt5 = mt5
         self.Products = Products(self.mt5)
         self.pd = pd
-        
+       
     def  toTimeFrame(self):
         return self.Products.tOtimeFrame()
               
@@ -68,14 +68,16 @@ class ProductsServices:
             maxlen = maxlen * 2
         return maxlen
     
-    def convertToList(self, x , y):
+    def convertToList(self, x , y, value = 'b'):
         lens = 0
         while len(x) != lens:
             x[lens] = x.loc[lens]
             y[lens] = y.loc[lens]
             lens +=1
-        print('aeeee')
-        print(x, y)
-        return x, y
+        if value == 'x':
+            return x
+        elif value == 'y':
+            return y
+        
         
     
