@@ -27,16 +27,19 @@ class UI(ProductsServices):
         print(time)
         print('cccc')
         print(pvol)
-        position = range(len(pvol))
-        fig, ax = plt.subplots(layout='constrained')# Create a figure containing a single axes. 
-        plt.bar(position, pvol )
-        pvol = sorted(pvol)
-        ax.set_yticklabels(pvol)
-        plt.xticks(position, time)
-        plt.title('Volume graph') 
-        print(pvol)
-        #self.reOrder(pvol)    
-        #ax.set_yticks()
+        position = range(len(pvol) ) 
+        print(position)
+        
+        fig, ax = plt.subplots(layout='constrained', figsize = (10 , 7))# Create a figure containing a single axes. 
+        group1 = ax.bar(position, pvol, width= 0.4) 
+        pvolSorted = sorted(pvol)
+        redbar = self.redBar(pvol, pvolSorted) 
+        group2 = ax.bar(position, redbar, color = 'red', width = 0.5)
+        ax.set_yticks(pvol)
+        ax.set_yticklabels(pvolSorted)
+        plt.xticks(position, time, rotation = 90)
+        plt.title('Volume graph')      
+           
         #ax.text(75, .025, r'$\mu=115,\ \sigma=15$')
         #ax.yaxis.set_minor_locator()
         #ax.yaxis.set.set_major_formater() 
@@ -59,15 +62,17 @@ class UI(ProductsServices):
         plt.ioff()   
         plt.show()
         '''
-    '''    
-    def reOrder(self, x):
-        lens = 0
-        yreList = []
-        while lens != len(x):
-            if yreList[lens] < x[lens].item():
-                yreList.append(x[lens].item())
-            lens += 1
+    
+       
+    def redBar(self, x, sort):
+        maxLen = len(sort)
+        reList = []
+        for number in x:
+            if number != sort[maxLen -1]:
+                reList.append(0)
+            else:
+                reList.append(number)
         print('ahaha')
-        print(yreList)
-        return yreList
-    '''
+        print(reList)
+        return reList
+    
