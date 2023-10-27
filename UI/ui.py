@@ -20,9 +20,9 @@ class UI(ProductsServices):
         dfindex = self.toTimeFrame()
         print(dfindex)
         time = self.convertToList(dfindex['time'], dfvalues['PVOL'], 'x')
-        time = time[:10]
         pvol = self.convertToList(dfindex['time'], dfvalues['PVOL'], 'y')
-        pvol = pvol[:10]
+        pvol = pvol[:50]
+        time = time[:50]
         print('aaaa') 
         print(time)
         print('cccc')
@@ -30,11 +30,11 @@ class UI(ProductsServices):
         position = range(len(pvol) ) 
         print(position)
         
-        fig, ax = plt.subplots(layout='constrained', figsize = (10 , 7))# Create a figure containing a single axes. 
+        fig, ax = plt.subplots(layout='constrained', figsize = (50 , 6))# Create a figure containing a single axes. 
         group1 = ax.bar(position, pvol, width= 0.4) 
         pvolSorted = sorted(pvol)
         redbar = self.redBar(pvol, pvolSorted) 
-        group2 = ax.bar(position, redbar, color = 'red', width = 0.5)
+        group2 = ax.bar(position, redbar, color = 'red', width = 0.4)
         ax.set_yticks(pvol)
         ax.set_yticklabels(pvolSorted)
         plt.xticks(position, time, rotation = 90)
@@ -52,7 +52,6 @@ class UI(ProductsServices):
         plt.style.use('ggplot')
         plt.ion()
         while self.total <= 2:
-            self.dataframes = self.dataframe
             plt.cla()
             plt.clf()
             plt.bar(self.priceVol().index, self.dataframes.values)
@@ -62,8 +61,7 @@ class UI(ProductsServices):
         plt.ioff()   
         plt.show()
         '''
-    
-       
+      
     def redBar(self, x, sort):
         maxLen = len(sort)
         reList = []

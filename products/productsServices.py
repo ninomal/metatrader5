@@ -56,7 +56,7 @@ class ProductsServices:
             maxlen = maxlen * 2
         return maxlen
     
-    def convertToList(self, x , y, value = 'b'):
+    def convertToList(self, x, y, value = 'b'):
         lens = 0
         xlist = []
         ylist = []
@@ -68,6 +68,20 @@ class ProductsServices:
             return xlist
         elif value == 'y':
             return ylist
-        
+       
+    def cutListHour(self, x, y, value = 'b', counts =0):
+        maxlen = (len(x)-1)
+        hour = 50
+        xlistcut = []
+        ylistcut = []
+        if maxlen > hour:
+            xlistcut.append(x[counts:hour ])
+            ylistcut.append(y[counts:hour ])
+            counts = hour
+            hour += 50
+            if value == 'x':
+                return xlistcut
+            elif value == 'y':
+                return ylistcut
         
     
