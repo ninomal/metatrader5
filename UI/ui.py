@@ -30,10 +30,12 @@ class UI(ProductsServices):
         position = range(len(pvol))
         fig, ax = plt.subplots(layout='constrained')# Create a figure containing a single axes. 
         plt.bar(position, pvol )
+        pvol = sorted(pvol)
         ax.set_yticklabels(pvol)
         plt.xticks(position, time)
-        plt.title('Volume graph')
-        #self.reOrder(pvol.items())    
+        plt.title('Volume graph') 
+        print(pvol)
+        #self.reOrder(pvol)    
         #ax.set_yticks()
         #ax.text(75, .025, r'$\mu=115,\ \sigma=15$')
         #ax.yaxis.set_minor_locator()
@@ -57,13 +59,15 @@ class UI(ProductsServices):
         plt.ioff()   
         plt.show()
         '''
-    '''      
+    '''    
     def reOrder(self, x):
         lens = 0
-        y = 0  
+        yreList = []
         while lens != len(x):
-            if y < x :
-                y[lens] = x
-                print(y)
+            if yreList[lens] < x[lens].item():
+                yreList.append(x[lens].item())
             lens += 1
-        return y'''
+        print('ahaha')
+        print(yreList)
+        return yreList
+    '''
