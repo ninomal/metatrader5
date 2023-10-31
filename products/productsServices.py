@@ -46,16 +46,12 @@ class ProductsServices:
         pricevolConv = pd.DataFrame(pricevol)
         return pricevolConv
     
+    #last bar in market
     def lastbar(self):
         bar = self.Products.lastBar()
         return bar
     
-    def maxLength(self, x):
-        maxlen = 10
-        if maxlen < x.lenght:
-            maxlen = maxlen * 2
-        return maxlen
-    
+    #convert dataframe in list eficient 
     def convertToList(self, x, y, value = 'b'):
         lens = 0
         xlist = []
@@ -69,9 +65,9 @@ class ProductsServices:
         elif value == 'y':
             return ylist
        
-    def cutListHour(self, value):
+    def cutListHour(self, value, index = 1):
         if len(value) > 51:
-            maxindex = self.maxIndex(value, 2)
+            maxindex = self.maxIndex(value, index)
             return maxindex
         elif len(value) >= 50:
             value = value[:50]
@@ -101,7 +97,7 @@ class ProductsServices:
             counts +=1
         return newlist
     
-    # def max range not allow counts '0'         
+    # def max range not allow counts = '0'         
     def maxIndex(self, value, counts):
         index = 50
         maxindex = index * counts 
