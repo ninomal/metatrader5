@@ -101,8 +101,10 @@ class ProductsServices:
     def maxIndex(self, value, counts):
         index = 50
         maxindex = index * counts 
-        base = index - 50
-        value = value[base: maxindex]
-        return value
+        base = maxindex - 50
+        values = value[base: maxindex]
+        print('index')
+        print(maxindex,  base)
+        return values
         
      
