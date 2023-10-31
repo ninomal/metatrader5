@@ -69,19 +69,25 @@ class ProductsServices:
         elif value == 'y':
             return ylist
        
-    def cutListHour(self, x, y, value = 'b', counts =0):
-        maxlen = (len(x)-1)
-        hour = 50
-        xlistcut = []
-        ylistcut = []
-        if maxlen > hour:
-            xlistcut.append(x[counts:hour ])
-            ylistcut.append(y[counts:hour ])
-            counts = hour
-            hour += 50
-            if value == 'x':
-                return xlistcut
-            elif value == 'y':
-                return ylistcut
-        
+    def cutListHour(self, value):
+        if len(value) > 50:
+            value = value[:50]
+            return value
+        else:
+            newList = self.addListDynamics(value)
+            return newList
+                            
+    def addListDynamics(self, value = 0):
+        new = 0
+        dynamycList = [] 
+        while new != 50:
+            if value == 0:
+                dynamycList.append(value)
+            else:
+                dynamycList.append(value)
+            new+= 1
+        return dynamycList
     
+    
+      
+     

@@ -21,8 +21,12 @@ class UI(ProductsServices):
         print(dfindex)
         time = self.convertToList(dfindex['time'], dfvalues['PVOL'], 'x')
         pvol = self.convertToList(dfindex['time'], dfvalues['PVOL'], 'y')
-        pvol = pvol[:50]
-        time = time[:50]
+        pvol = self.cutListHour(pvol)
+        time = self.cutListHour(time)
+            #pvol = pvol[:50]
+            #pvol = self.convert(pvol)
+            #time = self.convert(time)
+            #time = time[:50]
         print('aaaa') 
         print(time)
         print('cccc')
@@ -61,6 +65,9 @@ class UI(ProductsServices):
         plt.ioff()   
         plt.show()
         '''
+    def convert(self, value):
+        value = value[:50]
+        return value
       
     def redBar(self, x, sort):
         maxLen = len(sort)
