@@ -37,16 +37,17 @@ class UI(ProductsServices):
         #ax.set_ylim(-2, 2)
         #on Dynamic ui
         #plt.ion()
-        #plt.show()
-        '''
-        plt.style.use('ggplot') 
-        while counts <= 20:
+        plt.show()   
+        #plt.style.use('ggplot') 
+        ''' while self.conts <= 3:
             plt.cla()
             plt.clf()
-            plt.bar()
-            plt.pause(5)
-            self.total += 1
-            #self.params += self.params  
+            self.showGraphBar(position, pvol, time)
+            self.conts +=1
+            print(self.conts)
+            pvol = self.cutListHour(pvol, self.conts )
+            time = self.cutListHour(time, self.conts ) 
+            plt.pause(5)        
         plt.ioff()   
         plt.show()
         '''
@@ -66,11 +67,13 @@ class UI(ProductsServices):
     def showGraphBar(self, position, pvol, time):
         fig, ax = plt.subplots(layout='constrained', figsize = (50 , 6))# Create a figure containing a single axes. 
         group1 = ax.bar(position, pvol, width= 0.4) 
+        self.redBarGraph(pvol, position, ax)   
+        plt.xticks(position, time, rotation = 90)
+        plt.title('Volume graph')      
+           
+    def redBarGraph(self, pvol, position, ax):
         pvolSorted = sorted(pvol)
         redbar = self.redBar(pvol, pvolSorted) 
         group2 = ax.bar(position, redbar, color = 'red', width = 0.4)
         ax.set_yticks(pvol)
         ax.set_yticklabels(pvolSorted)
-        plt.xticks(position, time, rotation = 90)
-        plt.title('Volume graph')      
-           
