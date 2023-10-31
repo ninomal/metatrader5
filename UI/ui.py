@@ -23,10 +23,6 @@ class UI(ProductsServices):
         pvol = self.convertToList(dfindex['time'], dfvalues['PVOL'], 'y')
         pvol = self.cutListHour(pvol)
         time = self.cutListHour(time)
-            #pvol = pvol[:50]
-            #pvol = self.convert(pvol)
-            #time = self.convert(time)
-            #time = time[:50]
         print('aaaa') 
         print(time)
         print('cccc')
