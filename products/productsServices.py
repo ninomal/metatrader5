@@ -103,8 +103,6 @@ class ProductsServices:
         maxindex = index * counts 
         base = maxindex - 50
         values = value[base: maxindex]
-        print('index')
-        print(maxindex,  base)
         return values
         
      
