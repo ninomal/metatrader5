@@ -65,39 +65,16 @@ class ProductsServices:
             return xlist
         elif value == 'y':
             return ylist
-       
-    def cutListHour(self, value, index = 1):
-        if len(value) > 51:
-            maxindex = self.maxIndex(value, index)
-            return maxindex
-        elif len(value) == 50:
-            value = value[:50]
-            return value
-        elif len(value) < 50:
-            newLists = self.addListDynamics(value)
-            return newLists
-                                
+                                     
     def addListDynamics(self, value ):
         dynamycList = [] 
         for new in range(50):
-            if value[new] == 0:
-                dynamycList.append(value)
+            if value != 0 and new < len(value):
+                dynamycList.append(value[new])
             else:
-                dynamycList = self.newList(value)
+                dynamycList.append(0)
         return dynamycList
-    
-    # transform new list '0''0' ind value 'value' '0'
-    def newList(self, value, counts= 0):
-        newlist = []
-        newlist.append(value)
-        maxLen = len(newlist)
-        if counts == 0:
-            while maxLen <= 50 :
-                newlist.append(0)
-                maxLen += 1
-            counts +=1
-        return newlist
-    
+
     # def max range not allow counts = '0'         
     def maxIndex(self, value, counts):
         index = 50
