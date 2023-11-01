@@ -1,6 +1,7 @@
 import pandas_ta as ta
 from products.product import Products 
 import pandas as pd
+from functools import cache
 
 class ProductsServices:
        
@@ -69,17 +70,17 @@ class ProductsServices:
         if len(value) > 51:
             maxindex = self.maxIndex(value, index)
             return maxindex
-        elif len(value) >= 50:
+        elif len(value) == 50:
             value = value[:50]
             return value
         elif len(value) < 50:
-            newList = self.addListDynamics(value)
-            return newList
+            newLists = self.addListDynamics(value)
+            return newLists
                                 
-    def addListDynamics(self, value = 0):
+    def addListDynamics(self, value ):
         dynamycList = [] 
         for new in range(50):
-            if value == 0:
+            if value[new] == 0:
                 dynamycList.append(value)
             else:
                 dynamycList = self.newList(value)

@@ -2,8 +2,7 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
 from products.productsServices import ProductsServices
-
-
+from functools import cache
 
 class UI(ProductsServices):
     def __init__(self, mt5):
@@ -14,7 +13,8 @@ class UI(ProductsServices):
     def teste(self):
         preco = self.priceVol()
         return preco
-     
+    
+    @cache
     def construc(self):
         dfvalues = self.priceVol()
         dfindex = self.toTimeFrame()
@@ -42,7 +42,7 @@ class UI(ProductsServices):
             plt.pause(5)        
         plt.ioff()   
         plt.show()
-           
+            
     def redBar(self, x, sort):
         maxLen = len(sort)
         reList = []
@@ -54,19 +54,19 @@ class UI(ProductsServices):
         print('ahaha')
         print(reList)
         return reList
-    
+       
     def showGraphBar(self, position, pvol, time): 
         plt.bar(position, pvol, width= 0.4) 
         self.redBarGraph(pvol, position)   
         plt.xticks(position, time, rotation = 90)
         plt.title('Volume graph')      
-           
+              
     def redBarGraph(self, pvol, position):
         pvolSorted = sorted(pvol)
         redbar = self.redBar(pvol, pvolSorted) 
         plt.bar(position, redbar, color = 'red', width = 0.4)
         plt.yticks(pvol)
-        #plt.ytickslabels(pvolSorted)
+        #plt.Axes.set_yticklabels(pvolSorted)
         
    
         
