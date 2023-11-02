@@ -2,6 +2,7 @@
 import pandas as pd
 import time
 from datetime import datetime
+from functools import cache
 
 ATIVO = "WINZ23" #name of market
 POS = 0  #position bar
@@ -22,7 +23,7 @@ class Products:
         df['time'] = pd.to_datetime(df['time'], unit ='s')
         return df
 
-    
+    @cache
     def colectDate(self, count = 0):
         date =self.mt5.copy_rates_from_pos(self.SYMBOL,self.TIMEFRAME, self.POS, count)
         dateDf = pd.DataFrame(date)
@@ -35,12 +36,12 @@ class Products:
         df['time'] = df['time']
         print(df['time'])
         return df
-                
+    @cache           
     def dateTime(self):
         named_tuple = time.localtime() 
         timeframe = time.strftime("%m/%d/%Y, %H:%M:%S", named_tuple)
         return timeframe
-
+    @cache
     def lastBar(self):
         lastBarDF = self.dados
         lastBarDFa = lastBarDF.iloc[-1]
@@ -51,7 +52,7 @@ class Products:
         select = bars[name]
         selectConv = self.to_numerics(select)
         return selectConv     
-        
+   
     def to_numerics(self, series):
         seriesConv = pd.to_numeric(series, downcast='float')
         return seriesConv

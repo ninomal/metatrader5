@@ -42,6 +42,7 @@ class ProductsServices:
         return adVol
     
     #Price volume
+    @cache
     def priceVol(self):
         pricevol = ta.pvol(self.selectBar('close'), self.selectBar('real_volume')) 
         pricevolConv = pd.DataFrame(pricevol)
@@ -65,7 +66,8 @@ class ProductsServices:
             return xlist
         elif value == 'y':
             return ylist
-                                     
+        
+    # for start day in graph                              
     def addListDynamics(self, value ):
         dynamycList = [] 
         for new in range(50):
@@ -75,7 +77,8 @@ class ProductsServices:
                 dynamycList.append(0)
         return dynamycList
 
-    # def max range not allow counts = '0'         
+    # def max range not allow counts = '0' 
+        
     def maxIndex(self, value, counts):
         index = 50
         maxindex = index * counts 

@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 from products.productsServices import ProductsServices
 from functools import cache
-import random
 
 class UI(ProductsServices):
     def __init__(self, mt5):
@@ -66,7 +65,7 @@ class UI(ProductsServices):
         self.redBarGraph(pvol, position)   
         plt.xticks(position, time, rotation = 90)
         plt.title('Volume graph')      
-              
+            
     def redBarGraph(self, pvol, position):
         pvolSorted = sorted(pvol)
         redbar = self.redBar(pvol, pvolSorted) 
@@ -74,5 +73,6 @@ class UI(ProductsServices):
         plt.yticks(pvol)
         #plt.Axes.set_yticklabels(pvolSorted)
         
+    
    
         
