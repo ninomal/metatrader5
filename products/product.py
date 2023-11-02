@@ -18,7 +18,6 @@ class Products:
         self.daTime = self.dateTime()        
         self.dados = self.colectDate()
         
-    
     def convertDateHour(self, df):
         df['time'] = pd.to_datetime(df['time'], unit ='s')
         return df

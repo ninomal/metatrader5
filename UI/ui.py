@@ -14,20 +14,26 @@ class UI(ProductsServices):
         preco = self.priceVol()
         return preco
     
-    @cache
-    def construc(self):
-        
+    def dataTime(self):
         dfvalues = self.priceVol()
         dfindex = self.toTimeFrame()
-        print(dfindex)
         time = self.convertToList(dfindex['time'], dfvalues['PVOL'], 'x')
+        return time
+    
+    def dataPvol(self):
+        dfvalues = self.priceVol()
+        dfindex = self.toTimeFrame()
         pvol = self.convertToList(dfindex['time'], dfvalues['PVOL'], 'y')
-            #pvol = self.cutListHour(pvol)
-            #time = self.cutListHour(time)
-        print('aaaa') 
-        print(time)
-        print('cccc')
-        print(pvol)
+        return pvol
+          
+    @cache
+    def uiBar(self, time = 'a', pvol = 'a'):
+        self.lastGraph()
+        if time == 'a' or pvol == 'a':
+            time = self.dataTime()
+            pvol = self.dataPvol() 
+        time = time
+        pvol = pvol
         position = range(0, 50)   
         #on Dynamic ui    
         plt.ion() 
@@ -60,7 +66,7 @@ class UI(ProductsServices):
         print(reList)
         return reList
        
-    def showGraphBar(self, position, pvol, time): 
+    def showGraphBar(self, position , pvol, time): 
         plt.bar(position, pvol, width= 0.4) 
         self.redBarGraph(pvol, position)   
         plt.xticks(position, time, rotation = 90)
@@ -72,7 +78,15 @@ class UI(ProductsServices):
         plt.bar(position, redbar, color = 'red', width = 0.4)
         plt.yticks(pvol)
         #plt.Axes.set_yticklabels(pvolSorted)
+    
+    @cache
+    def lastGraph(self, pvol ='a', time = 'a'):
+        time = self.dataTime()
+        pvol = self.dataPvol()
+        maxIndex = len(pvol)
+        print(time)
+        print(pvol)
         
     
-   
+    
         

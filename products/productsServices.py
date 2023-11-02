@@ -77,8 +77,7 @@ class ProductsServices:
                 dynamycList.append(0)
         return dynamycList
 
-    # def max range not allow counts = '0' 
-        
+    # def max range not allow counts = '0'      
     def maxIndex(self, value, counts):
         index = 50
         maxindex = index * counts 
