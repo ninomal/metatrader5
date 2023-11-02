@@ -5,7 +5,7 @@ import os
 from products import product 
 from products import productsServices
 from UI.ui import UI
-
+from exception.timeflameException import TimeflameException
 
 SERVERDEMO = "SERVERDEMO" #"MetaQuotes-Demo"
 SERVERREAL ="SERVERREAL" #"MetaQuotes-Real"
@@ -20,20 +20,20 @@ def main():
     products = product.Products(mt5)
     productsService = productsServices.ProductsServices(mt5)
     print()
-    ui = UI(mt5)
-    ui.lastGraph()
+    
+    print('welcome')
+    timeframe = input("define your time frame ")
+    TIMEFRAME = TimeflameException(timeframe)  
+    #ui = UI(mt5)
+    #ui.lastGraph()
+    #ui.uiBar()
     #productsService.calcAMV()
     #productsService.calcEma()
     #productsService.adv()
-    #dfvalues = productsService.priceVol()
-    #dfindex = products.tOtimeFrame()
-    #print(dfindex)
-    #productsService.convertToList(dfindex['time'], dfvalues['PVOL'])
-    
+ 
     #print(mt5.terminal_info())
     #print(products.lastBar())
     #print('a')
-    #print(products.selectBar('close'))
     
     # get struct_time
     #named_tuple = time.localtime() 
