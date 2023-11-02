@@ -85,4 +85,8 @@ class ProductsServices:
         values = value[base: maxindex]
         return values
         
-     
+    def lastIndex(self, value): 
+        maxindex = len(value)
+        base = maxindex - 50
+        values = value[base: maxindex]
+        return values

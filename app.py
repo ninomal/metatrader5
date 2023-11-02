@@ -21,7 +21,7 @@ def main():
     productsService = productsServices.ProductsServices(mt5)
     print()
     ui = UI(mt5)
-    ui.uiBar()
+    ui.lastGraph()
     #productsService.calcAMV()
     #productsService.calcEma()
     #productsService.adv()

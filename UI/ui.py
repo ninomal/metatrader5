@@ -26,14 +26,10 @@ class UI(ProductsServices):
         pvol = self.convertToList(dfindex['time'], dfvalues['PVOL'], 'y')
         return pvol
           
-    @cache
-    def uiBar(self, time = 'a', pvol = 'a'):
-        self.lastGraph()
-        if time == 'a' or pvol == 'a':
-            time = self.dataTime()
-            pvol = self.dataPvol() 
-        time = time
-        pvol = pvol
+    
+    def uiBar(self, bar = 'a'):
+        time = self.dataTime()
+        pvol = self.dataPvol() 
         position = range(0, 50)   
         #on Dynamic ui    
         plt.ion() 
@@ -42,7 +38,11 @@ class UI(ProductsServices):
         while self.conts <= 20:
             plt.cla()
             plt.clf()
-            if len(pvol) > 50:
+            if bar == 'last':
+                pvols = self.lastIndex(pvol)
+                times = self.lastIndex(time)
+                self.conts += 19
+            elif len(pvol) > 50:
                 pvols = self.maxIndex(pvol, self.conts)
                 times = self.maxIndex(time, self.conts)
             else:
@@ -62,8 +62,6 @@ class UI(ProductsServices):
                 reList.append(0)
             else:
                 reList.append(number)
-        print('ahaha')
-        print(reList)
         return reList
        
     def showGraphBar(self, position , pvol, time): 
@@ -78,15 +76,8 @@ class UI(ProductsServices):
         plt.bar(position, redbar, color = 'red', width = 0.4)
         plt.yticks(pvol)
         #plt.Axes.set_yticklabels(pvolSorted)
-    
-    @cache
-    def lastGraph(self, pvol ='a', time = 'a'):
-        time = self.dataTime()
-        pvol = self.dataPvol()
-        maxIndex = len(pvol)
-        print(time)
-        print(pvol)
+     
+    def lastGraph(self):
+        self.uiBar('last')
         
-    
-    
         
