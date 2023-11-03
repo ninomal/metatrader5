@@ -7,13 +7,12 @@ from functools import cache
 class UI(ProductsServices):
     def __init__(self, mt5):
         super().__init__(mt5)
-        self.dataframe = self.teste()
+        self.dataframe = self.priceVol()
+        self.time = self.dataTime()
+        self.pvol = self.dataPvol() 
+        self.POSITION = range(0, 50)
         self.conts = 1
-        
-    def teste(self):
-        preco = self.priceVol()
-        return preco
-    
+          
     def dataTime(self):
         dfvalues = self.priceVol()
         dfindex = self.toTimeFrame()
@@ -26,33 +25,13 @@ class UI(ProductsServices):
         pvol = self.convertToList(dfindex['time'], dfvalues['PVOL'], 'y')
         return pvol
           
-    
-    def uiBar(self, bar = 'a'):
-        time = self.dataTime()
-        pvol = self.dataPvol() 
-        position = range(0, 50)   
-        #on Dynamic ui    
-        plt.ion() 
-        plt.subplots(layout='constrained', figsize = (50 , 6))
-        #plt.style.use('ggplot') 
-        while self.conts <= 20:
-            plt.cla()
-            plt.clf()
-            if bar == 'last':
-                pvols = self.lastIndex(pvol)
-                times = self.lastIndex(time)
-                self.conts += 19
-            elif len(pvol) > 50:
-                pvols = self.maxIndex(pvol, self.conts)
-                times = self.maxIndex(time, self.conts)
-            else:
-                pvols = self.addListDynamics(pvol)
-                times = self.addListDynamics(times)           
-            self.showGraphBar(position, pvols, times)
-            self.conts +=1
-            plt.pause(5)        
-        plt.ioff()   
-        plt.show()
+    #on Dynamic ui  
+    def uiBar(self, pvol, time):          
+        plt.cla()
+        plt.clf()              
+        self.showGraphBar(self.POSITION, pvol, time)
+        plt.pause(2)        
+        
         
     def redBar(self, x, sort):
         maxLen = len(sort)
@@ -76,8 +55,37 @@ class UI(ProductsServices):
         plt.bar(position, redbar, color = 'red', width = 0.4)
         plt.yticks(pvol)
         #plt.Axes.set_yticklabels(pvolSorted)
-     
+    
+    @cache
     def lastGraph(self):
-        self.uiBar('last')
+        plt.subplots(layout='constrained', figsize = (50 , 6)) 
+        plt.ion() 
+        pvols = self.lastIndex(self.pvol)
+        times = self.lastIndex(self.time)
+        self.uiBar(pvols, times )
+        plt.ioff()   
+        plt.show()
         
-        
+    @cache   
+    def dynamicsGraph(self):
+        plt.ion()
+        plt.subplots(layout='constrained', figsize = (50 , 6))
+        #plt.style.use('ggplot') 
+        pvols = self.addListDynamics(self.pvol)
+        times = self.addListDynamics(self.time) 
+        self.uiBar(pvols, times)
+        plt.ioff()   
+        plt.show()
+    
+    @cache   
+    def allGraph(self):
+        plt.subplots(layout='constrained', figsize = (50 , 6))
+        #plt.style.use('ggplot') 
+        plt.ion() 
+        while self.conts <= 3:
+            pvols = self.maxIndex(self.pvol, self.conts)
+            times = self.maxIndex(self.time, self.conts) 
+            self.uiBar(pvols, times)
+            self.conts +=1
+        plt.ioff()   
+        plt.show()

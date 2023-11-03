@@ -38,7 +38,8 @@ def main():
     print()
     
     ui = UI(mt5)
-    ui.lastGraph()
+   #ui.lastGraph()
+    ui.allGraph()
     
     #ui.uiBar()
     #print(mt5.terminal_info())
