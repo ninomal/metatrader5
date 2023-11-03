@@ -8,10 +8,11 @@ ATIVO = "WINZ23" #name of market
 POS = 0  #position bar
 COUNT = 0 #position count 
 
+
 class Products:
-    def __init__(self, mt5, timeframe):
+    def __init__(self, mt5):
         self.mt5 = mt5
-        self.TIMEFRAME = timeframe
+        self.TIMEFRAME = self.mt5.TIMEFRAME_M1
         self.COUNT = COUNT
         self.SYMBOL = ATIVO
         self.POS = POS

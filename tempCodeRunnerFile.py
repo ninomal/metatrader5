@@ -1,4 +1,5 @@
-dfvalues = productsService.priceVol()
-    dfindex = products.tOtimeFrame()
-    print(dfindex)
-    productsService.convertToList(dfindex['time'], dfvalues['PVOL'])
+
+    #services.sell()
+    #services.buy()
+    
+if __name__ == "__main__":

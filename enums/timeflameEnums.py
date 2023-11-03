@@ -20,14 +20,13 @@
 #TIMEFRAME_W1 =str#  1 week
 #TIMEFRAME_MN1 =str# 1 month
 
-class TimeFrame:
-    def __init__(self, time, mt5):
-        self.time = time
+class TimeFrameEnums:
+    def __init__(self, mt5, time):
         self.mt5 = mt5
+        self.time = time
         
-    
     def timeframe(self):
-        if self.time == '1m':
+        if self.time == '1m': 
             return self.mt5.TIMEFRAME_M1 
         elif self.time == '2m':
             return self.mt5.TIMEFRAME_M2 
@@ -69,3 +68,5 @@ class TimeFrame:
             return self.mt5.TIMEFRAME_W1 
         elif self.time == "1mo":
             return self.mt5.TIMEFRAME_MN1 
+        
+        
