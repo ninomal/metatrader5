@@ -84,4 +84,11 @@ class Service():
         elif(self.sellOrders != 0):
             return f"Sell {self.symbol}, {self.sellOrders} Ticks in market {self.SYMBOL}"
         
+    def orders(self):   
+        orders= self.buyOrders + self.sellOrders
+        if orders!= 0:
+            print("Total orders=",orders)
+        else:
+            print("Orders not found")
+            
         

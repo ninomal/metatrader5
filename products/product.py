@@ -9,9 +9,9 @@ POS = 0  #position bar
 COUNT = 0 #position count 
 
 class Products:
-    def __init__(self, mt5):
+    def __init__(self, mt5, timeframe):
         self.mt5 = mt5
-        self.TIMEFRAME = self.mt5.TIMEFRAME_M1
+        self.TIMEFRAME = timeframe
         self.COUNT = COUNT
         self.SYMBOL = ATIVO
         self.POS = POS
@@ -56,4 +56,4 @@ class Products:
         seriesConv = pd.to_numeric(series, downcast='float')
         return seriesConv
         
-        
+    

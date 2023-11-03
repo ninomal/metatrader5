@@ -27,29 +27,29 @@ class TimeFrame:
         
     
     def timeframe(self):
-        if self.time == 1:
+        if self.time == '1m':
             return self.mt5.TIMEFRAME_M1 
-        elif self.time == 2:
+        elif self.time == '2m':
             return self.mt5.TIMEFRAME_M2 
-        elif self.time == 3:
+        elif self.time == '3m':
             return self.mt5.TIMEFRAME_M3 
-        elif self.time == 4:
+        elif self.time == '4m':
             return self.mt5.TIMEFRAME_M4 
-        elif self.time == 5:
+        elif self.time == '5m':
             return self.mt5.TIMEFRAME_M5 
-        elif self.time == 6:
+        elif self.time == '6m':
             return self.mt5.TIMEFRAME_M6 
-        elif self.time == 10:
+        elif self.time == '10m':
             return self.mt5.TIMEFRAME_M10 
-        elif self.time == 12:
+        elif self.time == '12m':
             return self.mt5.TIMEFRAME_M12 
-        elif self.time == 15:
+        elif self.time == '15m':
             return self.mt5.TIMEFRAME_M15 
-        elif self.time == 20:
+        elif self.time == '20m':
             return self.mt5.TIMEFRAME_M20 
-        elif self.time == 30:
+        elif self.time == '30m':
             return self.mt5.TIMEFRAME_M30 
-        elif self.time == 60:
+        elif self.time == '1h':
             return self.mt5.TIMEFRAME_H1 
         elif self.time == "2h":
             return self.mt5.TIMEFRAME_H2 
@@ -65,7 +65,7 @@ class TimeFrame:
             return self.mt5.TIMEFRAME_H12 
         elif self.time == "1d":
             return self.mt5.TIMEFRAME_D1 
-        elif self.time == "2d":
+        elif self.time == "1w":
             return self.mt5.TIMEFRAME_W1 
-        elif self.time == "3d":
+        elif self.time == "1mo":
             return self.mt5.TIMEFRAME_MN1 

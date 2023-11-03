@@ -6,6 +6,7 @@ from products import product
 from products import productsServices
 from UI.ui import UI
 from exception.timeflameException import TimeflameException
+from enums.timeflameEnums import TimeFrame
 
 SERVERDEMO = "SERVERDEMO" #"MetaQuotes-Demo"
 SERVERREAL ="SERVERREAL" #"MetaQuotes-Real"
@@ -16,47 +17,36 @@ def main():
     #Start
     mt5.initialize() 
     mt5.terminal_info()
+    
+    print('welcome')
+    timeframeVariable = input(
+            "for minutes press: " 
+            '1m, 2m, 3m, 4m, 5m,6m ,10m ,12m ,15m ,20m ,30m ,60m'
+            'for hours: 2h ,3h ,4h ,6h ,8h ,12h ,'
+            'for days: 1d ,'
+            'for week: 1w '
+            'for month: 1mon ')                   
+    timeframeStr = TimeflameException(timeframeVariable) 
+    
+    #instace objects
+    TIMEFRAME = TimeFrame(timeframeStr, mt5)
+    print(TIMEFRAME)
+    
+    '''
     services = service.Service(mt5)
-    products = product.Products(mt5)
+    products = product.Products(mt5, TIMEFRAME)
     productsService = productsServices.ProductsServices(mt5)
     print()
     
-    print('welcome')
-    timeframe = input("define your time frame ")
-    TIMEFRAME = TimeflameException(timeframe)  
-    #ui = UI(mt5)
-    #ui.lastGraph()
+    ui = UI(mt5)
+    ui.lastGraph()
+    '''
     #ui.uiBar()
-    #productsService.calcAMV()
-    #productsService.calcEma()
-    #productsService.adv()
- 
     #print(mt5.terminal_info())
-    #print(products.lastBar())
-    #print('a')
-    
-    # get struct_time
-    #named_tuple = time.localtime() 
-    #time_string = time.strftime("%m/%d/%Y, %H:%M:%S", named_tuple)
-    #loguin = input("Digit your loguin user: ") 
-    #password = input("Digit your password user: ") 
-    
-    #timeFlameVariable = input('for minutes press 1 , 2 , 3 ,4 , 5 ,6 ,10 ,12 ,15 ,20 ,30 ,60 ,'
-                     # 'for hours "2h" ,"3h" ,"4h" ,"6h" ,"8h" ,"12h" ,'
-                      #'for days "1d" ,"2d" ,"3d"')  
+   
     print()
     #services.sell()
     #services.buy()
-    '''orders= services.buyOrders + services.sellOrders
-    if orders!= 0:
-        print("Total orders=",orders)
-    else:
-        print("Orders not found")
-        
-    #get timeflame execption
-    #timeflameEx = timeflameException.TimeflameException(timeFlameVariable)
-    #timeflameEx.timeflameCheck()
-     
-        '''
+    
 if __name__ == "__main__":
     main()

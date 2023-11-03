@@ -60,4 +60,10 @@ class LoguinMt5():
         
         # shut down connection to the MetaTrader 5 terminal
         self.mt5.shutdown()
-        
+    
+    #loguin
+    # get struct_time
+    #named_tuple = time.localtime() 
+    #time_string = time.strftime("%m/%d/%Y, %H:%M:%S", named_tuple)
+    #loguin = input("Digit your loguin user: ") 
+    #password = input("Digit your password user: ") 
