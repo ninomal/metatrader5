@@ -62,6 +62,8 @@ class UI(ProductsServices):
         plt.ion() 
         pvols = self.lastIndex(self.pvol)
         times = self.lastIndex(self.time)
+        plt.cla()
+        plt.clf()
         self.uiBar(pvols, times )
         plt.ioff()   
         plt.show()
@@ -77,14 +79,17 @@ class UI(ProductsServices):
         plt.ioff()   
         plt.show()
     
-    @cache   
+    #fix data input
+    @cache 
     def allGraph(self):
         plt.subplots(layout='constrained', figsize = (50 , 6))
         #plt.style.use('ggplot') 
+        maxindex = (len(self.pvol) /50)
+        print(maxindex)
         plt.ion() 
-        while self.conts <= 3:
+        while self.conts < maxindex:
             pvols = self.maxIndex(self.pvol, self.conts)
-            times = self.maxIndex(self.time, self.conts) 
+            times = self.maxIndex(self.time, self.conts)
             self.uiBar(pvols, times)
             self.conts +=1
         plt.ioff()   
