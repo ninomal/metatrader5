@@ -71,7 +71,7 @@ class ProductsServices:
     def addListDynamics(self, value):
         dynamycList = [] 
         for new in range(50):
-            if value[self.pos] != 0 and new < len(value):
+            if value[new] != None and new < len(value):
                 dynamycList.append(value[new])
             else:
                 dynamycList.append(0)

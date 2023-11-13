@@ -23,7 +23,6 @@ class Products:
         df['time'] = pd.to_datetime(df['time'], unit ='s')
         return df
 
-    @cache
     def colectDate(self, count = 0):
         date =self.mt5.copy_rates_from_pos(self.SYMBOL,self.TIMEFRAME, self.POS, count)
         dateDf = pd.DataFrame(date)
@@ -36,7 +35,7 @@ class Products:
         df['time'] = df['time']
         print(df['time'])
         return df
-    @cache           
+               
     def dateTime(self):
         named_tuple = time.localtime() 
         timeframe = time.strftime("%m/%d/%Y, %H:%M:%S", named_tuple)

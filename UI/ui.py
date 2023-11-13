@@ -12,7 +12,7 @@ class UI(ProductsServices):
         self.pvol = self.dataPvol() 
         self.POSITION = range(0, 50)
         self.conts = 1
-          
+               
     def dataTime(self):
         dfvalues = self.priceVol()
         dfindex = self.toTimeFrame()
