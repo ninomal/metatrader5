@@ -68,10 +68,10 @@ class ProductsServices:
             return ylist
         
     # for start day in graph                              
-    def addListDynamics(self, value ):
+    def addListDynamics(self, value):
         dynamycList = [] 
         for new in range(50):
-            if value != 0 and new < len(value):
+            if value[self.pos] != 0 and new < len(value):
                 dynamycList.append(value[new])
             else:
                 dynamycList.append(0)

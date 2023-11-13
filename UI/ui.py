@@ -31,8 +31,7 @@ class UI(ProductsServices):
         plt.clf()              
         self.showGraphBar(self.POSITION, pvol, time)
         plt.pause(2)        
-        
-        
+               
     def redBar(self, x, sort):
         maxLen = len(sort)
         reList = []
@@ -84,16 +83,20 @@ class UI(ProductsServices):
     def allGraph(self):
         plt.subplots(layout='constrained', figsize = (50 , 6))
         #plt.style.use('ggplot') 
-        maxindex = (len(self.pvol) /50)
-        print(maxindex)
+        maxindex = (len(self.pvol) /50) 
         plt.ion() 
-        while self.conts < maxindex:
-            pvols = self.maxIndex(self.pvol, self.conts)
-            times = self.maxIndex(self.time, self.conts)
+        if maxindex < 1:
+           pvols = self.addListDynamics(self.pvol)
+           times = self.addListDynamics(self.time)
+           self.uiBar(pvols, times)
+        else:
+            while self.conts < maxindex:
+                pvols = self.maxIndex(self.pvol, self.conts)
+                times = self.maxIndex(self.time, self.conts)
+                self.uiBar(pvols, times)
+                self.conts +=1
+            pvols = self.lastIndex(self.pvol)
+            times = self.lastIndex(self.time)
             self.uiBar(pvols, times)
-            self.conts +=1
-        pvols = self.lastIndex(self.pvol)
-        times = self.lastIndex(self.time)
-        self.uiBar(pvols, times)
         plt.ioff()   
         plt.show()
