@@ -92,5 +92,8 @@ class UI(ProductsServices):
             times = self.maxIndex(self.time, self.conts)
             self.uiBar(pvols, times)
             self.conts +=1
+        pvols = self.lastIndex(self.pvol)
+        times = self.lastIndex(self.time)
+        self.uiBar(pvols, times)
         plt.ioff()   
         plt.show()
