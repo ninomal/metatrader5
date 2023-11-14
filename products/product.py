@@ -8,7 +8,6 @@ ATIVO = "WINZ23" #name of market
 POS = 0  #position bar
 COUNT = 0 #position count 
 
-
 class Products:
     def __init__(self, mt5):
         self.mt5 = mt5
@@ -35,7 +34,7 @@ class Products:
         df['time'] = df['time']
         print(df['time'])
         return df
-               
+    @cache          
     def dateTime(self):
         named_tuple = time.localtime() 
         timeframe = time.strftime("%m/%d/%Y, %H:%M:%S", named_tuple)
@@ -55,5 +54,10 @@ class Products:
     def to_numerics(self, series):
         seriesConv = pd.to_numeric(series, downcast='float')
         return seriesConv
+           
+    def date_of_Day(self):
+        Current_Date = self.dateTime()
+        print("teste")
+        print(Current_Date[0:10])
+
         
-    

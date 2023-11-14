@@ -37,9 +37,11 @@ def main():
     productsService = productsServices.ProductsServices(mt5)
     print()
     
+    products.date_of_Day()
+    
     ui = UI(mt5)
     #ui.lastGraph()
-    ui.allGraph()
+    #ui.allGraph()
     
     #ui.uiBar()
     #print(mt5.terminal_info())
