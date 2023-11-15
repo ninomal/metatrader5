@@ -38,7 +38,7 @@ def main():
     print()
     
     products.date_of_Day()
-    
+    products.test_day()
     ui = UI(mt5)
     #ui.lastGraph()
     #ui.allGraph()

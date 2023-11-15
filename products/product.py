@@ -57,7 +57,19 @@ class Products:
            
     def date_of_Day(self):
         Current_Date = self.dateTime()
-        print("teste")
-        print(Current_Date[0:10])
+        day = Current_Date[0:10]
+        return day
+    
+    def test_day(self):
+        teste = 0
+        day = self.date_of_Day()
+        map(lambda day : day[0:10])
+            print(val + "aaab")
+            print(day + "aqui")
+            if val[0:10] == self.date_of_Day():
+                teste+= 1
+                print(1)
+        print(teste)
+        
 
         
