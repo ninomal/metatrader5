@@ -16,7 +16,7 @@ os.system('cls')
 def main():    
     #Start
     mt5.initialize() 
-    mt5.terminal_info()
+    #mt5.terminal_info()
     '''
     print('welcome')
     timeframeVariable = input(
@@ -27,7 +27,6 @@ def main():
             'for week: 1w '
             'for month: 1mon :')                   
     timeframeStr = TimeflameException(timeframeVariable) 
-    print(timeframeStr.timeflameCheck())
     #instace objects
     teste = TimeFrameEnums(mt5 , timeframeVariable)
     testconv = teste.timeframe()
@@ -37,15 +36,13 @@ def main():
     productsService = productsServices.ProductsServices(mt5)
     print()
     
-    products.date_of_Day()
-    products.test_day()
+    print(products.date_of_Day())
+    products.current_day()
     ui = UI(mt5)
     #ui.lastGraph()
     #ui.allGraph()
     
     #ui.uiBar()
-    #print(mt5.terminal_info())
-   
     print()
     #services.sell()
     #services.buy()

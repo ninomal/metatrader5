@@ -32,7 +32,7 @@ class Products:
     def tOtimeFrame(self):
         df = pd.DataFrame(self.colectDate())
         df['time'] = df['time']
-        print(df['time'])
+        #print(df['time'])
         return df
     @cache          
     def dateTime(self):
@@ -48,23 +48,27 @@ class Products:
     def selectBar(self, name):
         bars = self.colectDate()
         select = bars[name]
-        selectConv = self.to_numerics(select)
-        return selectConv     
+        #selectConv = self.to_numerics(select)
+        return select    
    
     def to_numerics(self, series):
         seriesConv = pd.to_numeric(series, downcast='float')
         return seriesConv
            
     def date_of_Day(self):
-        Current_Date = self.dateTime()
-        day = Current_Date[0:10]
-        return day
+        named_tuple = time.localtime()
+        timeDay = time.strftime("%Y-%d-%m", named_tuple)
+        return timeDay
+        
     
     def current_day(self):
-        day = self.date_of_Day()
-        dateTime = self.dateTime()
-        day_slice = list(map(lambda dateTime : dateTime[0:10] != day, dateTime))   
-        
+       day = self.date_of_Day()
+       times = self.selectBar('time')
+       timesFrame = times.to_string()
+       timesmap = list(filter(lambda n : n !=  day, timesFrame))
+       #print(timesFrame)
+       #print(timesmap)
+       print(len(timesmap))
         
 
         
