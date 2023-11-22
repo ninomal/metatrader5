@@ -57,18 +57,16 @@ class Products:
            
     def date_of_Day(self):
         named_tuple = time.localtime()
-        timeDay = time.strftime("%Y-%d-%m", named_tuple)
+        timeDay = time.strftime("%Y-%m-%d", named_tuple)
         return timeDay
         
     
     def current_day(self):
        day = self.date_of_Day()
        times = self.selectBar('time')
-       timesFrame = times.to_string()
-       timesmap = list(filter(lambda n : n !=  day, timesFrame))
-       #print(timesFrame)
-       #print(timesmap)
-       print(len(timesmap))
+       teste = times.where( times== (day+' 9:00:00')).dropna()
+       print(teste.axes)
+       
         
 
-        
+       
