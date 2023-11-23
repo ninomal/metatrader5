@@ -38,6 +38,7 @@ def main():
     
     print(products.date_of_Day())
     products.current_day()
+    productsService.dayGraph()
     ui = UI(mt5)
     #ui.lastGraph()
     #ui.allGraph()

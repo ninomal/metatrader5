@@ -2,6 +2,7 @@ import pandas_ta as ta
 from products.product import Products 
 import pandas as pd
 from functools import cache
+import time
 
 class ProductsServices:
        
@@ -90,3 +91,15 @@ class ProductsServices:
         base = maxindex - 50
         values = value[base: maxindex]
         return values
+    
+    #day graph
+    def dayGraph(self):
+        day = self.Products.current_day()
+        while day >= 0:
+            timess = time.localtime()
+            day -= 1 
+            print(day)
+            print(timess)
+        
+        
+        
