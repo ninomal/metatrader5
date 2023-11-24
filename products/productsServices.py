@@ -93,13 +93,15 @@ class ProductsServices:
         return values
     
     #day graph
-    def dayGraph(self):
-        day = self.Products.current_day()
-        while day >= 0:
-            timess = time.localtime()
-            day -= 1 
-            print(day)
-            print(timess)
+    def dayGraph(self,  value):
+        day = self.Products.current_day()  
+        index = 50
+        maxindex = index + day
+        print("teste")
+        print(maxindex)
+        values = value[day: maxindex]
+        return values
+        
         
         
         

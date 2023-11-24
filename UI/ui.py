@@ -100,3 +100,14 @@ class UI(ProductsServices):
             self.uiBar(pvols, times)
         plt.ioff()   
         plt.show()
+        
+    def graphIntraDay(self):
+        plt.subplots(layout='constrained', figsize = (50 , 6))
+        plt.ion() 
+        pvols = self.dayGraph(self.pvol)
+        times = self.dayGraph(self.time)
+        plt.cla()
+        plt.clf()
+        self.uiBar(pvols, times)
+        plt.ioff()   
+        plt.show()
