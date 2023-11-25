@@ -16,13 +16,13 @@ class UI(ProductsServices):
     def dataTime(self):
         dfvalues = self.priceVol()
         dfindex = self.toTimeFrame()
-        time = self.convertToList(dfindex['time'], dfvalues['PVOL'], 'x')
+        time = self.convertToList(dfindex['time'])
         return time
     
     def dataPvol(self):
         dfvalues = self.priceVol()
         dfindex = self.toTimeFrame()
-        pvol = self.convertToList(dfindex['time'], dfvalues['PVOL'], 'y')
+        pvol = self.convertToList(dfvalues['PVOL'])
         return pvol
           
     #on Dynamic ui  

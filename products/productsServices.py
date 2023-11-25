@@ -55,19 +55,14 @@ class ProductsServices:
         return bar
     
     #convert dataframe in list eficient 
-    def convertToList(self, x, y, value = 'b'):
+    def convertToList(self, x):
         lens = 0
         xlist = []
-        ylist = []
         while len(x) != lens:
             xlist.append( x.loc[lens])
-            ylist.append( y.loc[lens])
-            lens +=1
-        if value == 'x':
-            return xlist
-        elif value == 'y':
-            return ylist
-        
+            lens +=1 
+        return xlist
+             
     # for start day in graph                              
     def addListDynamics(self, value):
         dynamycList = [] 

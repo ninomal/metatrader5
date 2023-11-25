@@ -40,7 +40,7 @@ def main():
     products.current_day()
     ui = UI(mt5)
     #ui.lastGraph()
-    #ui.allGraph()
+    ui.allGraph()
     #ui.graphIntraDay()
     
     #ui.uiBar()
