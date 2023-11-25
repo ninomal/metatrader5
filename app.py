@@ -41,7 +41,7 @@ def main():
     ui = UI(mt5)
     #ui.lastGraph()
     #ui.allGraph()
-    ui.graphIntraDay()
+    #ui.graphIntraDay()
     
     #ui.uiBar()
     print()

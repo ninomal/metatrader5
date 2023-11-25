@@ -64,10 +64,11 @@ class Products:
     def current_day(self):
        day = self.date_of_Day()
        times = self.selectBar('time')
-       day_raw = times.where( times== (day+' 9:00:00')).dropna()
+       day_raw = times.where(times== (day+' 9:00:00')).dropna()
        day_nowList = day_raw.axes
-       day_now = day_nowList[0]
-       return day_now
+       day_now = day_nowList[0][0]
+       day_now_conv = day_now.item()
+       return day_now_conv
        
        
         
