@@ -25,6 +25,18 @@ ui.graphIntraDay()
 current graph of day
 
 
+#TECHNOLOGIES
+
+Phyton
+pandas
+pandas_ta
+matplotlib
+
+
+#AUTHOR
+
+Jonatas leme dos reis
+
 
 
 
