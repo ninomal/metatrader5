@@ -1,7 +1,7 @@
 ## metatrader5 Api
 
 [![NPM](https://img.shields.io/badge/Lincence-MIT-red)](https://github.com/ninomal/metatrader5/blob/main/LICENSE1)
-[![NPM](https://img.shields.io/badge/Lincence-MQL-green)](https://www.mql5.com/en/docs/python_metatrader5/mt5login_py)
+[![NPM](https://img.shields.io/badge/Lincence-MQL-green)](https://www.mql5.com/en/docs)
 
 #This project
 
@@ -29,8 +29,10 @@ current graph of day
 
 [![NPM](https://img.shields.io/badge/PHYTON-blue)](https://www.python.org/)
 [![NPM](https://img.shields.io/badge/Pandas-white)](https://pypi.org/project/pandas/)
-[![NPM](https://img.shields.io/badge/Pandas__ta-gray)](https://pypi.org/project/ta/)
-[![NPM](https://img.shields.io/badge/matplotlib-yelow)](https://pypi.org/project/matplotlib/)
+[![NPM](https://img.shields.io/badge/Pandas__ta-gray)](https://pypi.org/project/pandas-ta/)
+[![NPM](https://img.shields.io/badge/matplotlib-gren)](https://pypi.org/project/matplotlib/)
+[![NPM](https://img.shields.io/badge/numpy-aqua)](https://pypi.org/project/numpy/)
+[![NPM](https://img.shields.io/badge/MQL5-yellow)](https://www.mql5.com/en/docs/python_metatrader5/mt5initialize_py)
 
 #AUTHOR
 
