@@ -27,11 +27,10 @@ current graph of day
 
 #TECHNOLOGIES
 
-Phyton
-pandas
-pandas_ta
-matplotlib
-
+[![NPM](https://img.shields.io/badge/PHYTON-blue)](https://www.python.org/)
+[![NPM](https://img.shields.io/badge/Pandas-white)](https://pypi.org/project/pandas/)
+[![NPM](https://img.shields.io/badge/Pandas__ta-gray)](https://pypi.org/project/ta/)
+[![NPM](https://img.shields.io/badge/matplotlib-yelow)](https://pypi.org/project/matplotlib/)
 
 #AUTHOR
 
