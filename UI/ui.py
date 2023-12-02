@@ -53,7 +53,6 @@ class UI(ProductsServices):
         redbar = self.redBar(pvol, pvolSorted) 
         plt.bar(position, redbar, color = 'red', width = 0.4)
         plt.yticks(pvol)
-        #plt.Axes.set_yticklabels(pvolSorted)
     
     @cache
     def lastGraph(self):
@@ -70,8 +69,7 @@ class UI(ProductsServices):
     @cache   
     def dynamicsGraph(self):
         plt.ion()
-        plt.subplots(layout='constrained', figsize = (50 , 6))
-        #plt.style.use('ggplot') 
+        plt.subplots(layout='constrained', figsize = (50 , 6)) 
         pvols = self.addListDynamics(self.pvol)
         times = self.addListDynamics(self.time) 
         self.uiBar(pvols, times)
@@ -82,7 +80,6 @@ class UI(ProductsServices):
     @cache 
     def allGraph(self):
         plt.subplots(layout='constrained', figsize = (50 , 6))
-        #plt.style.use('ggplot') 
         maxindex = (len(self.pvol) /50) 
         plt.ion() 
         if maxindex < 1:
@@ -106,6 +103,7 @@ class UI(ProductsServices):
         plt.ion() 
         pvols = self.dayGraph(self.pvol)
         times = self.dayGraph(self.time)
+        #self.uiBar(pvols, times)
         plt.cla()
         plt.clf()
         self.uiBar(pvols, times)
