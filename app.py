@@ -4,13 +4,7 @@ from services import service
 import os
 from products import product 
 from products import productsServices
-from UI.ui import UI
-from exception.timeflameException import TimeflameException
-from enums.timeflameEnums import TimeFrameEnums
-
-SERVERDEMO = "SERVERDEMO" #"MetaQuotes-Demo"
-SERVERREAL ="SERVERREAL" #"MetaQuotes-Real"
-MOBILE = False # metatrader5 from mobile (True or False)
+from ui.ui import UI
 
 os.system('cls')
 def main():    
