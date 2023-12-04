@@ -4,7 +4,7 @@ import time
 from datetime import datetime
 from functools import cache
 
-ATIVO = "WINZ23" #name of market
+ASSET = "WINZ23" #name of market
 POS = 0  #position bar
 COUNT = 0 #position count 
 
@@ -13,7 +13,7 @@ class Products:
         self.mt5 = mt5
         self.TIMEFRAME = self.mt5.TIMEFRAME_M1
         self.COUNT = COUNT
-        self.SYMBOL = ATIVO
+        self.SYMBOL = ASSET
         self.POS = POS
         self.daTime = self.dateTime()        
         self.dados = self.colectDate()

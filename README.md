@@ -9,6 +9,11 @@ This project is based on dynamic graphs for mql5,tools for buy and sell,and aver
 
 #Functions
 
+First of all
+
+change name of ASSETS in products >products.py
+change minuts in products >products.py def __init__ bellow  self.TIMEFRAME = self.mt5. <- here 
+
 Volume in indice 50 in graph
 red candle for highest volume 
 

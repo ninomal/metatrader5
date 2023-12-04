@@ -92,8 +92,6 @@ class ProductsServices:
         day = self.Products.current_day()  
         index = 50
         maxindex = index + day
-        print("teste")
-        print(maxindex)
         values = value[day: maxindex]
         return values
         
