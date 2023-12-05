@@ -96,7 +96,5 @@ class ProductsServices:
         return values
         
     def dayForconvert(self):
-        value = self.Products.current_day()
-        value + 1
-        return value
+        return self.Products.current_day()
         

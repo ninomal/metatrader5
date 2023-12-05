@@ -17,7 +17,7 @@ def main():
     print()
  
     print(products.date_of_Day())
-    products.current_day()
+    print(productsService.dayForconvert())
     ui = UI(mt5)
     #ui.lastGraph()
     #ui.allGraph()
