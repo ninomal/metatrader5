@@ -5,13 +5,16 @@
 
 #This project
 
-This project is based on dynamic graphs for mql5,tools for buy and sell,and average media in pandas_ta
+This project is based on dynamic graphs for mql5;Tools for buy and sell and average media in pandas_ta
 
 #Functions
 
 First of all
 
+Login in mt5 terminal
+
 change name of ASSETS in products >products.py
+
 change minuts in products >products.py def __init__ bellow  self.TIMEFRAME = self.mt5. <- here 
 
 Volume in indice 50 in graph

@@ -100,12 +100,19 @@ class UI(ProductsServices):
         
     def graphIntraDay(self):
         plt.subplots(layout='constrained', figsize = (50 , 6))
+        maxindex = ((len(self.pvol)-self.dayForconvert) /50) 
+        print(maxindex)
         plt.ion() 
-        pvols = self.dayGraph(self.pvol)
-        times = self.dayGraph(self.time)
-        #self.uiBar(pvols, times)
-        plt.cla()
-        plt.clf()
-        self.uiBar(pvols, times)
+        if maxindex != 0:
+            pvols = self.dayGraph(self.pvol)
+            times = self.dayGraph(self.time)
+            self.uiBar(pvols, times)
+        else:
+            while maxindex != 0:
+                pvols = self.maxIndex(self.pvol, self.conts)
+                times = self.maxIndex(self.time, self.conts)
+                self.uiBar(pvols, times)
+                self.conts -=1
+            self.uiBar(pvols, times)
         plt.ioff()   
         plt.show()

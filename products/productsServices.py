@@ -95,6 +95,8 @@ class ProductsServices:
         values = value[day: maxindex]
         return values
         
-        
-        
+    def dayForconvert(self):
+        value = self.Products.current_day()
+        value + 1
+        return value
         

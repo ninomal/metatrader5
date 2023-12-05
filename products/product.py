@@ -59,8 +59,7 @@ class Products:
         named_tuple = time.localtime()
         timeDay = time.strftime("%Y-%m-%d", named_tuple)
         return timeDay
-        
-    
+           
     def current_day(self):
        day = self.date_of_Day()
        times = self.selectBar('time')
