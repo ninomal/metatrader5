@@ -55,16 +55,23 @@ class UI(ProductsServices):
         plt.yticks(pvol)
     
     @cache
-    def lastGraph(self):
-        plt.subplots(layout='constrained', figsize = (50 , 6)) 
-        plt.ion() 
-        pvols = self.lastIndex(self.pvol)
-        times = self.lastIndex(self.time)
-        plt.cla()
-        plt.clf()
-        self.uiBar(pvols, times )
-        plt.ioff()   
-        plt.show()
+    def lastGraph(self, switch):
+        if switch == 'true':
+            plt.subplots(layout='constrained', figsize = (50 , 6)) 
+            plt.ion() 
+            pvols = self.lastIndex(self.pvol)
+            times = self.lastIndex(self.time)
+            plt.cla()
+            plt.clf()
+            self.uiBar(pvols, times)
+            plt.ioff()   
+            plt.show()
+        else:
+            pvols = self.lastIndex(self.pvol)
+            times = self.lastIndex(self.time)
+            plt.cla()
+            plt.clf()
+            self.uiBar(pvols, times)
         
     @cache   
     def dynamicsGraph(self):
@@ -92,16 +99,14 @@ class UI(ProductsServices):
                 times = self.maxIndex(self.time, self.conts)
                 self.uiBar(pvols, times)
                 self.conts +=1
-            pvols = self.lastIndex(self.pvol)
-            times = self.lastIndex(self.time)
-            self.uiBar(pvols, times)
+            self.lastGraph('off')
         plt.ioff()   
         plt.show()
     
     @cache    
     def graphIntraDay(self):
         plt.subplots(layout='constrained', figsize = (50 , 6))
-        maxindex = (((len(self.pvol))-self.dayForconvert()) /50) 
+        maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 2
         print(maxindex)
         plt.ion() 
         if maxindex < 1:
@@ -109,18 +114,14 @@ class UI(ProductsServices):
             times = self.dayGraph(self.time)
             self.uiBar(pvols, times)
         else:
-            while (self.conts+2) < maxindex:
+            while self.conts < maxindex:
                 pvols = self.maxIndex(self.pvol, self.conts)
                 times = self.maxIndex(self.time, self.conts)
                 self.uiBar(pvols, times)
                 self.conts +=1
                 print(self.conts)
-            self.uiBar(pvols, times)
+            self.lastGraph('off')
         plt.ioff()   
         plt.show()
          
-    def dynamicMarket(self, value):
-        if value != 434:
-            pvols = self.maxIndex(self.pvol, self.conts)
-            times = self.maxIndex(self.time, self.conts)
-            self.uiBar(pvols, times)
+  

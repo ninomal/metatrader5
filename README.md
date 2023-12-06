@@ -17,6 +17,10 @@ change name of ASSETS in products >products.py ASSETS Constante
 
 change minuts in products >products.py def __init__ bellow  self.TIMEFRAME = self.mt5.TIMEFRAME_M1 <- here 
 
+runtime in ui graphs
+
+ui> ui.py > uiBar > plt.pause(2 <-change here) 
+
 change start of market in products >products.py def current_day(self): change time in  day_raw = times.where(times== (day+' 9:00:00 <-here')).dropna()
 
 Volume in indice 50 in graph
@@ -26,7 +30,7 @@ ui.allGraph()
 ![allgraph](https://github.com/ninomal/metatrader5/assets/137447782/0c3ff3f8-b172-4997-9cdc-25d5ae97ae8b)
 all day PVOL ,while no stop graph change in 5 seconds  
 
-ui.lastGraph()
+ui.lastGraph('true')
 ![lasstgraph](https://github.com/ninomal/metatrader5/assets/137447782/5ec7ade7-2981-406e-83a4-ba3c1221a764)
 last graph of day
 
