@@ -13,9 +13,11 @@ First of all
 
 Login in mt5 terminal
 
-change name of ASSETS in products >products.py
+change name of ASSETS in products >products.py ASSETS Constante
 
-change minuts in products >products.py def __init__ bellow  self.TIMEFRAME = self.mt5. <- here 
+change minuts in products >products.py def __init__ bellow  self.TIMEFRAME = self.mt5.TIMEFRAME_M1 <- here 
+
+change start of market in products >products.py def current_day(self): change time in  day_raw = times.where(times== (day+' 9:00:00 <-here')).dropna()
 
 Volume in indice 50 in graph
 red candle for highest volume 

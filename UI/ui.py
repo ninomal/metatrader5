@@ -97,22 +97,30 @@ class UI(ProductsServices):
             self.uiBar(pvols, times)
         plt.ioff()   
         plt.show()
-        
+    
+    @cache    
     def graphIntraDay(self):
         plt.subplots(layout='constrained', figsize = (50 , 6))
-        maxindex = ((len(self.pvol)-self.dayForconvert()) /50) 
+        maxindex = (((len(self.pvol))-self.dayForconvert()) /50) 
         print(maxindex)
         plt.ion() 
-        if maxindex == 0:
+        if maxindex < 1:
             pvols = self.dayGraph(self.pvol)
             times = self.dayGraph(self.time)
             self.uiBar(pvols, times)
         else:
-            while self.conts < maxindex:
+            while (self.conts+2) < maxindex:
                 pvols = self.maxIndex(self.pvol, self.conts)
                 times = self.maxIndex(self.time, self.conts)
                 self.uiBar(pvols, times)
                 self.conts +=1
+                print(self.conts)
             self.uiBar(pvols, times)
         plt.ioff()   
         plt.show()
+         
+    def dynamicMarket(self, value):
+        if value != 434:
+            pvols = self.maxIndex(self.pvol, self.conts)
+            times = self.maxIndex(self.time, self.conts)
+            self.uiBar(pvols, times)
