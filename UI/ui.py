@@ -128,12 +128,13 @@ class UI(ProductsServices):
          
     def minutesInGraph(self):
         dateTime = datetime.now()
-        timeSecond = 60 - dateTime.second
         while self.conts != 60:
-            print(self.conts)
-            print(timeSecond)
+            timeSecond = 60.0 - dateTime.second 
+            self.lastGraph('true')
             time.sleep(timeSecond)
             self.conts += 1
+            
+            
         
         
         

@@ -50,7 +50,7 @@ current graph of day
 
 #AUTHOR
 
-Jonatas leme dos reis
+Jonatas leme dos reis "ninomal"
 
 
 
