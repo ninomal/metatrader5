@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from products.productsServices import ProductsServices
 from functools import cache
+from datetime import datetime
+import time
 
 class UI(ProductsServices):
     def __init__(self, mt5):
@@ -124,4 +126,16 @@ class UI(ProductsServices):
         plt.ioff()   
         plt.show()
          
-  
+    def minutesInGraph(self):
+        dateTime = datetime.now()
+        timeSecond = 60 - dateTime.second
+        while self.conts != 60:
+            print(self.conts)
+            print(timeSecond)
+            time.sleep(timeSecond)
+            self.conts += 1
+        
+        
+        
+        
+            
