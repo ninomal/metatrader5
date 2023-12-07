@@ -23,7 +23,6 @@ def main():
     #ui.allGraph()
     #ui.graphIntraDay()  
     #ui.uiBar()
-    ui.minutesInGraph()
     print()
     #services.sell()
     #services.buy()
