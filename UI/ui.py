@@ -43,13 +43,21 @@ class UI(ProductsServices):
             else:
                 reList.append(number)
         return reList
-       
+         
     def showGraphBar(self, position , pvol, time): 
         plt.bar(position, pvol, width= 0.4) 
         self.redBarGraph(pvol, position)   
         plt.xticks(position, time, rotation = 90)
         plt.title('Volume graph')      
-            
+     
+    def allRedBar(self, pvol, position):
+        pvolSorted = sorted(pvol)
+        redbar = self.redBar(pvol, pvolSorted)
+        redbarFilter = list(map(lambda n : n !=0 , redbar))    
+        for red in redbarFilter:
+            print(red)
+        
+        
     def redBarGraph(self, pvol, position):
         pvolSorted = sorted(pvol)
         redbar = self.redBar(pvol, pvolSorted) 
@@ -108,7 +116,7 @@ class UI(ProductsServices):
     @cache    
     def graphIntraDay(self):
         plt.subplots(layout='constrained', figsize = (50 , 6))
-        maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 2
+        maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 3
         totalFrame = (len(self.pvol) /50) 
         print(maxindex)
         plt.ion() 
@@ -120,7 +128,6 @@ class UI(ProductsServices):
                 times = self.maxIndex(self.time, self.conts)
                 self.uiBar(pvols, times)
                 self.conts +=1
-                print(self.conts)
             self.lastGraph('off')
         else:
             self.minutesInGraph()

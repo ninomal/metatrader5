@@ -21,7 +21,7 @@ def main():
     ui = UI(mt5)
     #ui.lastGraph('true')
     #ui.allGraph()
-    #ui.graphIntraDay()  
+    ui.graphIntraDay()  
     #ui.uiBar()
     print()
     #services.sell()
