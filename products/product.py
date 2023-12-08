@@ -69,7 +69,7 @@ class Products:
        day_now_conv = day_now.item()
        return day_now_conv
        
-       
+
         
 
        

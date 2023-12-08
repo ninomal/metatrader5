@@ -32,7 +32,7 @@ class UI(ProductsServices):
         plt.cla()
         plt.clf()              
         self.showGraphBar(self.POSITION, pvol, time)
-        plt.pause(2)        
+        plt.pause(20)        
                
     def redBar(self, x, sort):
         maxLen = len(sort)
@@ -49,24 +49,27 @@ class UI(ProductsServices):
         self.redBarGraph(pvol, position)   
         plt.xticks(position, time, rotation = 90)
         plt.title('Volume graph')      
-     
-    def allRedBar(self):
-        pvols = self.addListDynamics(self.pvol)
-        times = self.addListDynamics(self.time)
-        pvolSorted = sorted(pvols)
-        timeSorted = sorted(times)
-        pvolSliced = pvolSorted[:50]
-        timeSlice =  timeSorted[:50]
-        plt.bar(self.POSITION, pvolSliced, width= 0.4)
-        plt.xticks(self.POSITION,timeSlice, rotation = 90)
-        plt.title('Volume graph')
-        
-               
+                 
     def redBarGraph(self, pvol, position):
         pvolSorted = sorted(pvol)
         redbar = self.redBar(pvol, pvolSorted) 
         plt.bar(position, redbar, color = 'red', width = 0.4)
         plt.yticks(pvol)
+    
+    def allRedBar(self):
+        plt.subplots(layout='constrained', figsize = (50 , 6))
+        pass
+        #pvolSliced = pvolSorted[:50] 
+        #timeSlice =  timeSorted[:50]
+        #self.uiBar(pvolSliced, timeSlice)
+        
+    def sortedRedBar(self):
+        pvols = self.pvol
+        times = self.time
+        pvolSorted = sorted(pvols, reverse= True)
+        timeSorted = times #<-fix here
+        print(pvolSorted)
+        print(timeSorted)
     
     @cache
     def lastGraph(self, switch):
