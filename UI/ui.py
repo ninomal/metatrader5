@@ -50,14 +50,18 @@ class UI(ProductsServices):
         plt.xticks(position, time, rotation = 90)
         plt.title('Volume graph')      
      
-    def allRedBar(self, pvol, position):
-        pvolSorted = sorted(pvol)
-        redbar = self.redBar(pvol, pvolSorted)
-        redbarFilter = list(map(lambda n : n !=0 , redbar))    
-        for red in redbarFilter:
-            print(red)
+    def allRedBar(self):
+        pvols = self.addListDynamics(self.pvol)
+        times = self.addListDynamics(self.time)
+        pvolSorted = sorted(pvols)
+        timeSorted = sorted(times)
+        pvolSliced = pvolSorted[:50]
+        timeSlice =  timeSorted[:50]
+        plt.bar(self.POSITION, pvolSliced, width= 0.4)
+        plt.xticks(self.POSITION,timeSlice, rotation = 90)
+        plt.title('Volume graph')
         
-        
+               
     def redBarGraph(self, pvol, position):
         pvolSorted = sorted(pvol)
         redbar = self.redBar(pvol, pvolSorted) 
