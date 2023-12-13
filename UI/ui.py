@@ -59,9 +59,11 @@ class UI(ProductsServices):
     def allRedBar(self):
         plt.subplots(layout='constrained', figsize = (50 , 6))
         pass
-        #pvolSliced = pvolSorted[:50] 
-        #timeSlice =  timeSorted[:50]
-        #self.uiBar(pvolSliced, timeSlice)
+        pvolSorted = self.sortedRedBar()
+        pvolSliced = pvolSorted[:50]
+        timeDic = self.convertToDic()
+        timeSorted = list(map(lambda n : timeDic[n] , pvolSliced))
+        self.uiBar(pvolSliced, timeSorted)
         
     def sortedRedBar(self):
         pvols = self.pvol
