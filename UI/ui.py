@@ -65,15 +65,18 @@ class UI(ProductsServices):
         
     def sortedRedBar(self):
         pvols = self.pvol
-        times = self.dataTime()
-        teste = self.convertToDict(pvols, times)
-        print(teste)
         pvolSorted = sorted(pvols, reverse= True)
-        timeSorted = times 
+        return pvolSorted
+        
+    def convertToDic(self):
+        pvols = self.pvol
+        times = self.dataTime()
+        sortedDic = self.convertToDict(pvols, times)
+        return sortedDic
         
         
     def convertToDict(self, list, list2):
-        res_dct = map(lambda i: (list[i], list2[i]), range(len(list)-1)[::])
+        res_dct = map(lambda i: (list[i], list2[i]), range(len(list))[::])
         return dict(res_dct)
     
     @cache
