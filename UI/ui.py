@@ -43,19 +43,20 @@ class UI(ProductsServices):
             else:
                 reList.append(number)
         return reList
-         
+     
     def showGraphBar(self, position , pvol, time): 
         plt.bar(position, pvol, width= 0.4) 
         self.redBarGraph(pvol, position)   
         plt.xticks(position, time, rotation = 90)
         plt.title('Volume graph')      
-                 
+                
     def redBarGraph(self, pvol, position):
         pvolSorted = sorted(pvol)
         redbar = self.redBar(pvol, pvolSorted) 
         plt.bar(position, redbar, color = 'red', width = 0.4)
         plt.yticks(pvol)
     
+    @cache
     def allRedBar(self):
         plt.subplots(layout='constrained', figsize = (50 , 6))
         pass
@@ -64,20 +65,21 @@ class UI(ProductsServices):
         timeDic = self.convertToDic()
         timeSorted = list(map(lambda n : timeDic[n] , pvolSliced))
         self.uiBar(pvolSliced, timeSorted)
-        
+    
+    @cache   
     def sortedRedBar(self):
         pvols = self.pvol
         pvolSorted = sorted(pvols, reverse= True)
         return pvolSorted
-        
+    
+    @cache   
     def convertToDic(self):
         pvols = self.pvol
         times = self.dataTime()
-        sortedDic = self.convertToDict(pvols, times)
+        sortedDic = self.convertToDictLam(pvols, times)
         return sortedDic
-        
-        
-    def convertToDict(self, list, list2):
+              
+    def convertToDictLam(self, list, list2):
         res_dct = map(lambda i: (list[i], list2[i]), range(len(list))[::])
         return dict(res_dct)
     
