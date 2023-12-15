@@ -39,7 +39,7 @@ ui.graphIntraDay()
 current graph of day
 
 ui.allRedBar()
-
+![telallred](https://github.com/ninomal/metatrader5/assets/137447782/a98103e2-fd7c-4f44-bf4d-020a7c87bae2)
 watch all highest volume in 1000 candles 
 
 #TECHNOLOGIES
