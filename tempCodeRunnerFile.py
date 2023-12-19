@@ -1,1 +1,4 @@
-ui.allRedBar()
+
+    #ui.uiBar()
+    #ui.allRedBar()
+    print()

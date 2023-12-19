@@ -59,7 +59,6 @@ class UI(ProductsServices):
     @cache
     def allRedBar(self):
         plt.subplots(layout='constrained', figsize = (50 , 6))
-        pass
         pvolSorted = self.sortedRedBar()
         pvolSliced = pvolSorted[:50]
         timeDic = self.convertToDic()
