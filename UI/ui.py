@@ -82,6 +82,25 @@ class UI(ProductsServices):
         res_dct = map(lambda i: (list[i], list2[i]), range(len(list))[::])
         return dict(res_dct)
     
+    def sortedRedBarIntraday(self):
+        plt.subplots(layout='constrained', figsize = (50 , 6))
+        maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 3
+        totalFrame = (len(self.pvol) /50) 
+        print(maxindex)
+        plt.ion() 
+        if maxindex < 1:
+            self.minutesInGraph()
+        elif maxindex < totalFrame:
+            while self.conts < maxindex:
+                #here
+                #elf.uiBar(pvols, times)
+                self.conts +=1
+            self.lastGraph('off')
+        else:
+            self.minutesInGraph()
+        plt.ioff()   
+        plt.show()
+      
     @cache
     def lastGraph(self, switch):
         if switch == 'true':
@@ -160,6 +179,7 @@ class UI(ProductsServices):
             time.sleep(timeSecond)
             self.conts += 1
             
+    
             
         
         

@@ -4,7 +4,7 @@ import time
 from datetime import datetime
 from functools import cache
 
-ASSET = "WINZ23" #name of market
+ASSET = "WING24" #name of market
 POS = 0  #position bar
 COUNT = 0 #position count 
 
@@ -26,14 +26,12 @@ class Products:
         date =self.mt5.copy_rates_from_pos(self.SYMBOL,self.TIMEFRAME, self.POS, count)
         dateDf = pd.DataFrame(date)
         dateConvDf = self.convertDateHour(dateDf)
-        print(dateConvDf)
         #dateConvDf.set_index('time', inplace=True) 
         return dateConvDf 
     
     def tOtimeFrame(self):
         df = pd.DataFrame(self.colectDate())
         df['time'] = df['time']
-        #print(df['time'])
         return df
     @cache          
     def dateTime(self):
