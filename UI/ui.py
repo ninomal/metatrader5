@@ -61,7 +61,7 @@ class UI(ProductsServices):
         plt.subplots(layout='constrained', figsize = (50 , 6))
         pvolSorted = self.sortedRedBar()
         pvolSliced = pvolSorted[:50]
-        timeDic = self.convertToDic()
+        timeDic = self.convertToDic(self.pvol, self.dataTime())
         timeSorted = list(map(lambda n : timeDic[n] , pvolSliced))
         self.uiBar(pvolSliced, timeSorted)
     
@@ -70,11 +70,8 @@ class UI(ProductsServices):
         pvols = self.pvol
         pvolSorted = sorted(pvols, reverse= True)
         return pvolSorted
-    
-    @cache   
-    def convertToDic(self):
-        pvols = self.pvol
-        times = self.dataTime()
+      
+    def convertToDic(self, pvols , times):
         sortedDic = self.convertToDictLam(pvols, times)
         return sortedDic
               
@@ -86,14 +83,16 @@ class UI(ProductsServices):
         plt.subplots(layout='constrained', figsize = (50 , 6))
         maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 3
         totalFrame = (len(self.pvol) /50) 
-        print(maxindex)
         plt.ion() 
         if maxindex < 1:
             self.minutesInGraph()
         elif maxindex < totalFrame:
             while self.conts < maxindex:
-                #here
-                #elf.uiBar(pvols, times)
+                pvolsNotConv = self.maxIndex(self.pvol, self.conts)
+                pvolSliced = pvolsNotConv[:50]
+                timeDic = self.convertToDic(self.pvol, self.dataTime())
+                timeSorted = list(map(lambda n : timeDic[n] , pvolSliced))
+                self.uiBar(pvolSliced, timeSorted)
                 self.conts +=1
             self.lastGraph('off')
         else:
@@ -155,7 +154,6 @@ class UI(ProductsServices):
         plt.subplots(layout='constrained', figsize = (50 , 6))
         maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 3
         totalFrame = (len(self.pvol) /50) 
-        print(maxindex)
         plt.ion() 
         if maxindex < 1:
             self.minutesInGraph()
