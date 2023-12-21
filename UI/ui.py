@@ -80,7 +80,6 @@ class UI(ProductsServices):
         return dict(res_dct)
     
     def sortedRedBarIntraday(self):
-        plt.subplots(layout='constrained', figsize = (50 , 6))
         maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 3
         totalFrame = (len(self.pvol) /50) 
         plt.ion() 
@@ -89,7 +88,8 @@ class UI(ProductsServices):
         elif maxindex < totalFrame:
             while self.conts < maxindex:
                 pvolsNotConv = self.maxIndex(self.pvol, self.conts)
-                pvolSliced = pvolsNotConv[:50]
+                pvolsSorted = sorted(pvolsNotConv, reverse='True')
+                pvolSliced = pvolsSorted[:50]
                 timeDic = self.convertToDic(self.pvol, self.dataTime())
                 timeSorted = list(map(lambda n : timeDic[n] , pvolSliced))
                 self.uiBar(pvolSliced, timeSorted)
@@ -151,7 +151,6 @@ class UI(ProductsServices):
     
     @cache    
     def graphIntraDay(self):
-        plt.subplots(layout='constrained', figsize = (50 , 6))
         maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 3
         totalFrame = (len(self.pvol) /50) 
         plt.ion() 
