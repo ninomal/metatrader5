@@ -80,23 +80,33 @@ class UI(ProductsServices):
         return dict(res_dct)
     
     def sortedRedBarIntraday(self):
+        plt.subplots(layout='constrained', figsize = (50 , 6))
         maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 3
         totalFrame = (len(self.pvol) /50) 
+        index = self.dayForconvert()
         plt.ion() 
-        if maxindex < 1:
-            self.minutesInGraph()
-        elif maxindex < totalFrame:
-            while self.conts < maxindex:
-                pvolsNotConv = self.maxIndex(self.pvol, self.conts)
-                pvolsSorted = sorted(pvolsNotConv, reverse='True')
-                pvolSliced = pvolsSorted[:50]
+        if (len(self.pvol) - index) <1:
+            print("autoes")
+            pass
+        elif maxindex < totalFrame :
+            while self.conts > maxindex:
+                teste = index +50
+                pvolsNotConv = self.pvol[index:teste]
+                print(len(pvolsNotConv))
+                print(pvolsNotConv)
+                pvolsSorted = sorted(pvolsNotConv, reverse=True)
+                print(pvolsSorted)
                 timeDic = self.convertToDic(self.pvol, self.dataTime())
-                timeSorted = list(map(lambda n : timeDic[n] , pvolSliced))
-                self.uiBar(pvolSliced, timeSorted)
+                timeSorted = list(map(lambda n : timeDic[n] , pvolsSorted))
+                print(pvolsSorted)
+                print("bbbb")
+                print(pvolsNotConv)
+                self.uiBar(pvolsSorted, timeSorted)
                 self.conts +=1
             self.lastGraph('off')
         else:
-            self.minutesInGraph()
+            while self.conts == 50:
+                pass
         plt.ioff()   
         plt.show()
       
