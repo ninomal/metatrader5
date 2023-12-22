@@ -85,10 +85,20 @@ class UI(ProductsServices):
         maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 3
         totalFrame = (len(self.pvol) /50) 
         index = self.dayForconvert()
+        firstFifty = 0
         plt.ion() 
         if (len(self.pvol) - index) <1:
-            #need first or null
-            pass
+            while firstFifty != 50:
+                pvolsNull = self.pvol[index:indexPlus]
+                pvolsNotConv = self.addListDynamics(pvolsNull)
+                pvolsSorted = sorted(pvolsNotConv, reverse=True)
+                timeDic = self.convertToDic(self.pvol, self.dataTime())
+                timeSorted = list(map(lambda n : timeDic[n] , pvolsSorted))
+                self.uiBar(pvolsSorted, timeSorted)
+                dateTime = datetime.now()
+                timeSecond = 60.0 - dateTime.second 
+                time.sleep(timeSecond)
+                firstFifty += 1
         elif maxindex < totalFrame :
             #need implemnts second round
             while self.conts < maxindex:
