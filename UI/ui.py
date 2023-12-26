@@ -81,7 +81,7 @@ class UI(ProductsServices):
     
     def sortedRedBarIntraday(self):
         plt.subplots(layout='constrained', figsize = (50 , 6))
-        maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 3
+        maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 1
         totalFrame = (len(self.pvol) /50) 
         index = self.dayForconvert()
         indexPlus = index + 50
@@ -103,22 +103,18 @@ class UI(ProductsServices):
                 time.sleep(timeSecond)
                 firstFifty += 1
         elif maxindex < totalFrame :
-            #need implemnts second round
-            while self.conts < maxindex:
+            while self.conts != 20:
                 indexPlus = index +50
                 pvolsNotConv = self.pvol[index:indexPlus]
                 pvolsSorted = sorted(pvolsNotConv, reverse=True)
-                print(pvolsSorted)
                 timeDic = self.convertToDic(self.pvol, self.dataTime())
                 timeSorted = list(map(lambda n : timeDic[n] , pvolsSorted))
                 self.uiBar(pvolsSorted, timeSorted)
                 self.conts +=1
                 timeSecond = 60.0 - dateTime.second 
                 time.sleep(timeSecond)
-            self.lastGraph('off')
         else:
-            while self.conts == 50:
-                pass
+            print("data error")
         plt.ioff()   
         plt.show()
       
