@@ -79,18 +79,21 @@ class UI(ProductsServices):
         res_dct = map(lambda i: (list[i], list2[i]), range(len(list))[::])
         return dict(res_dct)
     
-    @cache
     def sortedRedBarIntraday(self):
         plt.subplots(layout='constrained', figsize = (50 , 6))
         maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 3
         totalFrame = (len(self.pvol) /50) 
         index = self.dayForconvert()
+        indexPlus = index + 50
         firstFifty = 0
         plt.ion() 
-        if (len(self.pvol) - index) <1:
+        if (len(self.pvol) - index) <50:
             while firstFifty != 50:
                 pvolsNull = self.pvol[index:indexPlus]
+                print(len(pvolsNull))
                 pvolsNotConv = self.addListDynamics(pvolsNull)
+                print(pvolsNotConv)
+                print(len(pvolsNotConv))
                 pvolsSorted = sorted(pvolsNotConv, reverse=True)
                 timeDic = self.convertToDic(self.pvol, self.dataTime())
                 timeSorted = list(map(lambda n : timeDic[n] , pvolsSorted))
@@ -105,10 +108,13 @@ class UI(ProductsServices):
                 indexPlus = index +50
                 pvolsNotConv = self.pvol[index:indexPlus]
                 pvolsSorted = sorted(pvolsNotConv, reverse=True)
+                print(pvolsSorted)
                 timeDic = self.convertToDic(self.pvol, self.dataTime())
                 timeSorted = list(map(lambda n : timeDic[n] , pvolsSorted))
                 self.uiBar(pvolsSorted, timeSorted)
                 self.conts +=1
+                timeSecond = 60.0 - dateTime.second 
+                time.sleep(timeSecond)
             self.lastGraph('off')
         else:
             while self.conts == 50:
