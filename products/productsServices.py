@@ -3,6 +3,7 @@ from products.product import Products
 import pandas as pd
 from functools import cache
 import time
+from datetime import datetime
 
 class ProductsServices:
        
@@ -98,4 +99,14 @@ class ProductsServices:
     def dayForconvert(self):
         return self.Products.current_day()
         
+    def timeSleepNow(self):
+        dateTime = datetime.now()
+        timeSecond = 60.0 - dateTime.second 
+        time.sleep(timeSecond)
+
+    def sortedDic(self, pvolsValue):
+        pvolsSorted = sorted(pvolsValue, reverse=True)
+        timeDic = self.convertToDic(self.pvol, self.dataTime())
+        timeSorted = list(map(lambda n : timeDic[n] , pvolsSorted))
+        return timeSorted
    

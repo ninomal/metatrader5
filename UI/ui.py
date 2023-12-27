@@ -86,21 +86,25 @@ class UI(ProductsServices):
         index = self.dayForconvert()
         indexPlus = index + 50
         firstFifty = 0
+        x = 0
         plt.ion() 
         if (len(self.pvol) - index) <50:
             while firstFifty != 50:
                 pvolsNull = self.pvol[index:indexPlus]
-                print(len(pvolsNull))
                 pvolsNotConv = self.addListDynamics(pvolsNull)
-                print(pvolsNotConv)
-                print(len(pvolsNotConv))
                 pvolsSorted = sorted(pvolsNotConv, reverse=True)
-                timeDic = self.convertToDic(self.pvol, self.dataTime())
-                timeSorted = list(map(lambda n : timeDic[n] , pvolsSorted))
+                if pvolsSorted[firstFifty] != 0:
+                    timeDic = self.convertToDic(self.pvol, self.dataTime())
+                    pvolsSortedFilter = list(filter(lambda n : n != 0 , pvolsSorted))
+                    timeSorted = list(map(lambda n : timeDic[n] , pvolsSortedFilter))
+                    dateTime = datetime.now()
+                    minuts = dateTime.minute - 50
+                    for i in minuts:
+                        timeSorted.append(0)
+                elif pvolsSorted[firstFifty] == 0 :
+                    print("test")
                 self.uiBar(pvolsSorted, timeSorted)
-                dateTime = datetime.now()
-                timeSecond = 60.0 - dateTime.second 
-                time.sleep(timeSecond)
+                self.timeSleepNow()
                 firstFifty += 1
         elif maxindex < totalFrame :
             while self.conts != 20:
@@ -111,8 +115,7 @@ class UI(ProductsServices):
                 timeSorted = list(map(lambda n : timeDic[n] , pvolsSorted))
                 self.uiBar(pvolsSorted, timeSorted)
                 self.conts +=1
-                timeSecond = 60.0 - dateTime.second 
-                time.sleep(timeSecond)
+                self.timeSleepNow()
         else:
             print("data error")
         plt.ioff()   
