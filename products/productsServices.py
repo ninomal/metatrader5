@@ -104,9 +104,8 @@ class ProductsServices:
         timeSecond = 60.0 - dateTime.second 
         time.sleep(timeSecond)
 
-    def sortedDic(self, pvolsValue):
-        pvolsSorted = sorted(pvolsValue, reverse=True)
-        timeDic = self.convertToDic(self.pvol, self.dataTime())
-        timeSorted = list(map(lambda n : timeDic[n] , pvolsSorted))
-        return timeSorted
-   
+    #force volume in buy and sell
+    def mfi(self):
+        mfiDataFrame = ta.mfi(self.selectBar('high'), self.selectBar('close'), self.selectBar('volum'))
+        print(mfiDataFrame)
+    

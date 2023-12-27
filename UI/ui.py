@@ -150,7 +150,6 @@ class UI(ProductsServices):
         plt.ioff()   
         plt.show()
     
-    #fix data input
     @cache 
     def allGraph(self):
         plt.subplots(layout='constrained', figsize = (50 , 6))
