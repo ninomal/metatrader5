@@ -84,6 +84,8 @@ class UI(ProductsServices):
         maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 1
         totalFrame = (len(self.pvol) /50) 
         firstFifty = 0
+        index = self.dayForconvert()
+        indexPlus = index + 50
         plt.ion() 
         if (len(self.pvol) - index) <50:
             while firstFifty != 50:

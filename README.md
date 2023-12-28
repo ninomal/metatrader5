@@ -42,6 +42,10 @@ ui.allRedBar()
 ![telallred](https://github.com/ninomal/metatrader5/assets/137447782/a98103e2-fd7c-4f44-bf4d-020a7c87bae2)
 watch all highest sorted volume in 1000 candles 
 
+ui.sortedRedBarIntraday()
+![sortedintra](https://github.com/ninomal/metatrader5/assets/137447782/d58a8633-aa55-405d-bbf9-547980c4e8a8)
+watch all highest sorted volume dynamic in day
+
 #TECHNOLOGIES
 
 [![NPM](https://img.shields.io/badge/PHYTON-blue)](https://www.python.org/)
