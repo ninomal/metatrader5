@@ -25,7 +25,7 @@ def main():
     #ui.graphIntraDay()  
     #ui.uiBar()
     #ui.allRedBar()
-    #ui.sortedRedBarIntraday()
+    ui.sortedRedBarIntraday()
     #productsService.mfi()
     print()
     #services.sell()

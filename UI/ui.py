@@ -200,6 +200,9 @@ class UI(ProductsServices):
             time.sleep(timeSecond)
             self.conts += 1
             
+    def PizzaGraphForce(self):
+        mfiData = self.mfi()
+        data = mfiData.to_frame()
     
             
         

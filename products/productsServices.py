@@ -77,7 +77,9 @@ class ProductsServices:
         return self.Products.timeSleepNow()
 
     #force volume in buy and sell
+    @cache
     def mfi(self):
-        mfiDataFrame = ta.mfi(self.selectBar('high'), self.selectBar('close'), self.selectBar('volum'))
-        print(mfiDataFrame)
+        mfiDataFrame = ta.mfi(self.selectBar('high'),self.selectBar('low'),
+                              self.selectBar('close'), self.selectBar('real_volume'))
+        return mfiDataFrame
     

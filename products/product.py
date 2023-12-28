@@ -33,6 +33,7 @@ class Products:
         df = pd.DataFrame(self.colectDate())
         df['time'] = df['time']
         return df
+    
     @cache          
     def dateTime(self):
         named_tuple = time.localtime() 
