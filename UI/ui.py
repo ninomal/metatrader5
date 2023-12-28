@@ -83,26 +83,28 @@ class UI(ProductsServices):
         plt.subplots(layout='constrained', figsize = (50 , 6))
         maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 1
         totalFrame = (len(self.pvol) /50) 
-        index = self.dayForconvert()
-        indexPlus = index + 50
         firstFifty = 0
-        x = 0
         plt.ion() 
         if (len(self.pvol) - index) <50:
             while firstFifty != 50:
+                index = self.dayForconvert()
+                indexPlus = index + 50
                 pvolsNull = self.pvol[index:indexPlus]
+                print(len(pvolsNull))
                 pvolsNotConv = self.addListDynamics(pvolsNull)
                 pvolsSorted = sorted(pvolsNotConv, reverse=True)
-                if pvolsSorted[firstFifty] != 0:
-                    timeDic = self.convertToDic(self.pvol, self.dataTime())
-                    pvolsSortedFilter = list(filter(lambda n : n != 0 , pvolsSorted))
-                    timeSorted = list(map(lambda n : timeDic[n] , pvolsSortedFilter))
-                    dateTime = datetime.now()
-                    minuts = dateTime.minute - 50
-                    for i in minuts:
-                        timeSorted.append(0)
-                elif pvolsSorted[firstFifty] == 0 :
-                    print("test")
+                timeDic = self.convertToDic(self.pvol, self.dataTime())
+                pvolsSortedFilter = list(filter(lambda n : n != 0 , pvolsSorted))
+                timeSorted = list(map(lambda n : timeDic[n] , pvolsSortedFilter))
+                dateTime = datetime.now()
+                minuts = 50 - dateTime.minute 
+                print(minuts)
+                print(len(timeSorted))
+                print(len(pvolsSorted))
+                print("sep")
+                for i in range(minuts):
+                    print(i)
+                    timeSorted.append(0)
                 self.uiBar(pvolsSorted, timeSorted)
                 self.timeSleepNow()
                 firstFifty += 1
