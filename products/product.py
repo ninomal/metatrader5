@@ -68,7 +68,53 @@ class Products:
        day_now_conv = day_now.item()
        return day_now_conv
        
-
+    def timeSleepNow(self):
+        dateTime = datetime.now()
+        timeSecond = 60.0 - dateTime.second 
+        time.sleep(timeSecond)
         
-
+    def dayGraph(self,  value):
+        day = self.current_day()  
+        index = 50
+        maxindex = index + day
+        values = value[day: maxindex]
+        return values
+    
+    def lastIndex(self, value): 
+        maxindex = len(value)
+        base = maxindex - 50
+        values = value[base: maxindex]
+        return values
+    
+    def lastIndex(self, value): 
+        maxindex = len(value)
+        base = maxindex - 50
+        values = value[base: maxindex]
+        return values
+    
+    # def max range not allow counts = '0'   
+    def maxIndex(self, value, counts):
+        index = 50
+        maxindex = index * counts 
+        base = maxindex - 50
+        values = value[base: maxindex]
+        return values
        
+    # for start day in graph                              
+    def addListDynamics(self, value):
+        dynamycList = [] 
+        for new in range(50):
+            if  new  < (len(value) -1):
+                dynamycList.append(value[new])
+            else:
+                dynamycList.append(0)
+        return dynamycList
+    
+    #convert dataframe in list eficient 
+    def convertToList(self, x):
+        lens = 0
+        xlist = []
+        while len(x) != lens:
+            xlist.append( x.loc[lens])
+            lens +=1 
+        return xlist

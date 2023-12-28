@@ -55,54 +55,26 @@ class ProductsServices:
         bar = self.Products.lastBar()
         return bar
     
-    #convert dataframe in list eficient 
     def convertToList(self, x):
-        lens = 0
-        xlist = []
-        while len(x) != lens:
-            xlist.append( x.loc[lens])
-            lens +=1 
-        return xlist
-             
-    # for start day in graph                              
+        return self.Products.convertToList(x)
+                                        
     def addListDynamics(self, value):
-        dynamycList = [] 
-        for new in range(50):
-            if  new  < (len(value) -1):
-                dynamycList.append(value[new])
-            else:
-                dynamycList.append(0)
-        return dynamycList
-
-    # def max range not allow counts = '0'      
+        return self.Products.addListDynamics(value)
+   
     def maxIndex(self, value, counts):
-        index = 50
-        maxindex = index * counts 
-        base = maxindex - 50
-        values = value[base: maxindex]
-        return values
+        return self.Products.maxIndex(value, counts)
         
     def lastIndex(self, value): 
-        maxindex = len(value)
-        base = maxindex - 50
-        values = value[base: maxindex]
-        return values
+        return self.Products.lastIndex(value)
     
-    #day graph
     def dayGraph(self,  value):
-        day = self.Products.current_day()  
-        index = 50
-        maxindex = index + day
-        values = value[day: maxindex]
-        return values
+        return self.Products.dayGraph(value)
         
     def dayForconvert(self):
         return self.Products.current_day()
         
     def timeSleepNow(self):
-        dateTime = datetime.now()
-        timeSecond = 60.0 - dateTime.second 
-        time.sleep(timeSecond)
+        return self.Products.timeSleepNow()
 
     #force volume in buy and sell
     def mfi(self):
