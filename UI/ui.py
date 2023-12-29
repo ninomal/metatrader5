@@ -89,8 +89,6 @@ class UI(ProductsServices):
         plt.ion() 
         if (len(self.pvol) - index) <50:
             while firstFifty != 50:
-                index = self.dayForconvert()
-                indexPlus = index + 50
                 pvolsNull = self.pvol[index:indexPlus]
                 print(len(pvolsNull))
                 pvolsNotConv = self.addListDynamics(pvolsNull)
@@ -109,6 +107,8 @@ class UI(ProductsServices):
                     timeSorted.append(0)
                 self.uiBar(pvolsSorted, timeSorted)
                 self.timeSleepNow()
+                index = self.dayForconvert()
+                indexPlus = index + 50
                 firstFifty += 1
         elif maxindex < totalFrame :
             while self.conts != 20:
@@ -202,8 +202,15 @@ class UI(ProductsServices):
             
     def PizzaGraphForce(self):
         mfiData = self.mfi()
-        data = mfiData.to_frame()
-    
+        dataFrame = mfiData.to_frame()
+        data = dataFrame.to_dict()
+        labels = "Buy", "Sell"
+        valueDic = {"Buy":0.0, "Sell":0.0} 
+        for i, y in data.items():
+            print("gg")
+            valueDic['Buy'] = y
+        print(valueDic)
+        
             
         
         

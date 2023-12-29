@@ -79,7 +79,11 @@ class ProductsServices:
     #force volume in buy and sell
     @cache
     def mfi(self):
-        mfiDataFrame = ta.mfi(self.selectBar('high'),self.selectBar('low'),
+        highNotConv = self.selectBar('high')
+        high = pd.to_numeric(highNotConv, downcast='float')
+        closeNotConv = self.selectBar('low')
+        close = pd.to_numeric(closeNotConv, downcast='float') 
+        mfiDataFrame = ta.mfi(high,closeNotConv,
                               self.selectBar('close'), self.selectBar('real_volume'))
         return mfiDataFrame
     
