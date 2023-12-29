@@ -205,12 +205,15 @@ class UI(ProductsServices):
         dataFrame = mfiData.to_frame()
         data = dataFrame.to_dict()
         labels = "Buy", "Sell"
-        valueDic = {"Buy":0.0, "Sell":0.0} 
-        for i, y in data.items():
-            print("gg")
-            valueDic['Buy'] = y
-        print(valueDic)
-        
+        valueBuy =[]
+        valueSell = [] 
+        for i in range(len(dataFrame)):
+            if data["MFI_14"][i] > 50.01:
+                valueBuy.append(data["MFI_14"][i])
+            else:
+                valueSell.append(data["MFI_14"][i])
+        print(len(valueSell))
+        print(len(valueBuy))
             
         
         
