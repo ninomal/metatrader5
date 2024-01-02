@@ -196,7 +196,7 @@ class UI(ProductsServices):
             time.sleep(timeSecond)
             self.conts += 1
             
-    def PizzaGraphForce(self):
+    def PizzaGraphData(self):
         mfiData = self.mfi()
         dataFrame = mfiData.to_frame()
         data = dataFrame.to_dict()
@@ -207,15 +207,14 @@ class UI(ProductsServices):
         for i in range(len(dataFrame)):
             if data["MFI_14"][i] > 50.01:
                 valueBuy.append(data["MFI_14"][i])
-            else:
+            elif data["MFI_14"][i] <= 50.00:
                 valueSell.append(data["MFI_14"][i])
-        print(len(valueSell))
-        print(len(valueBuy))
-        buy = sum(valueBuy) / 100 
-        sell = sum(valueSell) / 100
+            else :
+                pass
+        sell = (sum(valueSell))/1000
+        buy = (sum(valueBuy))/1000
         size.append(buy)
         size.append(sell)
-        print(size)
         self.PizzaGraphUI(size, labels)
             
     def PizzaGraphUI(self, date, labels):
@@ -224,6 +223,13 @@ class UI(ProductsServices):
         ax1.axis('on')
         plt.show()
     
+    def PizzaGraphForce(self):
+        maxindex = ((len(self.pvol)) /50) 
+        print(maxindex)
+        while self.conts < maxindex:
+            self.PizzaGraphData()
+            self.minutesInGraph()
+            self.conts += 1
         
         
             
