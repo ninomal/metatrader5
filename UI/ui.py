@@ -98,10 +98,6 @@ class UI(ProductsServices):
                 timeSorted = list(map(lambda n : timeDic[n] , pvolsSortedFilter))
                 dateTime = datetime.now()
                 minuts = 50 - dateTime.minute 
-                print(minuts)
-                print(len(timeSorted))
-                print(len(pvolsSorted))
-                print("sep")
                 for i in range(minuts):
                     print(i)
                     timeSorted.append(0)
@@ -207,6 +203,7 @@ class UI(ProductsServices):
         labels = "Buy", "Sell"
         valueBuy =[]
         valueSell = [] 
+        size = []
         for i in range(len(dataFrame)):
             if data["MFI_14"][i] > 50.01:
                 valueBuy.append(data["MFI_14"][i])
@@ -214,9 +211,19 @@ class UI(ProductsServices):
                 valueSell.append(data["MFI_14"][i])
         print(len(valueSell))
         print(len(valueBuy))
+        buy = sum(valueBuy) / 100 
+        sell = sum(valueSell) / 100
+        size.append(buy)
+        size.append(sell)
+        print(size)
+        self.PizzaGraphUI(size, labels)
             
-        
-        
+    def PizzaGraphUI(self, date, labels):
+        fig1, ax1 = plt.subplots()
+        ax1.pie(date, labels = labels, autopct = "%1.1f%%", shadow = True, startangle= 90)
+        ax1.axis('on')
+        plt.show()
+    
         
         
             
