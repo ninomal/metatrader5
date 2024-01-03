@@ -219,6 +219,9 @@ class UI(ProductsServices):
         plt.cla()
         plt.clf()
         self.PizzaGraphUI( size, labels, colors)
+        valueBuy.clear()
+        valueSell.clear()
+        size.clear()
             
     def PizzaGraphUI(self, date, labels, colors):
         plt.pie(date, labels = labels, autopct = "%1.1f%%", 

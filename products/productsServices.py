@@ -77,7 +77,6 @@ class ProductsServices:
         return self.Products.timeSleepNow()
 
     #force volume in buy and sell
-    @cache
     def mfi(self):
         highNotConv = self.selectBar('high')
         high = pd.to_numeric(highNotConv, downcast='float')
