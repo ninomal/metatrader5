@@ -201,6 +201,7 @@ class UI(ProductsServices):
         dataFrame = mfiData.to_frame()
         data = dataFrame.to_dict()
         labels = "Buy", "Sell"
+        colors = ["#0000ff","#FF0000"]
         valueBuy =[]
         valueSell = [] 
         size = []
@@ -215,21 +216,28 @@ class UI(ProductsServices):
         buy = (sum(valueBuy))/1000
         size.append(buy)
         size.append(sell)
-        self.PizzaGraphUI(size, labels)
+        plt.cla()
+        plt.clf()
+        self.PizzaGraphUI( size, labels, colors)
             
-    def PizzaGraphUI(self, date, labels):
-        fig1, ax1 = plt.subplots()
-        ax1.pie(date, labels = labels, autopct = "%1.1f%%", shadow = True, startangle= 90)
-        ax1.axis('on')
+    def PizzaGraphUI(self, date, labels, colors):
+        plt.pie(date, labels = labels, autopct = "%1.1f%%", 
+                shadow = True, startangle= 90, colors = colors)
+        plt.suptitle("Pizza volume graph")
+        plt.axis('on')
+         
+    def PizzaGraphForce(self):
+        maxindex = ((len(self.pvol)) /50)
+        plt.subplot()
+        plt.ion() 
+        while self.conts < maxindex:
+            dateTime = datetime.now()
+            timeSecond = 60.0 - dateTime.second
+            self.PizzaGraphData() 
+            plt.pause(timeSecond)
+            self.conts += 1
+        plt.ioff()   
         plt.show()
     
-    def PizzaGraphForce(self):
-        maxindex = ((len(self.pvol)) /50) 
-        print(maxindex)
-        while self.conts < maxindex:
-            self.PizzaGraphData()
-            self.minutesInGraph()
-            self.conts += 1
-        
         
             
