@@ -1,4 +1,1 @@
-
-    #ui.uiBar()
-    #ui.allRedBar()
-    print()
+ui.PizzaGraphForce()

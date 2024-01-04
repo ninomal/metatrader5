@@ -46,6 +46,10 @@ ui.sortedRedBarIntraday()
 ![sortedintra](https://github.com/ninomal/metatrader5/assets/137447782/d58a8633-aa55-405d-bbf9-547980c4e8a8)
 watch all highest sorted volume dynamic in day
 
+ui.PizzaGraphForce()
+![image](https://github.com/ninomal/metatrader5/assets/137447782/14543e90-d5fd-4501-a71c-a0c5a8362a47)
+watch sum of volum force in pizza graph dynamic
+
 #TECHNOLOGIES
 
 [![NPM](https://img.shields.io/badge/PHYTON-blue)](https://www.python.org/)
