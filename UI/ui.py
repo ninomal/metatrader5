@@ -120,7 +120,7 @@ class UI(ProductsServices):
             print("data error")
         plt.ioff()   
         plt.show()
-      
+     
     @cache
     def lastGraph(self, switch):
         if switch == 'true':
@@ -169,6 +169,7 @@ class UI(ProductsServices):
         plt.ioff()   
         plt.show()
     
+    #graph dynamic with redBar
     @cache    
     def graphIntraDay(self):
         maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 3
@@ -187,7 +188,7 @@ class UI(ProductsServices):
             self.minutesInGraph()
         plt.ioff()   
         plt.show()
-         
+    #calc minuts in real time    
     def minutesInGraph(self):
         dateTime = datetime.now()
         while self.conts != 60:
@@ -195,7 +196,8 @@ class UI(ProductsServices):
             self.lastGraph('true')
             time.sleep(timeSecond)
             self.conts += 1
-            
+     
+    #colect data im mfi dict convert in list       
     def PizzaGraphData(self):
         mfiData = self.mfi()
         dataFrame = mfiData.to_frame()
@@ -222,13 +224,14 @@ class UI(ProductsServices):
         valueBuy.clear()
         valueSell.clear()
         size.clear()
-            
+    
+    #set Pizza graph colors and params  
     def PizzaGraphUI(self, date, labels, colors):
         plt.pie(date, labels = labels, autopct = "%1.1f%%", 
                 shadow = True, startangle= 90, colors = colors)
         plt.suptitle("Pizza volume graph")
         plt.axis('on')
-         
+        
     def PizzaGraphForce(self):
         maxindex = ((len(self.pvol)) /50)
         plt.subplot()
@@ -242,5 +245,6 @@ class UI(ProductsServices):
         plt.ioff()   
         plt.show()
     
-        
+    def adGraph(self):
+        fig1 , ax1 = plt.subplots()
             

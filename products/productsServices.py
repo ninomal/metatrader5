@@ -76,13 +76,17 @@ class ProductsServices:
     def timeSleepNow(self):
         return self.Products.timeSleepNow()
 
-    #force volume in buy and sell
+    #(mfi)volume force in buy and sell 
     def mfi(self):
         highNotConv = self.selectBar('high')
         high = pd.to_numeric(highNotConv, downcast='float')
         closeNotConv = self.selectBar('low')
         close = pd.to_numeric(closeNotConv, downcast='float') 
         mfiDataFrame = ta.mfi(high,closeNotConv,
-                              self.selectBar('close'), self.selectBar('real_volume'))
+                            self.selectBar('close'), self.selectBar('real_volume'))
         return mfiDataFrame
     
+    def ad(self):
+        adData = ta.ad(self.selectBar('high'), self.selectBar('low')
+                       , self.selectBar('close'),  self.selectBar('real_volume'))
+        return adData
