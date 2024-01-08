@@ -90,3 +90,6 @@ class ProductsServices:
         adData = ta.ad(self.selectBar('high'), self.selectBar('low')
                        , self.selectBar('close'),  self.selectBar('real_volume'))
         return adData
+    
+    def teste(self):
+        help(ta.adosc)
