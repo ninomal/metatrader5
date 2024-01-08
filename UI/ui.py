@@ -246,8 +246,7 @@ class UI(ProductsServices):
         plt.show()
         
     def adGraphData(self):
-        fig1 , ax1 = plt.subplots(layout='constrained', figsize = (50 , 6))
-        fig1.subplots()
+        plt.subplots(layout='constrained', figsize = (50 , 6))
         ad = self.ad()
         maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 1
         totalFrame = (len(self.pvol) /50) 
@@ -258,7 +257,7 @@ class UI(ProductsServices):
         if (len(self.pvol) - index) <50:
             plt.ion()
             while firstFifty != 50:
-                adSlice = self.ad[index:indexPlus]
+                adSlice = ad[index:indexPlus]
                 print(len(adSlice))
                 adNotConv = self.addListDynamics(adSlice)
                 timeDic = self.convertToDic(self.pvol, self.dataTime())
@@ -272,16 +271,19 @@ class UI(ProductsServices):
                     timeList.append(0)
                 self.adGraph(adNotConv, timeList)
                 index = self.dayForconvert()
+                index = self.dayForconvert()
                 indexPlus = index + 50
                 firstFifty += 1
         elif maxindex < totalFrame :
             while self.conts != 20:
-                indexPlus = index +50
-                adIndex = self.pvol[index:indexPlus]
                 timeDic = self.convertToDic(self.pvol, self.dataTime())
                 timeList = list(map(lambda n : timeDic[n] , timeDic))
-                self.adGraph(adIndex, timeList)
+                timeIndex = timeList[index:indexPlus]
+                adIndex = ad[index:indexPlus]
+                self.adGraph(adIndex, timeIndex)
                 self.conts +=1
+                index = self.dayForconvert()
+                indexPlus = index + 50
         else:
             print("data error")
         plt.ioff()   
@@ -290,9 +292,11 @@ class UI(ProductsServices):
     def adGraph(self, data, time):
         plt.clf()
         plt.cla()
-        plt.plot(time)
+        #plt.scatter(range(len(data)),data)
         plt.xticks(self.POSITION, time, rotation = 90)    
+        plt.plot(data)
         plt.yticks(data)
         plt.title('AD graph') 
+        plt.pause(3)
         
             
