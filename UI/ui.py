@@ -260,16 +260,13 @@ class UI(ProductsServices):
             while firstFifty != 50:
                 adSlice = ad[index:indexPlus]
                 pvolTime = self.pvol[index:indexPlus]
-                print(len(adSlice))
                 for x in adSlice:
                         adList.append(x)    
                 timeDic = self.convertToDic(pvolTime, self.dataTime())
                 timeList= list(map(lambda n : timeDic[n] , timeDic))
                 dateTime = datetime.now()
                 minuts = 50 - dateTime.minute 
-                x = len(adSlice)
                 for x in range(minuts-1):
-                    print(x)
                     timeList.append(0)
                     adList.append(0)
                 self.adGraph(adList, timeList)
