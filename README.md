@@ -50,6 +50,13 @@ ui.PizzaGraphForce()
 ![image](https://github.com/ninomal/metatrader5/assets/137447782/14543e90-d5fd-4501-a71c-a0c5a8362a47)
 watch sum of volum force in pizza graph dynamic
 
+ui.adGraphData()
+![adgraph](https://github.com/ninomal/metatrader5/assets/137447782/57b61455-cfb9-4aa5-87b5-1f00a1f7733f)
+    Accumulation/Distribution indicator utilizes the relative position
+    of the close to it's High-Low range with volume.  Then it is cumulated.
+    Sources:
+        https://www.tradingtechnologies.com/help/x-study/technical-indicator-definitions/accumulationdistribution-ad/
+
 #TECHNOLOGIES
 
 [![NPM](https://img.shields.io/badge/PHYTON-blue)](https://www.python.org/)

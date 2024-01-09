@@ -253,24 +253,26 @@ class UI(ProductsServices):
         firstFifty = 0
         index = self.dayForconvert()
         indexPlus = index + 50
+        adList = []
         plt.ion() 
         if (len(self.pvol) - index) <50:
             plt.ion()
             while firstFifty != 50:
                 adSlice = ad[index:indexPlus]
+                pvolTime = self.pvol[index:indexPlus]
                 print(len(adSlice))
-                adNotConv = self.addListDynamics(adSlice)
-                timeDic = self.convertToDic(self.pvol, self.dataTime())
-                adNotConvFilter = list(filter(lambda n : n != 0 , adNotConv))
+                for x in adSlice:
+                        adList.append(x)    
+                timeDic = self.convertToDic(pvolTime, self.dataTime())
                 timeList= list(map(lambda n : timeDic[n] , timeDic))
                 dateTime = datetime.now()
                 minuts = 50 - dateTime.minute 
-                self.adGraph()
-                for i in range(minuts):
-                    print(i)
+                x = len(adSlice)
+                for x in range(minuts-1):
+                    print(x)
                     timeList.append(0)
-                self.adGraph(adNotConv, timeList)
-                index = self.dayForconvert()
+                    adList.append(0)
+                self.adGraph(adList, timeList)
                 index = self.dayForconvert()
                 indexPlus = index + 50
                 firstFifty += 1
@@ -292,9 +294,9 @@ class UI(ProductsServices):
     def adGraph(self, data, time):
         plt.clf()
         plt.cla()
-        #plt.scatter(range(len(data)),data)
+        plt.scatter(self.POSITION,data)
         plt.xticks(self.POSITION, time, rotation = 90)    
-        plt.plot(data)
+        plt.plot(self.POSITION, data)
         plt.yticks(data)
         plt.title('AD graph') 
         plt.pause(3)
