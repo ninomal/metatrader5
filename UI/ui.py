@@ -298,4 +298,45 @@ class UI(ProductsServices):
         plt.title('AD graph') 
         plt.pause(3)
         
-            
+    def eomGraph(self):  
+        plt.subplots(layout='constrained', figsize = (50 , 6))
+        eom= self.eom()
+        maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 1
+        totalFrame = (len(self.pvol) /50) 
+        firstFifty = 0
+        index = self.dayForconvert()
+        indexPlus = index + 50
+        eomList = []
+        plt.ion() 
+        if (len(self.pvol) - index) <50:
+            plt.ion()
+            while firstFifty != 50:
+                eomSlice = eom[index:indexPlus]
+                pvolTime = self.pvol[index:indexPlus]
+                for x in eomSlice:
+                        eomList.append(x)    
+                timeDic = self.convertToDic(pvolTime, self.dataTime())
+                timeList= list(map(lambda n : timeDic[n] , timeDic))
+                dateTime = datetime.now()
+                minuts = 50 - dateTime.minute 
+                for x in range(minuts-1):
+                    timeList.append(0)
+                    eomList.append(0)
+                self.adGraph(eomList, timeList)
+                index = self.dayForconvert()
+                indexPlus = index + 50
+                firstFifty += 1
+        elif maxindex < totalFrame :
+            while self.conts != 20:
+                timeDic = self.convertToDic(self.pvol, self.dataTime())
+                timeList = list(map(lambda n : timeDic[n] , timeDic))
+                timeIndex = timeList[index:indexPlus]
+                eomIndex = eom[index:indexPlus]
+                self.adGraph(eomIndex, timeIndex)
+                self.conts +=1
+                index = self.dayForconvert()
+                indexPlus = index + 50
+        else:
+            print("data error")
+        plt.ioff()   
+        plt.show()

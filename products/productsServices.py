@@ -91,5 +91,10 @@ class ProductsServices:
                        , self.selectBar('close'),  self.selectBar('real_volume'))
         return adData
     
+    def eom(self):
+        eomData = ta.eom(self.selectBar('high'), self.selectBar('low')
+                       , self.selectBar('close'),  self.selectBar('real_volume') )
+        return eomData
+    
     def teste(self):
-        help(ta.volume.pvol)
+        help(ta.eom)
