@@ -28,11 +28,18 @@ red candle for highest volume
 
 ui.allGraph()
 ![allgraph](https://github.com/ninomal/metatrader5/assets/137447782/0c3ff3f8-b172-4997-9cdc-25d5ae97ae8b)
-all day PVOL ,while no stop graph change in 5 seconds  
+all day PVOL ,while no stop graph change in 5 seconds 
+    Product of price and volume.
+    Calculation:
+        if signed:
+            pvol = signed_series(close, 1) * close * volume
+        else:
+            pvol = close * volume
 
 ui.lastGraph('true')
 ![lasstgraph](https://github.com/ninomal/metatrader5/assets/137447782/5ec7ade7-2981-406e-83a4-ba3c1221a764)
 last graph of day
+
 
 ui.graphIntraDay()
 ![intraday](https://github.com/ninomal/metatrader5/assets/137447782/11bcaa9c-9f4e-4c19-8a39-c4cb3c0620ab)
@@ -48,7 +55,10 @@ watch all highest sorted volume dynamic in day
 
 ui.PizzaGraphForce()
 ![image](https://github.com/ninomal/metatrader5/assets/137447782/14543e90-d5fd-4501-a71c-a0c5a8362a47)
-watch sum of volum force in pizza graph dynamic
+    Money Flow Index is an oscillator indicator that is used to measure buying and
+    selling pressure by utilizing both price and volume.
+    Sources:
+        https://www.tradingview.com/wiki/Money_Flow_(MFI)
 
 ui.adGraphData()
 ![adgraph](https://github.com/ninomal/metatrader5/assets/137447782/57b61455-cfb9-4aa5-87b5-1f00a1f7733f)
