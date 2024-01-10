@@ -245,7 +245,7 @@ class UI(ProductsServices):
         plt.ioff()   
         plt.show()
         
-    def adGraphData(self):
+    def adGraph(self):
         plt.subplots(layout='constrained', figsize = (50 , 6))
         ad = self.ad()
         maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 1
@@ -269,7 +269,7 @@ class UI(ProductsServices):
                 for x in range(minuts-1):
                     timeList.append(0)
                     adList.append(0)
-                self.adGraph(adList, timeList)
+                self.scatterLineGraph(adList, timeList)
                 index = self.dayForconvert()
                 indexPlus = index + 50
                 firstFifty += 1
@@ -279,16 +279,16 @@ class UI(ProductsServices):
                 timeList = list(map(lambda n : timeDic[n] , timeDic))
                 timeIndex = timeList[index:indexPlus]
                 adIndex = ad[index:indexPlus]
-                self.adGraph(adIndex, timeIndex)
+                self.scatterLineGraph(adIndex, timeIndex)
                 self.conts +=1
-                index = self.dayForconvert()
+                index +=50
                 indexPlus = index + 50
         else:
             print("data error")
         plt.ioff()   
         plt.show()
            
-    def adGraph(self, data, time):
+    def scatterLineGraph(self, data, time):
         plt.clf()
         plt.cla()
         plt.scatter(self.POSITION,data)
@@ -322,7 +322,7 @@ class UI(ProductsServices):
                 for x in range(minuts-1):
                     timeList.append(0)
                     eomList.append(0)
-                self.adGraph(eomList, timeList)
+                self.scatterLineGraph(eomList, timeList)
                 index = self.dayForconvert()
                 indexPlus = index + 50
                 firstFifty += 1
@@ -332,9 +332,9 @@ class UI(ProductsServices):
                 timeList = list(map(lambda n : timeDic[n] , timeDic))
                 timeIndex = timeList[index:indexPlus]
                 eomIndex = eom[index:indexPlus]
-                self.adGraph(eomIndex, timeIndex)
+                self.scatterLineGraph(eomIndex, timeIndex)
                 self.conts +=1
-                index = self.dayForconvert()
+                index +=50
                 indexPlus = index + 50
         else:
             print("data error")
