@@ -25,14 +25,14 @@ def main():
     #ui.graphIntraDay()  
     #ui.uiBar()
     #ui.allRedBar()
-    #ui.sortedRedBarIntraday()
+    ui.sortedRedBarIntraday()
     #productsService.mfi()
     print()
     #services.sell()
     #services.buy()
     #ui.PizzaGraphForce()
     #productsService.teste()
-    ui.adGraph()
+    #ui.adGraph()
     #ui.eomGraph()
     
 if __name__ == "__main__":

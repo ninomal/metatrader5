@@ -32,7 +32,7 @@ class UI(ProductsServices):
         plt.cla()
         plt.clf()              
         self.showGraphBar(self.POSITION, pvol, time)
-        plt.pause(20)        
+        plt.pause(2)        
                
     def redBar(self, x, sort):
         maxLen = len(sort)
@@ -107,15 +107,15 @@ class UI(ProductsServices):
                 indexPlus = index + 50
                 firstFifty += 1
         elif maxindex < totalFrame :
-            while self.conts != 20:
-                indexPlus = index +50
+            while self.conts != 12:
                 pvolsNotConv = self.pvol[index:indexPlus]
                 pvolsSorted = sorted(pvolsNotConv, reverse=True)
                 timeDic = self.convertToDic(self.pvol, self.dataTime())
                 timeSorted = list(map(lambda n : timeDic[n] , pvolsSorted))
                 self.uiBar(pvolsSorted, timeSorted)
                 self.conts +=1
-                self.timeSleepNow()
+                index += 50
+                indexPlus +=50
         else:
             print("data error")
         plt.ioff()   
@@ -247,6 +247,7 @@ class UI(ProductsServices):
         
     def adGraph(self):
         plt.subplots(layout='constrained', figsize = (50 , 6))
+        plt.title('AD graph')
         ad = self.ad()
         maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 1
         totalFrame = (len(self.pvol) /50) 
@@ -269,17 +270,17 @@ class UI(ProductsServices):
                 for x in range(minuts-1):
                     timeList.append(0)
                     adList.append(0)
-                self.scatterLineGraph(adList, timeList)
+                self.scatterLineGraph(adList, timeList, "AD GRAPH")
                 index = self.dayForconvert()
                 indexPlus = index + 50
                 firstFifty += 1
         elif maxindex < totalFrame :
-            while self.conts != 20:
+            while self.conts != 12:
                 timeDic = self.convertToDic(self.pvol, self.dataTime())
                 timeList = list(map(lambda n : timeDic[n] , timeDic))
                 timeIndex = timeList[index:indexPlus]
                 adIndex = ad[index:indexPlus]
-                self.scatterLineGraph(adIndex, timeIndex)
+                self.scatterLineGraph(adIndex, timeIndex, "AD GRAPH")
                 self.conts +=1
                 index +=50
                 indexPlus = index + 50
@@ -288,14 +289,14 @@ class UI(ProductsServices):
         plt.ioff()   
         plt.show()
            
-    def scatterLineGraph(self, data, time):
+    def scatterLineGraph(self, data, time, TITLE):
         plt.clf()
         plt.cla()
         plt.scatter(self.POSITION,data)
         plt.xticks(self.POSITION, time, rotation = 90)    
         plt.plot(self.POSITION, data)
         plt.yticks(data)
-        plt.title('AD graph') 
+        plt.title(TITLE)
         plt.pause(3)
         
     def eomGraph(self):  
@@ -322,21 +323,22 @@ class UI(ProductsServices):
                 for x in range(minuts-1):
                     timeList.append(0)
                     eomList.append(0)
-                self.scatterLineGraph(eomList, timeList)
+                self.scatterLineGraph(eomList, timeList, "EOM GRAPH")
                 index = self.dayForconvert()
                 indexPlus = index + 50
                 firstFifty += 1
         elif maxindex < totalFrame :
-            while self.conts != 20:
+            while self.conts != 12:
                 timeDic = self.convertToDic(self.pvol, self.dataTime())
                 timeList = list(map(lambda n : timeDic[n] , timeDic))
                 timeIndex = timeList[index:indexPlus]
                 eomIndex = eom[index:indexPlus]
-                self.scatterLineGraph(eomIndex, timeIndex)
+                self.scatterLineGraph(eomIndex, timeIndex, "EOM GRAPH")
                 self.conts +=1
                 index +=50
-                indexPlus = index + 50
+                indexPlus = index + 50        
         else:
-            print("data error")
-        plt.ioff()   
+            print("data error") 
+        plt.ioff() 
         plt.show()
+        

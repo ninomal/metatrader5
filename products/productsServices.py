@@ -97,4 +97,4 @@ class ProductsServices:
         return eomData
     
     def teste(self):
-        help(ta.eom)
+        help(ta.vp)

@@ -60,7 +60,7 @@ ui.PizzaGraphForce()
     Sources:
         https://www.tradingview.com/wiki/Money_Flow_(MFI)
 
-ui.adGraphData()
+ui.adGraph()
 ![adgraph](https://github.com/ninomal/metatrader5/assets/137447782/57b61455-cfb9-4aa5-87b5-1f00a1f7733f)
     Accumulation/Distribution indicator utilizes the relative position
     of the close to it's High-Low range with volume.  Then it is cumulated.
