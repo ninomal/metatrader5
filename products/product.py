@@ -86,13 +86,7 @@ class Products:
         base = maxindex - 50
         values = value[base: maxindex]
         return values
-    
-    def lastIndex(self, value): 
-        maxindex = len(value)
-        base = maxindex - 50
-        values = value[base: maxindex]
-        return values
-    
+       
     # def max range not allow counts = '0'   
     def maxIndex(self, value, counts):
         index = 50

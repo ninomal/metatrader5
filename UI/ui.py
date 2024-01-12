@@ -107,7 +107,7 @@ class UI(ProductsServices):
                 indexPlus = index + 50
                 firstFifty += 1
         elif maxindex < totalFrame :
-            while self.conts != 12:
+            while self.conts != 11:
                 pvolsNotConv = self.pvol[index:indexPlus]
                 pvolsSorted = sorted(pvolsNotConv, reverse=True)
                 timeDic = self.convertToDic(self.pvol, self.dataTime())
@@ -275,7 +275,7 @@ class UI(ProductsServices):
                 indexPlus = index + 50
                 firstFifty += 1
         elif maxindex < totalFrame :
-            while self.conts != 12:
+            while self.conts != 11:
                 timeDic = self.convertToDic(self.pvol, self.dataTime())
                 timeList = list(map(lambda n : timeDic[n] , timeDic))
                 timeIndex = timeList[index:indexPlus]
@@ -328,7 +328,9 @@ class UI(ProductsServices):
                 indexPlus = index + 50
                 firstFifty += 1
         elif maxindex < totalFrame :
-            while self.conts != 12:
+            while maxindex <= totalFrame:
+                print(maxindex)
+                print(totalFrame)
                 timeDic = self.convertToDic(self.pvol, self.dataTime())
                 timeList = list(map(lambda n : timeDic[n] , timeDic))
                 timeIndex = timeList[index:indexPlus]
@@ -336,7 +338,17 @@ class UI(ProductsServices):
                 self.scatterLineGraph(eomIndex, timeIndex, "EOM GRAPH")
                 self.conts +=1
                 index +=50
-                indexPlus = index + 50        
+                indexPlus = index + 50
+                maxindex += 1.03
+            while self.conts != 12 :
+                lastIndex = len(self.eom()) -50
+                eomSlice = eom[lastIndex:]
+                timeDic = self.convertToDic(self.pvol, self.dataTime())
+                timeList = list(map(lambda n : timeDic[n] , timeDic))
+                timeLastIndex = timeList[lastIndex:]
+                self.scatterLineGraph(eomSlice, timeLastIndex, "EOM GRAPH")   
+                print(self.conts)
+                self.conts += 1   
         else:
             print("data error") 
         plt.ioff() 

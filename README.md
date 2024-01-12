@@ -3,11 +3,11 @@
 [![NPM](https://img.shields.io/badge/Lincence-MIT-red)](https://github.com/ninomal/metatrader5/blob/main/LICENSE1)
 [![NPM](https://img.shields.io/badge/Lincence-MQL-green)](https://www.mql5.com/en/docs)
 
-#This project
+# This project
 
 This project is based on dynamic graphs for mql5;Tools for buy and sell and average media in pandas_ta
 
-#Functions
+# Functions
 
 First of all
 
@@ -71,13 +71,12 @@ ui.adGraph()
 ui.eomGraph()
 ![eom](https://github.com/ninomal/metatrader5/assets/137447782/151184f6-df44-4b04-a8a0-5056f553f991)
 Ease of Movement (EOM)
-
     Ease of Movement is a volume based oscillator that is designed to measure the
     relationship between price and volume flucuating across a zero line.
     Sources:
-        https://www.tradingview.com/wiki/Ease_of_Movement_(EOM)
-        https://www.motivewave.com/studies/ease_of_movement.htm
-        https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:ease_of_movement_emv
+    https://www.tradingview.com/wiki/Ease_of_Movement_(EOM)
+    https://www.motivewave.com/studies/ease_of_movement.htm
+    https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:ease_of_movement_emv
 
 
 #TECHNOLOGIES
