@@ -116,6 +116,7 @@ class UI(ProductsServices):
                 self.conts +=1
                 index += 50
                 indexPlus +=50
+                
         else:
             print("data error")
         plt.ioff()   
@@ -255,6 +256,7 @@ class UI(ProductsServices):
         index = self.dayForconvert()
         indexPlus = index + 50
         adList = []
+        next50 = True
         plt.ion() 
         if (len(self.pvol) - index) <50:
             plt.ion()
@@ -275,7 +277,7 @@ class UI(ProductsServices):
                 indexPlus = index + 50
                 firstFifty += 1
         elif maxindex < totalFrame :
-            while self.conts != 11:
+            while self.conts != 11 and next50 == True:
                 timeDic = self.convertToDic(self.pvol, self.dataTime())
                 timeList = list(map(lambda n : timeDic[n] , timeDic))
                 timeIndex = timeList[index:indexPlus]
@@ -284,6 +286,7 @@ class UI(ProductsServices):
                 self.conts +=1
                 index +=50
                 indexPlus = index + 50
+                next50 = bool(len(timeList) >= 50)
         else:
             print("data error")
         plt.ioff()   
@@ -308,6 +311,7 @@ class UI(ProductsServices):
         index = self.dayForconvert()
         indexPlus = index + 50
         eomList = []
+        next50 = True
         plt.ion() 
         if (len(self.pvol) - index) <50:
             plt.ion()
@@ -328,7 +332,7 @@ class UI(ProductsServices):
                 indexPlus = index + 50
                 firstFifty += 1
         elif maxindex < totalFrame :
-            while self.conts!= 11:
+            while self.conts!= 11 and next50 == True:
                 timeDic = self.convertToDic(self.pvol, self.dataTime())
                 timeList = list(map(lambda n : timeDic[n] , timeDic))
                 timeIndex = timeList[index:indexPlus]
@@ -337,7 +341,8 @@ class UI(ProductsServices):
                 self.conts +=1
                 index +=50
                 indexPlus = index + 50
-                print(self.conts)
+                next50 = bool(len(timeList) >= 50)
+                timeList.clear()
             if self.conts == 11:
                 timeIndex = timeList[index:indexPlus]
                 eomIndex = eom[index:indexPlus]
