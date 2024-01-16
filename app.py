@@ -30,10 +30,11 @@ def main():
     print()
     #services.sell()
     #services.buy()
-    #ui.PizzaGraphForce()
+    #ui.pizzaGraphForce()
     #productsService.teste()
     #ui.adGraph()
-    ui.eomGraph()
+    #ui.eomGraph()
+    ui.eomGraphNow()
     
 if __name__ == "__main__":
     main()

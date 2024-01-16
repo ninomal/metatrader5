@@ -199,7 +199,7 @@ class UI(ProductsServices):
             self.conts += 1
      
     #colect data im mfi dict convert in list       
-    def PizzaGraphData(self):
+    def pizzaGraphData(self):
         mfiData = self.mfi()
         dataFrame = mfiData.to_frame()
         data = dataFrame.to_dict()
@@ -221,13 +221,13 @@ class UI(ProductsServices):
         size.append(sell)
         plt.cla()
         plt.clf()
-        self.PizzaGraphUI( size, labels, colors)
+        self.pizzaGraphUI( size, labels, colors)
         valueBuy.clear()
         valueSell.clear()
         size.clear()
     
     #set Pizza graph colors and params  
-    def PizzaGraphUI(self, date, labels, colors):
+    def pizzaGraphUI(self, date, labels, colors):
         plt.pie(date, labels = labels, autopct = "%1.1f%%", 
                 shadow = True, startangle= 90, colors = colors)
         plt.suptitle("Pizza volume graph")
@@ -287,6 +287,7 @@ class UI(ProductsServices):
                 index +=50
                 indexPlus = index + 50
                 next50 = bool(len(timeList) >= 50)
+                timeList.clear()
         else:
             print("data error")
         plt.ioff()   
@@ -348,6 +349,43 @@ class UI(ProductsServices):
                 eomIndex = eom[index:indexPlus]
                 self.scatterLineGraph(eomIndex, timeIndex, "EOM GRAPH")
             while self.conts != 12 :
+                self.eomGraphNow()               
+        else:
+            print("data error") 
+        plt.ioff() 
+        plt.show()
+        
+    def eomGraphNow(self):
+        plt.subplots(layout='constrained', figsize = (50 , 6))
+        eom= self.eom()
+        maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 2
+        totalFrame = (len(self.pvol) /50) 
+        firstFifty = 0
+        index = self.dayForconvert()
+        indexPlus = index + 50
+        eomList = []
+        plt.ion() 
+        if (len(self.pvol) - index) <50:
+            plt.ion()
+            while firstFifty != 50:
+                eomSlice = eom[index:indexPlus]
+                pvolTime = self.pvol[index:indexPlus]
+                for x in eomSlice:
+                        eomList.append(x)    
+                timeDic = self.convertToDic(pvolTime, self.dataTime())
+                timeList= list(map(lambda n : timeDic[n] , timeDic))
+                dateTime = datetime.now()
+                minuts = 50 - dateTime.minute 
+                for x in range(minuts-1):
+                    timeList.append(0)
+                    eomList.append(0)
+                self.scatterLineGraph(eomList, timeList, "EOM GRAPH")
+                index = self.dayForconvert()
+                indexPlus = index + 50
+                firstFifty += 1
+            self.conts+= 1
+        else:
+            while self.conts != 12:
                 lastIndex = len(self.eom()) -50
                 eomSlice = eom[lastIndex:]
                 timeDic = self.convertToDic(self.pvol, self.dataTime())
@@ -356,8 +394,6 @@ class UI(ProductsServices):
                 self.scatterLineGraph(eomSlice, timeLastIndex, "EOM GRAPH")   
                 self.conts += 1   
                 self.timeSleepNow()
-        else:
-            print("data error") 
-        plt.ioff() 
-        plt.show()
-        
+                
+                
+                

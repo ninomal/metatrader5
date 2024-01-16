@@ -12,7 +12,7 @@ class ProductsServices:
         self.Products = Products(self.mt5)
         self.pd = pd
        
-    def  toTimeFrame(self):
+    def toTimeFrame(self):
         return self.Products.tOtimeFrame()
               
     #name for dateframes func    
