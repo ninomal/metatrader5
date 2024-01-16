@@ -34,7 +34,8 @@ def main():
     #productsService.teste()
     #ui.adGraph()
     #ui.eomGraph()
-    ui.eomGraphNow()
+    #ui.eomGraphNow()
+    ui.adGraphNow()
     
 if __name__ == "__main__":
     main()

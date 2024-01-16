@@ -288,11 +288,60 @@ class UI(ProductsServices):
                 indexPlus = index + 50
                 next50 = bool(len(timeList) >= 50)
                 timeList.clear()
+            plt.show()
         else:
             print("data error")
         plt.ioff()   
         plt.show()
-           
+        
+        
+    def adGraphNow(self):
+        plt.subplots(layout='constrained', figsize = (50 , 6))
+        ad = self.ad()
+        maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 2
+        totalFrame = (len(self.pvol) /50) 
+        firstFifty = 0
+        index = self.dayForconvert()
+        indexPlus = index + 50
+        adList = []
+        plt.ion() 
+        if (len(self.pvol) - index) <50:
+            plt.ion()
+            while firstFifty != 50:
+                eomSlice = ad[index:indexPlus]
+                pvolTime = self.pvol[index:indexPlus]
+                for x in eomSlice:
+                        adList.append(x)    
+                timeDic = self.convertToDic(pvolTime, self.dataTime())
+                timeList= list(map(lambda n : timeDic[n] , timeDic))
+                dateTime = datetime.now()
+                minuts = 50 - dateTime.minute 
+                for x in range(minuts-1):
+                    timeList.append(0)
+                    adList.append(0)
+                self.scatterLineGraph(adList, timeList, "EOM GRAPH")
+                index = self.dayForconvert()
+                indexPlus = index + 50
+                firstFifty += 1
+            self.conts+= 1
+        elif maxindex < totalFrame:
+            while self.conts != 12:
+                lastIndex = len(self.eom()) -50
+                adSlice = ad[lastIndex:]
+                print(lastIndex)
+                print(adSlice)
+                timeDic = self.convertToDic(self.pvol, self.dataTime())
+                timeList = list(map(lambda n : timeDic[n] , timeDic))
+                timeLastIndex = timeList[lastIndex:]
+                self.scatterLineGraph(adSlice, timeLastIndex, "EOM GRAPH")   
+                self.conts += 1   
+                self.timeSleepNow()
+            plt.show()       
+        else:
+            print("data error") 
+        plt.ioff() 
+        plt.show()
+    
     def scatterLineGraph(self, data, time, TITLE):
         plt.clf()
         plt.cla()
@@ -392,7 +441,8 @@ class UI(ProductsServices):
                 timeLastIndex = timeList[lastIndex:]
                 self.scatterLineGraph(eomSlice, timeLastIndex, "EOM GRAPH")   
                 self.conts += 1   
-                self.timeSleepNow()       
+                self.timeSleepNow()
+            plt.show()       
         else:
             print("data error") 
         plt.ioff() 

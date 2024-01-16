@@ -1,1 +1,1 @@
-ui.PizzaGraphForce()
+ui.eomGraphNow()
