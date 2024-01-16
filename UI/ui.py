@@ -347,9 +347,8 @@ class UI(ProductsServices):
             if self.conts == 11:
                 timeIndex = timeList[index:indexPlus]
                 eomIndex = eom[index:indexPlus]
-                self.scatterLineGraph(eomIndex, timeIndex, "EOM GRAPH")
-            while self.conts != 12 :
-                self.eomGraphNow()               
+                self.scatterLineGraph(eomIndex, timeIndex, "EOM GRAPH") 
+            self.eomGraphNow()               
         else:
             print("data error") 
         plt.ioff() 
@@ -384,7 +383,7 @@ class UI(ProductsServices):
                 indexPlus = index + 50
                 firstFifty += 1
             self.conts+= 1
-        else:
+        elif maxindex < totalFrame:
             while self.conts != 12:
                 lastIndex = len(self.eom()) -50
                 eomSlice = eom[lastIndex:]
@@ -393,7 +392,11 @@ class UI(ProductsServices):
                 timeLastIndex = timeList[lastIndex:]
                 self.scatterLineGraph(eomSlice, timeLastIndex, "EOM GRAPH")   
                 self.conts += 1   
-                self.timeSleepNow()
+                self.timeSleepNow()       
+        else:
+            print("data error") 
+        plt.ioff() 
+        plt.show()
                 
                 
                 
