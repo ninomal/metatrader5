@@ -67,6 +67,10 @@ ui.adGraph()
     Sources:
         https://www.tradingtechnologies.com/help/x-study/technical-indicator-definitions/accumulationdistribution-ad/
 
+ui.adGraphNow()
+![adnow](https://github.com/ninomal/metatrader5/assets/137447782/9c674dbe-740f-4bd7-90e3-aa729f5b94b0)
+    both ui.adGraph() then dynamic in real time
+
 
 ui.eomGraph()
 ![eom](https://github.com/ninomal/metatrader5/assets/137447782/151184f6-df44-4b04-a8a0-5056f553f991)
