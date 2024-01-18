@@ -9,7 +9,7 @@ class ProductsServices:
        
     def __init__(self, mt5):
         self.mt5 = mt5
-        self.Products = Products(self.mt5)
+        self.Products = Products(self.mt5, "1")
         self.pd = pd
        
     def toTimeFrame(self):

@@ -11,10 +11,9 @@ DEVIATION = 0
 
 #Services
 class Service():
-    def __init__(self, mt5):
+    def __init__(self, mt5, timeframe):
         self.mt5 = mt5
-        self.TIMEFRAME = self.mt5.TIMEFRAME_M1
-        #self.timeframe = timeframe implement
+        self.TIMEFRAME = timeframe
         self.buyOrders = 0
         self.sellOrders = 0
         

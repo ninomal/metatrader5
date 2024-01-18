@@ -5,17 +5,19 @@ import os
 from products import product 
 from products import productsServices
 from ui.ui import UI
+from enums import enumsTime
 
 os.system('cls')
 def main():    
     #Start
     mt5.initialize() 
-    #mt5.terminal_info() 
-    services = service.Service(mt5)
-    products = product.Products(mt5)
+    #mt5.terminal_info()                   
+    timeEnums = "1" #select time here, string type
+    services = service.Service(mt5, timeEnums)
+    products = product.Products(mt5, timeEnums)
     productsService = productsServices.ProductsServices(mt5)
     print()
- 
+    
     print(products.date_of_Day())
     #print(productsService.dayForconvert())
     #print(products.lastBar())
@@ -34,8 +36,8 @@ def main():
     #productsService.teste()
     #ui.adGraph()
     #ui.eomGraph()
-    #ui.eomGraphNow()
-    ui.adGraphNow()
+    ui.eomGraphNow()
+    #ui.adGraphNow()
     
 if __name__ == "__main__":
     main()

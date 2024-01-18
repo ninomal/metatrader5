@@ -3,20 +3,27 @@ import pandas as pd
 import time
 from datetime import datetime
 from functools import cache
+from enums import enumsTime
 
 ASSET = "WING24" #name of market
 POS = 0  #position bar
 COUNT = 0 #position count 
 
 class Products:
-    def __init__(self, mt5):
+    def __init__(self, mt5, timeFrames):
         self.mt5 = mt5
-        self.TIMEFRAME = self.mt5.TIMEFRAME_M1
+        self.timeFrames = timeFrames
+        self.TIMEFRAME = self.enumsTimeProducts()
         self.COUNT = COUNT
         self.SYMBOL = ASSET
         self.POS = POS
         self.daTime = self.dateTime()        
         self.dados = self.colectDate()
+        
+    def enumsTimeProducts(self):
+        enumsTimeIns = enumsTime.Timeframe(self.mt5, self.timeFrames)
+        enumsTimeProduct = enumsTimeIns.timeSelect()
+        return enumsTimeProduct
         
     def convertDateHour(self, df):
         df['time'] = pd.to_datetime(df['time'], unit ='s')
