@@ -5,12 +5,11 @@ from datetime import datetime
 from functools import cache
 from enums import enumsTime
 
-ASSET = "WING24" #name of market
 POS = 0  #position bar
 COUNT = 0 #position count 
 
 class Products:
-    def __init__(self, mt5, timeFramesStr):
+    def __init__(self, mt5, timeFramesStr, ASSET):
         self.mt5 = mt5
         self.timeFramesStr = timeFramesStr
         self.TIMEFRAME = self.enumsTimeProducts()

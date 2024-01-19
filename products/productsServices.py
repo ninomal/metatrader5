@@ -7,9 +7,9 @@ from datetime import datetime
 
 class ProductsServices:
        
-    def __init__(self, mt5, timeFrame):
+    def __init__(self, mt5, timeFrame, ASSET):
         self.mt5 = mt5
-        self.Products = Products(self.mt5, timeFrame)
+        self.Products = Products(self.mt5, timeFrame, ASSET)
         self.pd = pd
        
     def toTimeFrame(self):

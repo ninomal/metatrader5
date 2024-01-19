@@ -13,21 +13,27 @@ First of all
 
 Login in mt5 terminal
 
-change name of ASSETS in products >products.py ASSETS Constante
+change name of ASSETS in app
+![asset](https://github.com/ninomal/metatrader5/assets/137447782/c2de19df-ca85-48ca-9a51-c8d7f8284b53)
 
+
+change time 
 ![seletime](https://github.com/ninomal/metatrader5/assets/137447782/15f76c24-fe2d-4c1c-ac57-82bc0e491753)
-change time allowed:
+allowed
             Minuts: "1" "2" "3" "4" "5" "6" "10" "12" "15" "20" "30" 
             Hours : "1h" "2h"          
             Day: "1d" "2d"  
             week : "1w"                
             monthly : "1mon"
 
-runtime in ui graphs
+
+runtime in ui graphics
 
 ui> ui.py > uiBar > plt.pause(2 <-change here) 
 
 change start of market in products >products.py def current_day(self): change time in  day_raw = times.where(times== (day+' 9:00:00 <-here')).dropna()
+
+#Graphics
 
 Volume in indice 50 in graph
 red candle for highest volume 

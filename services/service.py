@@ -1,5 +1,5 @@
 from enums import enumsTime
-ATIVO = "WINV23" #name of market
+
 VOLUME = 1.0 #volume observe compatibility volume error change for 1.0 Demo version
 ONDAS = 20
 MAGIC = 12345
@@ -12,7 +12,8 @@ DEVIATION = 0
 
 #Services
 class Service():
-    def __init__(self, mt5, timeFramesStr):
+    def __init__(self, mt5, timeFramesStr, ASSET):
+        self.ASSET = ASSET
         self.mt5 = mt5
         self.timeFramesStr = timeFramesStr
         self.TIMEFRAME = self.enumsTimeProducts()
@@ -29,12 +30,12 @@ class Service():
         return symbol_info_tick_dict
     
     def buy(self):
-        preco = self.mt5.symbol_info_tick(ATIVO).ask
-        pontos = self.mt5.symbol_info(ATIVO).point
+        preco = self.mt5.symbol_info_tick(self.ASSET).ask
+        pontos = self.mt5.symbol_info(self.ASSET).point
         print(preco)
         request = ({
             "action": self.mt5.TRADE_ACTION_DEAL,
-            "symbol": ATIVO,
+            "symbol": self.ASSET,
             "volume": VOLUME,
             "type": self.mt5.ORDER_TYPE_BUY,
             "price": preco,
@@ -52,11 +53,11 @@ class Service():
         print(result)
 
     def sell(self):
-        preco = self.mt5.symbol_info_tick(ATIVO).bid
-        pontos = self.mt5.symbol_info(ATIVO).point
+        preco = self.mt5.symbol_info_tick(self.ASSET).bid
+        pontos = self.mt5.symbol_info(self.ASSET).point
         request = ({
             "action": self.mt5.TRADE_ACTION_DEAL,
-            "symbol": ATIVO,
+            "symbol": self.ASSET,
             "volume": VOLUME,
             "type": self.mt5.ORDER_TYPE_SELL,
             "price": preco,

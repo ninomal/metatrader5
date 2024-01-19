@@ -7,21 +7,23 @@ from products import productsServices
 from ui.ui import UI
 from enums import enumsTime
 
+ASSET = "WING24" #Change name of ASSETS HERE exemple :"WDOc1"
+
 os.system('cls')
 def main():    
     #Start
     mt5.initialize() 
     #mt5.terminal_info()                   
     selecTime = "1" #select time here, string type exp '2' or '3' 
-    products = product.Products(mt5, selecTime)
-    productsService = productsServices.ProductsServices(mt5, selecTime)
-    services = service.Service(mt5, selecTime)
+    products = product.Products(mt5, selecTime, ASSET)
+    productsService = productsServices.ProductsServices(mt5, selecTime, ASSET)
+    services = service.Service(mt5, selecTime, ASSET)
     print()
     
     print(products.date_of_Day())
     #print(productsService.dayForconvert())
     #print(products.lastBar())
-    ui = UI(mt5, selecTime)
+    ui = UI(mt5, selecTime, ASSET)
     #ui.lastGraph('true')
     #ui.allGraph()
     #ui.graphIntraDay()  
@@ -34,10 +36,10 @@ def main():
     #services.buy()
     #ui.pizzaGraphForce()
     #productsService.teste()
-    ui.adGraph()
+    #ui.adGraph()
     #ui.eomGraph()
     #ui.eomGraphNow()
-    #ui.adGraphNow()
+    ui.adGraphNow()
     
 if __name__ == "__main__":
     main()
