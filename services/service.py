@@ -1,3 +1,4 @@
+from enums import enumsTime
 ATIVO = "WINV23" #name of market
 VOLUME = 1.0 #volume observe compatibility volume error change for 1.0 Demo version
 ONDAS = 20
@@ -11,12 +12,18 @@ DEVIATION = 0
 
 #Services
 class Service():
-    def __init__(self, mt5, timeframe):
+    def __init__(self, mt5, timeFramesStr):
         self.mt5 = mt5
-        self.TIMEFRAME = timeframe
+        self.timeFramesStr = timeFramesStr
+        self.TIMEFRAME = self.enumsTimeProducts()
         self.buyOrders = 0
         self.sellOrders = 0
         
+    def enumsTimeProducts(self):
+        enumsTimeIns = enumsTime.Timeframe(self.mt5, self.timeFramesStr)
+        enumsTimeProduct = enumsTimeIns.timeSelect()
+        return enumsTimeProduct  
+    
     def symbol(self):
         symbol_info_tick_dict = self.mt5.symbol_info_tick(self.SYMBOL)
         return symbol_info_tick_dict

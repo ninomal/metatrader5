@@ -13,15 +13,15 @@ def main():
     mt5.initialize() 
     #mt5.terminal_info()                   
     selecTime = "1" #select time here, string type exp '2' or '3' 
-    services = service.Service(mt5, selecTime)
     products = product.Products(mt5, selecTime)
-    productsService = productsServices.ProductsServices(mt5)
+    productsService = productsServices.ProductsServices(mt5, selecTime)
+    services = service.Service(mt5, selecTime)
     print()
     
     print(products.date_of_Day())
     #print(productsService.dayForconvert())
     #print(products.lastBar())
-    ui = UI(mt5)
+    ui = UI(mt5, selecTime)
     #ui.lastGraph('true')
     #ui.allGraph()
     #ui.graphIntraDay()  

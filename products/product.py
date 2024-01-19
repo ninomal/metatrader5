@@ -10,9 +10,9 @@ POS = 0  #position bar
 COUNT = 0 #position count 
 
 class Products:
-    def __init__(self, mt5, timeFrames):
+    def __init__(self, mt5, timeFramesStr):
         self.mt5 = mt5
-        self.timeFrames = timeFrames
+        self.timeFramesStr = timeFramesStr
         self.TIMEFRAME = self.enumsTimeProducts()
         self.COUNT = COUNT
         self.SYMBOL = ASSET
@@ -21,7 +21,7 @@ class Products:
         self.dados = self.colectDate()
         
     def enumsTimeProducts(self):
-        enumsTimeIns = enumsTime.Timeframe(self.mt5, self.timeFrames)
+        enumsTimeIns = enumsTime.Timeframe(self.mt5, self.timeFramesStr)
         enumsTimeProduct = enumsTimeIns.timeSelect()
         return enumsTimeProduct
         
