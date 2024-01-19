@@ -115,8 +115,7 @@ class UI(ProductsServices):
                 self.uiBar(pvolsSorted, timeSorted)
                 self.conts +=1
                 index += 50
-                indexPlus +=50
-                
+                indexPlus +=50        
         else:
             print("data error")
         plt.ioff()   
@@ -245,55 +244,7 @@ class UI(ProductsServices):
             self.conts += 1
         plt.ioff()   
         plt.show()
-        
-    def adGraph(self):
-        plt.subplots(layout='constrained', figsize = (50 , 6))
-        plt.title('AD graph')
-        ad = self.ad()
-        maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 1
-        totalFrame = (len(self.pvol) /50) 
-        firstFifty = 0
-        index = self.dayForconvert()
-        indexPlus = index + 50
-        adList = []
-        next50 = True
-        plt.ion() 
-        if (len(self.pvol) - index) <50:
-            plt.ion()
-            while firstFifty != 50:
-                adSlice = ad[index:indexPlus]
-                pvolTime = self.pvol[index:indexPlus]
-                for x in adSlice:
-                        adList.append(x)    
-                timeDic = self.convertToDic(pvolTime, self.dataTime())
-                timeList= list(map(lambda n : timeDic[n] , timeDic))
-                dateTime = datetime.now()
-                minuts = 50 - dateTime.minute 
-                for x in range(minuts-1):
-                    timeList.append(0)
-                    adList.append(0)
-                self.scatterLineGraph(adList, timeList, "AD GRAPH")
-                index = self.dayForconvert()
-                indexPlus = index + 50
-                firstFifty += 1
-        elif maxindex < totalFrame :
-            while self.conts != 11 and next50 == True:
-                timeDic = self.convertToDic(self.pvol, self.dataTime())
-                timeList = list(map(lambda n : timeDic[n] , timeDic))
-                timeIndex = timeList[index:indexPlus]
-                adIndex = ad[index:indexPlus]
-                self.scatterLineGraph(adIndex, timeIndex, "AD GRAPH")
-                self.conts +=1
-                index +=50
-                indexPlus = index + 50
-                next50 = bool(len(timeList) >= 50)
-                timeList.clear()
-            plt.show()
-        else:
-            print("data error")
-        plt.ioff()   
-        plt.show()
-              
+                  
     def scatterLineGraph(self, data, time, TITLE):
         plt.clf()
         plt.cla()
@@ -303,33 +254,33 @@ class UI(ProductsServices):
         plt.yticks(data)
         plt.title(TITLE)
         plt.pause(2)
-        
-    def eomGraph(self):  
+             
+    def allDataGraph(self, valueGraph , title):
         plt.subplots(layout='constrained', figsize = (50 , 6))
-        eom= self.eom()
+        value = valueGraph
         maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 2
         totalFrame = (len(self.pvol) /50) 
         firstFifty = 0
         index = self.dayForconvert()
         indexPlus = index + 50
-        eomList = []
+        valueList = []
         next50 = True
         plt.ion() 
         if (len(self.pvol) - index) <50:
             plt.ion()
             while firstFifty != 50:
-                eomSlice = eom[index:indexPlus]
+                eomSlice = value[index:indexPlus]
                 pvolTime = self.pvol[index:indexPlus]
                 for x in eomSlice:
-                        eomList.append(x)    
+                       valueList.append(x)    
                 timeDic = self.convertToDic(pvolTime, self.dataTime())
                 timeList= list(map(lambda n : timeDic[n] , timeDic))
                 dateTime = datetime.now()
                 minuts = 50 - dateTime.minute 
                 for x in range(minuts-1):
                     timeList.append(0)
-                    eomList.append(0)
-                self.scatterLineGraph(eomList, timeList, "EOM GRAPH")
+                    valueList.append(0)
+                self.scatterLineGraph(valueList, timeList, title)
                 index = self.dayForconvert()
                 indexPlus = index + 50
                 firstFifty += 1
@@ -338,8 +289,8 @@ class UI(ProductsServices):
                 timeDic = self.convertToDic(self.pvol, self.dataTime())
                 timeList = list(map(lambda n : timeDic[n] , timeDic))
                 timeIndex = timeList[index:indexPlus]
-                eomIndex = eom[index:indexPlus]
-                self.scatterLineGraph(eomIndex, timeIndex, "EOM GRAPH")
+                valueIndex = value[index:indexPlus]
+                self.scatterLineGraph(valueIndex, timeIndex, title)
                 self.conts +=1
                 index +=50
                 indexPlus = index + 50
@@ -347,14 +298,13 @@ class UI(ProductsServices):
                 timeList.clear()
             if self.conts == 11:
                 timeIndex = timeList[index:indexPlus]
-                eomIndex = eom[index:indexPlus]
-                self.scatterLineGraph(eomIndex, timeIndex, "EOM GRAPH") 
-            self.eomGraphNow()               
+                valueIndex = value[index:indexPlus]
+                self.scatterLineGraph(valueIndex, timeIndex, title)              
         else:
             print("data error") 
         plt.ioff() 
         plt.show()
-                     
+        
     def dataGraphNow(self, value, title):
         plt.subplots(layout='constrained', figsize = (50 , 6))
         maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 2
@@ -399,6 +349,16 @@ class UI(ProductsServices):
         plt.ioff() 
         plt.show()
         
+    def adGraph(self):
+        ad = self.ad()
+        self.allDataGraph(ad, "Ad Graph")
+        self.adGraphNow()
+        
+    def eomGraph(self):
+        eom = self.eom()
+        self.allDataGraph(eom, "Eom Graph")
+        self.eomGraphNow()
+                           
     def eomGraphNow(self):
         eom = self.eom()
         self.dataGraphNow(eom, "Eom Graph Now")

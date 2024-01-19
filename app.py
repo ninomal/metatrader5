@@ -34,9 +34,9 @@ def main():
     #services.buy()
     #ui.pizzaGraphForce()
     #productsService.teste()
-    #ui.adGraph()
+    ui.adGraph()
     #ui.eomGraph()
-    ui.eomGraphNow()
+    #ui.eomGraphNow()
     #ui.adGraphNow()
     
 if __name__ == "__main__":
