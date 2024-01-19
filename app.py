@@ -12,9 +12,9 @@ def main():
     #Start
     mt5.initialize() 
     #mt5.terminal_info()                   
-    timeEnums = "1" #select time here, string type
-    services = service.Service(mt5, timeEnums)
-    products = product.Products(mt5, timeEnums)
+    selecTime = "1" #select time here, string type exp '2' or '3' 
+    services = service.Service(mt5, selecTime)
+    products = product.Products(mt5, selecTime)
     productsService = productsServices.ProductsServices(mt5)
     print()
     

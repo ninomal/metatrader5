@@ -18,13 +18,13 @@ class Timeframe():
             return self.mt5.TIMEFRAME_M6 
         elif self.time == '10':
             return self.mt5.TIMEFRAME_M10 
-        elif self.time == '12m':
+        elif self.time == '12':
             return self.mt5.TIMEFRAME_M12 
         elif self.time == '15':
             return self.mt5.TIMEFRAME_M15 
         elif self.time == '20':
             return self.mt5.TIMEFRAME_M20 
-        elif self.time == '30m':
+        elif self.time == '30':
             return self.mt5.TIMEFRAME_M30
         elif self.time == '1h':
             return self.mt5.TIMEFRAME_H1 
@@ -36,7 +36,7 @@ class Timeframe():
             return self.mt5.TIMEFRAME_D2
         elif self.time == "1w":
             return self.mt5.TIMEFRAME_W1 
-        elif self.time == "1mo":
+        elif self.time == "1mon":
             return self.mt5.TIMEFRAME_MN1 
         else:
             return self.mt5.TIMEFRAME_M1   #Standard
