@@ -8,6 +8,7 @@ from ui.ui import UI
 from enums import enumsTime
 
 ASSET = "WING24" #Change name of ASSETS HERE exemple :"WDOc1"
+SECONDS = 2 # seconds that the graphs will be shown here 
 
 os.system('cls')
 def main():    
@@ -23,7 +24,7 @@ def main():
     print(products.date_of_Day())
     #print(productsService.dayForconvert())
     #print(products.lastBar())
-    ui = UI(mt5, selecTime, ASSET)
+    ui = UI(mt5, selecTime, ASSET, SECONDS)
     #ui.lastGraph('true')
     #ui.allGraph()
     #ui.graphIntraDay()  
@@ -36,10 +37,10 @@ def main():
     #services.buy()
     #ui.pizzaGraphForce()
     #productsService.teste()
-    #ui.adGraph()
+    ui.adGraph()
     #ui.eomGraph()
     #ui.eomGraphNow()
-    ui.adGraphNow()
+    #ui.adGraphNow()
     
 if __name__ == "__main__":
     main()

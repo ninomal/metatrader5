@@ -13,9 +13,11 @@ First of all
 
 Login in mt5 terminal
 
-change name of ASSETS in app
+change name of ASSETS in app.py
 ![asset](https://github.com/ninomal/metatrader5/assets/137447782/c2de19df-ca85-48ca-9a51-c8d7f8284b53)
 
+change seconds that the graphs will be shown
+![secoindsGraficos](https://github.com/ninomal/metatrader5/assets/137447782/9e4ae5bc-dadf-4fac-bdfe-6720abe74d8f)
 
 change time 
 ![seletime](https://github.com/ninomal/metatrader5/assets/137447782/15f76c24-fe2d-4c1c-ac57-82bc0e491753)
@@ -26,10 +28,6 @@ allowed
             week : "1w"                
             monthly : "1mon"
 
-
-runtime in ui graphics
-
-ui> ui.py > uiBar > plt.pause(2 <-change here) 
 
 change start of market in products >products.py def current_day(self): change time in  day_raw = times.where(times== (day+' 9:00:00 <-here')).dropna()
 

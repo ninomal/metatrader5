@@ -7,8 +7,9 @@ from datetime import datetime
 import time
 
 class UI(ProductsServices):
-    def __init__(self, mt5, timeFrameStr, ASSET):
+    def __init__(self, mt5, timeFrameStr, ASSET, seconds):
         super().__init__(mt5, timeFrameStr, ASSET)
+        self.seconds = seconds
         self.dataframe = self.priceVol()
         self.time = self.dataTime()
         self.pvol = self.dataPvol() 
@@ -32,7 +33,7 @@ class UI(ProductsServices):
         plt.cla()
         plt.clf()              
         self.showGraphBar(self.POSITION, pvol, time)
-        plt.pause(2)        
+        plt.pause(self.seconds)        
                
     def redBar(self, x, sort):
         maxLen = len(sort)
@@ -253,7 +254,7 @@ class UI(ProductsServices):
         plt.plot(self.POSITION, data)
         plt.yticks(data)
         plt.title(TITLE)
-        plt.pause(2)
+        plt.pause(self.seconds)
              
     def allDataGraph(self, valueGraph , title):
         plt.subplots(layout='constrained', figsize = (50 , 6))
