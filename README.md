@@ -29,7 +29,12 @@ allowed
             monthly : "1mon"
 
 
-change start of market in products >products.py def current_day(self): change time in  day_raw = times.where(times== (day+' 9:00:00 <-here')).dropna()
+change start of market in 
+![product](https://github.com/ninomal/metatrader5/assets/137447782/f364705b-b4cd-46b8-9c6e-d947414cbc0a)
+![current](https://github.com/ninomal/metatrader5/assets/137447782/ba613e3c-84d7-4b20-a8b9-0ea9a16980be)
+![nove](https://github.com/ninomal/metatrader5/assets/137447782/d95180f1-c9bc-4912-b384-f343667d8319)
+ (day+' 9:00:00 <-here')
+
 
 #Graphics
 
