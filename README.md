@@ -5,7 +5,7 @@
 
 # This project
 
-This project is based on dynamic graphs for mql5;Tools for buy and sell and average media in pandas_ta
+This project is based on dynamic graphics for mql5;Tools for buy and sell and average media in pandas_ta
 
 # Functions
 
@@ -16,7 +16,7 @@ Login in mt5 terminal
 change name of ASSETS in app.py
 ![asset](https://github.com/ninomal/metatrader5/assets/137447782/c2de19df-ca85-48ca-9a51-c8d7f8284b53)
 
-change seconds that the graphs will be shown
+change seconds that the graphics will be shown
 ![secoindsGraficos](https://github.com/ninomal/metatrader5/assets/137447782/9e4ae5bc-dadf-4fac-bdfe-6720abe74d8f)
 
 change time 
@@ -29,8 +29,10 @@ allowed
             monthly : "1mon"
 
 
-change start of market in 
+change start of market in
+
 ![product](https://github.com/ninomal/metatrader5/assets/137447782/f364705b-b4cd-46b8-9c6e-d947414cbc0a)
+
 ![current](https://github.com/ninomal/metatrader5/assets/137447782/ba613e3c-84d7-4b20-a8b9-0ea9a16980be)
 ![nove](https://github.com/ninomal/metatrader5/assets/137447782/d95180f1-c9bc-4912-b384-f343667d8319)
  (day+' 9:00:00 <-here')

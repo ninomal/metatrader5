@@ -6,6 +6,7 @@ from products import product
 from products import productsServices
 from ui.ui import UI
 from enums import enumsTime
+from products import Screenshot
 
 ASSET = "WING24" #Change name of ASSETS HERE exemple :"WDOc1"
 SECONDS = 2 # seconds that the graphs will be shown here 
@@ -19,6 +20,7 @@ def main():
     products = product.Products(mt5, selecTime, ASSET)
     productsService = productsServices.ProductsServices(mt5, selecTime, ASSET)
     services = service.Service(mt5, selecTime, ASSET)
+    screenShot = Screenshot.Screenshot(products)
     print()
     
     print(products.date_of_Day())
@@ -37,10 +39,11 @@ def main():
     #services.buy()
     #ui.pizzaGraphForce()
     #productsService.teste()
-    ui.adGraph()
+    #ui.adGraph()
     #ui.eomGraph()
     #ui.eomGraphNow()
     #ui.adGraphNow()
+    screenShot.printScreen()
     
 if __name__ == "__main__":
     main()
