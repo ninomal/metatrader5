@@ -103,6 +103,10 @@ ui.eomGraphNow()
 ![eomdynamic](https://github.com/ninomal/metatrader5/assets/137447782/b598daf5-21f5-4a6e-b7c7-50340c3bfce7)
 both ui.eomGraph() then dynamic in real time
 
+#Tools
+
+screenShot.printScreen()
+    take screenshot dynamic
 
 #TECHNOLOGIES
 
@@ -112,6 +116,8 @@ both ui.eomGraph() then dynamic in real time
 [![NPM](https://img.shields.io/badge/matplotlib-gren)](https://pypi.org/project/matplotlib/)
 [![NPM](https://img.shields.io/badge/numpy-aqua)](https://pypi.org/project/numpy/)
 [![NPM](https://img.shields.io/badge/MQL5-yellow)](https://www.mql5.com/en/docs/python_metatrader5/mt5initialize_py)
+[![NPM](https://img.shields.io/badge/PyAutogui-purple)](https://pyautogui.readthedocs.io/en/latest/)
+
 
 #AUTHOR
 
