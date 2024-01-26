@@ -119,3 +119,6 @@ class Products:
             xlist.append( x.loc[lens])
             lens +=1 
         return xlist
+    
+    def defineSleep(self, value):
+        time.sleep(value)

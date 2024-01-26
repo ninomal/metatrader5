@@ -1,8 +1,10 @@
 from products import Apiconect
 from products import Screenshot
-from products import Adb
+#from products.Adb import 
 from ui.ui import UI
 from service import Service
+from enums.enumsGraphics import enumsGraph
+from products.Apiconect import Apiconect
 
 class ApiServices():  
     def __init__(self, mt5, selecTime, ASSET, SECONDS, valueStr) :
@@ -12,7 +14,22 @@ class ApiServices():
         self.SECONDS = SECONDS
         self.valueStr = valueStr
         self.ui = UI(self.mt5, self.selecTime, self.ASSET, self.SECONDS)
-        services = Service(self.mt5, self.selecTime, self.ASSET)
+        self.services = Service(self.mt5, self.selecTime, self.ASSET)
+        self.enumsGraph = enumsGraph(self.ui)
+        self.apiConect = Apiconect()
         
-    def selectUIgrap(self, nameGraph):
-        pass
+    def selectGraph(self):
+        valueStr = self.apiConect.readTxt()
+        self.enumsGraph.selectUIgrap(valueStr)
+        
+    def actions(self):
+        valueStr = self.apiConect.readTxt()
+        if valueStr == "buy":
+            self.services.buy()
+        elif valueStr == "sell":
+            self.services.sell()
+        else:
+            print("Action error")
+            
+    
+    

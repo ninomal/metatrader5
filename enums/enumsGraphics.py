@@ -1,13 +1,10 @@
 class enumsGraph():
 
-    def __init__( self, ui, products):
+    def __init__( self, ui):
         self.ui = ui
-        self.products = products
-             
+                  
     def selectUIgrap( self, nameGraph):
-        if nameGraph == "lastbar":
-            return self.products.lastBar()
-        elif nameGraph == "lastgraph":
+        if nameGraph == "lastgraph":
             return self.ui.lastGraph('true')
         elif nameGraph == "allgraph":
             return self.ui.allGraph()
