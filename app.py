@@ -43,7 +43,7 @@ def main():
     #ui.eomGraph()
     #ui.eomGraphNow()
     #ui.adGraphNow()
-    screenShot.printScreen()
+    #screenShot.printScreen()
     
 if __name__ == "__main__":
     main()
