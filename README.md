@@ -31,12 +31,21 @@ allowed
 
 change start of market in
 
-![product](https://github.com/ninomal/metatrader5/assets/137447782/f364705b-b4cd-46b8-9c6e-d947414cbc0a)
+![classprodu](https://github.com/ninomal/metatrader5/assets/137447782/62329ec3-53d1-4fc1-86eb-051f889695e6)
 
 ![current](https://github.com/ninomal/metatrader5/assets/137447782/ba613e3c-84d7-4b20-a8b9-0ea9a16980be)
 ![nove](https://github.com/ninomal/metatrader5/assets/137447782/d95180f1-c9bc-4912-b384-f343667d8319)
  (day+' 9:00:00 <-here')
 
+
+#Tools
+
+
+take screenshot dynamic
+![scrennshot](https://github.com/ninomal/metatrader5/assets/137447782/326fdaa3-fbd9-44ab-9d1f-d6da3e0a2298)
+
+connect watssap number need local number 
+![watssap](https://github.com/ninomal/metatrader5/assets/137447782/198b883a-f97f-473d-90c1-f74f6e2912bc)
 
 #Graphics
 
@@ -103,10 +112,7 @@ ui.eomGraphNow()
 ![eomdynamic](https://github.com/ninomal/metatrader5/assets/137447782/b598daf5-21f5-4a6e-b7c7-50340c3bfce7)
 both ui.eomGraph() then dynamic in real time
 
-#Tools
 
-screenShot.printScreen()
-    take screenshot dynamic
 
 #TECHNOLOGIES
 

@@ -7,9 +7,12 @@ from products import productsServices
 from ui.ui import UI
 from enums import enumsTime
 from products import Screenshot
+from products.Adb import Adbconect
+
 
 ASSET = "WING24" #Change name of ASSETS HERE exemple :"WDOc1"
 SECONDS = 2 # seconds that the graphs will be shown here 
+PHONENUMBER = "you watssap number"
 
 os.system('cls')
 def main():    
@@ -21,6 +24,7 @@ def main():
     productsService = productsServices.ProductsServices(mt5, selecTime, ASSET)
     services = service.Service(mt5, selecTime, ASSET)
     screenShot = Screenshot.Screenshot(products)
+    adbConect = Adbconect(PHONENUMBER, products)
     print()
     
     print(products.date_of_Day())

@@ -1,15 +1,19 @@
 import time
 import urllib
+import os
+from Screenshot import Screenshot
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+
 # BETA
 class Adbconect():
    
-    def __init__(self, PHONENUMBER) -> None:
+    def __init__(self, PHONENUMBER, product) -> None:
         self.PHONENUMBER = PHONENUMBER
         self.driver = webdriver.Chrome()
+        self.screnshoot = Screenshot(product)
 
     def adbConect(self):
         # Creating the driver (browser)
@@ -24,7 +28,6 @@ class Adbconect():
         send_link = f"https://web.whatsapp.com/send?phone={self.PHONENUMBER}&text={text}"
         self.driver.get(send_link)
         time.sleep(12.0)
-
         print("2")
         #click
     def clickSend(self):
