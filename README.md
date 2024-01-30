@@ -38,7 +38,7 @@ change start of market in
  (day+' 9:00:00 <-here')
 
 
-#Tools
+# Tools
 
 
 take screenshot dynamic
@@ -47,7 +47,7 @@ take screenshot dynamic
 connect watssap number need local number 
 ![watssap](https://github.com/ninomal/metatrader5/assets/137447782/198b883a-f97f-473d-90c1-f74f6e2912bc)
 
-#Graphics
+# Graphics
 
 Volume in indice 50 in graph
 red candle for highest volume 
@@ -114,7 +114,7 @@ both ui.eomGraph() then dynamic in real time
 
 
 
-#TECHNOLOGIES
+# TECHNOLOGIES
 
 [![NPM](https://img.shields.io/badge/PHYTON-blue)](https://www.python.org/)
 [![NPM](https://img.shields.io/badge/Pandas-white)](https://pypi.org/project/pandas/)
@@ -125,7 +125,7 @@ both ui.eomGraph() then dynamic in real time
 [![NPM](https://img.shields.io/badge/PyAutogui-purple)](https://pyautogui.readthedocs.io/en/latest/)
 
 
-#AUTHOR
+# AUTHOR
 
 Jonatas leme dos reis "ninomal"
 

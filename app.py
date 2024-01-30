@@ -23,14 +23,14 @@ def main():
     products = product.Products(mt5, selecTime, ASSET)
     productsService = productsServices.ProductsServices(mt5, selecTime, ASSET)
     services = service.Service(mt5, selecTime, ASSET)
-    screenShot = Screenshot.Screenshot(products)
-    adbConect = Adbconect(PHONENUMBER, products)
+    ui = UI(mt5, selecTime, ASSET, SECONDS)
+    screenShot = Screenshot.Screenshot(products, ui)
+    adbConect = Adbconect(PHONENUMBER, products, ui)
     print()
     
     print(products.date_of_Day())
     #print(productsService.dayForconvert())
     #print(products.lastBar())
-    ui = UI(mt5, selecTime, ASSET, SECONDS)
     #ui.lastGraph('true')
     #ui.allGraph()
     #ui.graphIntraDay()  
@@ -48,6 +48,7 @@ def main():
     #ui.eomGraphNow()
     #ui.adGraphNow()
     #screenShot.printScreen()
+    adbConect.adbConect()
     
 if __name__ == "__main__":
     main()

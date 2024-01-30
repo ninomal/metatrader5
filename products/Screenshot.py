@@ -2,9 +2,9 @@ import pyautogui
 from enums.enumsGraphics import enumsGraph
 
 class Screenshot():
-    def __init__(self, product) :
+    def __init__(self, product, ui) :
         self.timeHours = product.dateTime()
-        self.enumsGraph = enumsGraph()
+        self.enumsGraph = enumsGraph(ui)
         self.product = product
     
     def printScreen(self):

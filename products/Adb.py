@@ -1,8 +1,7 @@
 import time
 import urllib
 import os
-from Screenshot import Screenshot
-
+from products.Screenshot import Screenshot
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
@@ -10,10 +9,10 @@ from selenium.webdriver.common.by import By
 # BETA
 class Adbconect():
    
-    def __init__(self, PHONENUMBER, product) -> None:
+    def __init__(self, PHONENUMBER, product, ui) -> None:
         self.PHONENUMBER = PHONENUMBER
         self.driver = webdriver.Chrome()
-        self.screnshoot = Screenshot(product)
+        self.screnshoot = Screenshot(product, ui)
 
     def adbConect(self):
         # Creating the driver (browser)
@@ -21,6 +20,8 @@ class Adbconect():
         self.driver.get("https://web.whatsapp.com/")
         time.sleep(20.0)
         print("1")
+        self.sendMsg()
+        self.closedWeb()
         
     def sendMsg(self):
         text = "hello world"
@@ -30,6 +31,7 @@ class Adbconect():
         time.sleep(12.0)
         print("2")
         #click
+        
     def clickSend(self):
         #driver.find_element(By.XPATH,).click()
         pass
@@ -39,4 +41,6 @@ class Adbconect():
 
         # Close the browser
     def closedWeb(self):
+        print(3)
+        time.sleep(12.0)
         self.driver.quit()
