@@ -12,7 +12,7 @@ from products.Adb import Adbconect
 
 ASSET = "WING24" #Change name of ASSETS HERE exemple :"WDOc1"
 SECONDS = 2 # seconds that the graphs will be shown here 
-PHONENUMBER = "you watssap number"
+PHONENUMBER = "you phone number"
 
 os.system('cls')
 def main():    
