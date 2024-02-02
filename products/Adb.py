@@ -25,10 +25,12 @@ class Adbconect():
                 '//*[@id="app"]/div/div[2]/div[3]/header/div[2]/div/span/div[5]/div/span'))
             time.sleep(1.0)
             print("1")
-        myself = self.driver.find_elements(By.XPATH, '//*[@id="main"]/header/div[2]')
+        time.sleep(5.0) 
+        myself = self.driver.find_element(By.ID, 'Meu Numero')
         myself.click()
         time.sleep(3.0)
         print("teste myself")
+        time.sleep(3.0)
         self.sendMsg()
         
         
@@ -41,8 +43,8 @@ class Adbconect():
         self.sendImagens("click.png")
         self.clickSend()
         print("2")
-        #click
         
+        #click
     def clickSend(self):
         #driver.find_element(By.XPATH,).click()
         print(3)
@@ -51,8 +53,12 @@ class Adbconect():
         time.sleep(4.0)
         print(4)
         
-    def readMsg(self):
-        pass   
+        #read msg in closed chat
+    def readMsgOfBoard(self):
+        read = self.driver.find_element(By.CLASS_NAME, '_2KKXC ')
+        time.sleep(3.0)
+        print(read.text)
+        
 
         # Close the browser
     def closedWeb(self):
@@ -61,9 +67,11 @@ class Adbconect():
         self.driver.quit()
         
     def sendImagens(self, pathImg):  
-        img = self.driver.find_element(By.XPATH, 
-    '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[1]/div[2]/div/span/div/ul/div/div[2]/li/div/input')
+        img = self.driver.find_element(By.ID, 'attach-menu-plus')
+        img.click()
+        img = self.driver.find_element(By.CLASS_NAME, 'lhggkp7q qq0sjtgm tkdu00h0 ln8gz9je')
+        img.click()
         img.send_keys(pathImg)
         time.sleep(15.0)
         self.clickSend()
-        print("testee")
+        print("testee img")
