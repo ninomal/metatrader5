@@ -24,54 +24,70 @@ class Adbconect():
             conect = bool(self.driver.find_elements(By.XPATH, 
                 '//*[@id="app"]/div/div[2]/div[3]/header/div[2]/div/span/div[5]/div/span'))
             time.sleep(1.0)
-            print("1")
-        time.sleep(5.0) 
-        myself = self.driver.find_element(By.ID, 'Meu Numero')
-        myself.click()
         time.sleep(3.0)
+        #Open chat here
+        self.sendMsgStandard("Open chat")
+        time.sleep(13.0)
         print("teste myself")
+        self.sendImagens("products\click.png")
+        self.readMsgOnChat()
         time.sleep(3.0)
-        self.sendMsg()
+        self.sendMsg("gg")
         
         
-    def sendMsg(self):
-        text = "hello world"
-        text = urllib.parse.quote(text)
-        #send_link = f"https://web.whatsapp.com/send?phone={self.PHONENUMBER}&text={text}"
-        #self.driver.get(send_link)
+    def sendMsg(self, textStr):
+        text = urllib.parse.quote(textStr)
         time.sleep(12.0)
-        self.sendImagens("click.png")
+        self.sendMsgStandard(text)
         self.clickSend()
-        print("2")
         
         #click
     def clickSend(self):
-        #driver.find_element(By.XPATH,).click()
+        #driver.find_element(By.XPATH,).click() <- another away 
         print(3)
         localClick = pyautogui.locateCenterOnScreen("products\click.png")
         pyautogui.click(localClick[0], localClick[1])
         time.sleep(4.0)
-        print(4)
+ 
+        #standard text not converted input
+    def sendMsgStandard(self, textUrll):
+        send_link = f"https://web.whatsapp.com/send?phone={self.PHONENUMBER}&text={textUrll}"
+        self.driver.get(send_link)
         
         #read msg in closed chat
-    def readMsgOfBoard(self):
+    def readMsgOfChat(self):
         read = self.driver.find_element(By.CLASS_NAME, '_2KKXC ')
         time.sleep(3.0)
         print(read.text)
         
-
+        #read msg in chat open
+    def readMsgOnChat(self): 
+        read = self.driver.find_elements(By.ID, 'row')
+        time.sleep(3.0)
+        print(len(read))
+        #read = read[0]
+        #print(read.text)
+        print("Read teste 2")
+        #_1DETJ copyable-text
+        #span
+        # _11JPr selectable-text copyable-text
+        #_1DETJ copyable-text
+        
         # Close the browser
     def closedWeb(self):
-        print(5)
         time.sleep(12.0)
         self.driver.quit()
         
+        #send imagen 
     def sendImagens(self, pathImg):  
-        img = self.driver.find_element(By.ID, 'attach-menu-plus')
-        img.click()
-        img = self.driver.find_element(By.CLASS_NAME, 'lhggkp7q qq0sjtgm tkdu00h0 ln8gz9je')
-        img.click()
-        img.send_keys(pathImg)
-        time.sleep(15.0)
+        img = self.driver.find_element(By.XPATH, 
+         '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[1]/div[2]/div/div/div/span').click()
+        time.sleep(4.0)
+        img = self.driver.find_element(By.XPATH,
+         '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[1]/div[2]/div/span/div/ul/div/div[2]/li/div/input')
+        time.sleep(2.0)
+        absImg =  os.path.abspath(pathImg)
+        img.send_keys(absImg)
+        time.sleep(10.0)
         self.clickSend()
         print("testee img")
