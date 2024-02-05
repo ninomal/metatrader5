@@ -240,7 +240,7 @@ class UI(ProductsServices):
         while self.conts < maxindex:
             dateTime = datetime.now()
             timeSecond = 60.0 - dateTime.second
-            self.PizzaGraphData() 
+            self.pizzaGraphData()
             plt.pause(timeSecond)
             self.conts += 1
         plt.ioff()   

@@ -1,12 +1,14 @@
 import pyautogui
 from enums.enumsGraphics import enumsGraph
+import time
 
 class Screenshot():
     def __init__(self, product, ui) :
         self.timeHours = product.dateTime()
         self.enumsGraph = enumsGraph(ui)
         self.product = product
-    
+       
+        
     def printScreen(self):
         im1 = pyautogui.screenshot()
         im1.save(self.hours())
@@ -29,3 +31,17 @@ class Screenshot():
         self.product.defineSleep(2.0)
         self.printScreen()
         
+    def listOfImg(self):
+        hoursImgListStr = []
+        hoursImgListStr.append(self.hours)
+        print(hoursImgListStr)
+        return hoursImgListStr
+    
+    def teste1(self):
+        time.sleep(5)
+        print("teste1")
+        
+   
+    def teste():
+        print("teste")        
+    

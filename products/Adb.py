@@ -14,7 +14,6 @@ class Adbconect():
         self.driver = webdriver.Chrome()
         self.screnshoot = Screenshot(product, ui)
         
-
     def adbConect(self):
         # Creating the driver (browser)
         self.driver.maximize_window()
@@ -42,7 +41,14 @@ class Adbconect():
         self.clickSend()
         
         #click
-    def clickSend(self):
+    def clickSendMsg(self):
+        #driver.find_element(By.XPATH,).click() <- another away 
+        print(3)
+        localClick = pyautogui.locateCenterOnScreen("products\click.png")
+        pyautogui.click(localClick[0], localClick[1])
+        time.sleep(4.0)
+        
+    def clickSendMsg(self):    
         #driver.find_element(By.XPATH,).click() <- another away 
         print(3)
         localClick = pyautogui.locateCenterOnScreen("products\click.png")
@@ -89,5 +95,4 @@ class Adbconect():
         absImg =  os.path.abspath(pathImg)
         img.send_keys(absImg)
         time.sleep(10.0)
-        self.clickSend()
         print("testee img")

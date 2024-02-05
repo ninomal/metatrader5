@@ -8,6 +8,7 @@ from ui.ui import UI
 from enums import enumsTime
 from products import Screenshot
 from products.Adb import Adbconect
+import threading
 
 
 ASSET = "WING24" #Change name of ASSETS HERE exemple :"WDOc1"
@@ -25,13 +26,13 @@ def main():
     services = service.Service(mt5, selecTime, ASSET)
     ui = UI(mt5, selecTime, ASSET, SECONDS)
     screenShot = Screenshot.Screenshot(products, ui)
-    adbConect = Adbconect(PHONENUMBER, products, ui)
+    #adbConect = Adbconect(PHONENUMBER, products, ui)
     print()
     
     print(products.date_of_Day())
     #print(productsService.dayForconvert())
     #print(products.lastBar())
-    #ui.lastGraph('true')
+    ui.lastGraph('true')
     #ui.allGraph()
     #ui.graphIntraDay()  
     #ui.uiBar()
@@ -41,14 +42,22 @@ def main():
     print()
     #services.sell()
     #services.buy()
-    #ui.pizzaGraphForce()
+    #ui.PizzaGraphForce()
     #productsService.teste()
     #ui.adGraph()
     #ui.eomGraph()
     #ui.eomGraphNow()
     #ui.adGraphNow()
     #screenShot.printScreen()
-    adbConect.adbConect()
+    #adbConect.adbConect()
+    print(5)
+    screenShot.listOfImg()
+threading.Thread(target=main).start()
+print(3)
+Screenshot.Screenshot.printScreen(self=None)
     
-if __name__ == "__main__":
-    main()
+    
+    
+    
+#if __name__ == "__main__":
+    #main()
