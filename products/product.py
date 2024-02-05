@@ -122,3 +122,26 @@ class Products:
     
     def defineSleep(self, value):
         time.sleep(value)
+        
+    def hoursImgName(self):
+        time = self.dateTime()
+        newTime = ""
+        for times in time:
+            if times[0] == "/" or times[0] == "," or times[0] == ":":
+                newTime += " "
+            elif times[0]== " " :
+                newTime+=""
+            else:
+                newTime += times[0]
+        newTime += ".png"
+        return newTime
+    
+    #def imageSelect(self, value):
+        #image = self.enumsGraph(value)
+        #self.product.defineSleep(2.0)
+        #self.printScreen()
+        
+    def listOfImg(self):
+        hoursImgListStr = []
+        hoursImgListStr.append(self.hoursImgName)
+        return hoursImgListStr

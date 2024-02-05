@@ -3,45 +3,13 @@ from enums.enumsGraphics import enumsGraph
 import time
 
 class Screenshot():
-    def __init__(self, product, ui) :
-        self.timeHours = product.dateTime()
-        self.enumsGraph = enumsGraph(ui)
-        self.product = product
-       
-        
+    def __init__(self, imgName) :
+        self.imgName = imgName
+    
     def printScreen(self):
+        time.sleep(10.0)
         im1 = pyautogui.screenshot()
-        im1.save(self.hours())
-             
-    def hours(self):
-        time = self.timeHours
-        newTime = ""
-        for times in time:
-            if times[0] == "/" or times[0] == "," or times[0] == ":":
-                newTime += " "
-            elif times[0]== " " :
-                newTime+=""
-            else:
-                newTime += times[0]
-        newTime += ".png"
-        return newTime
+        im1.save(self.imgName)
     
-    def imageSelect(self, value):
-        image = self.enumsGraph(value)
-        self.product.defineSleep(2.0)
-        self.printScreen()
-        
-    def listOfImg(self):
-        hoursImgListStr = []
-        hoursImgListStr.append(self.hours)
-        print(hoursImgListStr)
-        return hoursImgListStr
-    
-    def teste1(self):
-        time.sleep(5)
-        print("teste1")
-        
-   
-    def teste():
-        print("teste")        
+      
     
