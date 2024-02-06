@@ -233,7 +233,7 @@ class UI(ProductsServices):
         plt.suptitle("Pizza volume graph")
         plt.axis('on')
         
-    def PizzaGraphForce(self):
+    def pizzaGraphForce(self):
         maxindex = ((len(self.pvol)) /50)
         plt.subplot()
         plt.ion() 

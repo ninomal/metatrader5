@@ -136,12 +136,7 @@ class Products:
         newTime += ".png"
         return newTime
     
-    #def imageSelect(self, value):
-        #image = self.enumsGraph(value)
-        #self.product.defineSleep(2.0)
-        #self.printScreen()
+   
         
-    def listOfImg(self):
-        hoursImgListStr = []
-        hoursImgListStr.append(self.hoursImgName)
-        return hoursImgListStr
+        
+        

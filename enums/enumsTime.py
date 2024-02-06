@@ -1,5 +1,3 @@
-
-
 class Timeframe():
     def __init__(self, mt5, timeframe):
         self.time = timeframe

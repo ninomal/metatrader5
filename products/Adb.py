@@ -1,7 +1,6 @@
 import time
 import urllib
 import os
-from products.Screenshot import Screenshot
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import pyautogui
@@ -12,7 +11,6 @@ class Adbconect():
     def __init__(self, PHONENUMBER, product, ui) -> None:
         self.PHONENUMBER = PHONENUMBER
         self.driver = webdriver.Chrome()
-        self.screnshoot = Screenshot(product, ui)
         
     def adbConect(self):
         # Creating the driver (browser)
@@ -32,15 +30,14 @@ class Adbconect():
         self.readMsgOnChat()
         time.sleep(3.0)
         self.sendMsg("gg")
-        
-        
+              
     def sendMsg(self, textStr):
         text = urllib.parse.quote(textStr)
         time.sleep(12.0)
         self.sendMsgStandard(text)
-        self.clickSend()
+        self.clickSendMsg()
         
-        #click
+        #click in Msg
     def clickSendMsg(self):
         #driver.find_element(By.XPATH,).click() <- another away 
         print(3)
@@ -48,7 +45,7 @@ class Adbconect():
         pyautogui.click(localClick[0], localClick[1])
         time.sleep(4.0)
         
-    def clickSendMsg(self):    
+    def clickSendImg(self):    
         #driver.find_element(By.XPATH,).click() <- another away 
         print(3)
         localClick = pyautogui.locateCenterOnScreen("products\click.png")
@@ -66,7 +63,7 @@ class Adbconect():
         time.sleep(3.0)
         print(read.text)
         
-        #read msg in chat open
+        #Beta read msg in chat open 
     def readMsgOnChat(self): 
         read = self.driver.find_elements(By.ID, 'row')
         time.sleep(3.0)
@@ -91,8 +88,9 @@ class Adbconect():
         time.sleep(4.0)
         img = self.driver.find_element(By.XPATH,
          '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[1]/div[2]/div/span/div/ul/div/div[2]/li/div/input')
-        time.sleep(2.0)
+        time.sleep(3.0)
         absImg =  os.path.abspath(pathImg)
         img.send_keys(absImg)
+        self.clickSendImg()
         time.sleep(10.0)
         print("testee img")

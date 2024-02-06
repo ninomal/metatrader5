@@ -1,37 +1,39 @@
 import time
 import MetaTrader5 as mt5
-from services import service
+from services.service import Service
 import os
-from products import product 
-from products import productsServices
+from products.product import Products
+from products.productsServices import ProductsServices
 from ui.ui import UI
-from enums import enumsTime
-from products import Screenshot
+from enums.enumsTime import Timeframe
+from products.Screenshot import Screenshot
 from products.Adb import Adbconect
 import threading
+from products.Apiconect import Apiconect
 
-SELECTTIME = "1" #select time here, string type exp '2' or '3' 
+SELECTTIME = "1" #select time here, string type exp '2' or '3'
 ASSET = "WING24" #Change name of ASSETS HERE exemple :"WDOc1"
 SECONDS = 2 # seconds that the graphs will be shown here 
 PHONENUMBER = "you watssap number"
+
 
 os.system('cls')
 def main():    
     #Start
     mt5.initialize() 
-    #mt5.terminal_info()                   
-    
-    products = product.Products(mt5, SELECTTIME, ASSET)
-    productsService = productsServices.ProductsServices(mt5, SELECTTIME, ASSET)
-    services = service.Service(mt5, SELECTTIME, ASSET)
+    #mt5.terminal_info()     
+    products = Products(mt5, SELECTTIME, ASSET)
+    productsService = ProductsServices(mt5, SELECTTIME, ASSET)
+    services = Service(mt5, SELECTTIME, ASSET)
     ui = UI(mt5, SELECTTIME, ASSET, SECONDS)
-    screenShot = Screenshot.Screenshot(products)
+    screenShot = Screenshot(products)
+    apiConect = Apiconect(mt5, SELECTTIME, ASSET, "214550", ui)
     #adbConect = Adbconect(PHONENUMBER, products, ui)
     print()
     print(products.date_of_Day())
     #print(productsService.dayForconvert())
     #print(products.lastBar())
-    ui.lastGraph('true')
+    #ui.lastGraph('true')
     #ui.allGraph()
     #ui.graphIntraDay()  
     #ui.uiBar()
@@ -41,7 +43,7 @@ def main():
     print()
     #services.sell()
     #services.buy()
-    #ui.PizzaGraphForce()
+    #ui.pizzaGraphForce()
     #productsService.teste()
     #ui.adGraph()
     #ui.eomGraph()
@@ -49,12 +51,10 @@ def main():
     #ui.adGraphNow()
     #screenShot.printScreen()
     #adbConect.adbConect()
-    products.listOfImg()
-    print("esse")
-    print(products.hoursImgName[0])
     
+    
+'''
 th1 = threading.Thread(target=main)
-print(3)
 mt5.initialize()
 products = product.Products(mt5, SELECTTIME, ASSET)
 screenShot = Screenshot.Screenshot(products.hoursImgName())
@@ -63,7 +63,7 @@ th2 = threading.Thread(target=screenShot.printScreen)
 th1.start()
 th2.start()
     
+    '''
     
-    
-#if __name__ == "__main__":
-    #main()
+if __name__ == "__main__":
+    main()
