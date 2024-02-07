@@ -26,7 +26,9 @@ class Adbconect():
         self.sendMsgStandard("Open chat")
         time.sleep(13.0)
         print("teste myself")
-        self.sendImagens("products\click.png")
+        self.sendMsg('Finish?')
+        self.readMsgOfChat()
+        print("of chat ^ on chat v")
         self.readMsgOnChat()
         time.sleep(3.0)
         self.sendMsg("gg")
@@ -45,13 +47,11 @@ class Adbconect():
         pyautogui.click(localClick[0], localClick[1])
         time.sleep(4.0)
         
-    def clickSendImg(self):    
-        #driver.find_element(By.XPATH,).click() <- another away 
-        print(3)
-        localClick = pyautogui.locateCenterOnScreen("products\click.png")
-        pyautogui.click(localClick[0], localClick[1])
-        time.sleep(4.0)
- 
+    def clickSendImg(self): 
+        time.sleep(6.0)   
+        self.driver.find_element(By.XPATH,
+        '//*[@id="app"]/div/div[2]/div[2]/div[2]/span/div/span/div/div/div[2]/div/div[2]/div[2]/div/div/span').click() 
+        
         #standard text not converted input
     def sendMsgStandard(self, textUrll):
         send_link = f"https://web.whatsapp.com/send?phone={self.PHONENUMBER}&text={textUrll}"
@@ -65,7 +65,7 @@ class Adbconect():
         
         #Beta read msg in chat open 
     def readMsgOnChat(self): 
-        read = self.driver.find_elements(By.ID, 'row')
+        read = self.driver.find_elements(By.CLASS_NAME, 'row')
         time.sleep(3.0)
         print(len(read))
         #read = read[0]
