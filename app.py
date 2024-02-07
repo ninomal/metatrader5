@@ -10,6 +10,7 @@ from products.Screenshot import Screenshot
 from products.Adb import Adbconect
 import threading
 from products.Apiconect import Apiconect
+from services.apiServices import ApiServices
 
 SELECTTIME = "1" #select time here, string type exp '2' or '3'
 ASSET = "WING24" #Change name of ASSETS HERE exemple :"WDOc1"
@@ -29,6 +30,7 @@ def main():
     screenShot = Screenshot(products)
     apiConect = Apiconect(mt5, SELECTTIME, ASSET, "214550", ui)
     adbConect = Adbconect(PHONENUMBER, products, ui)
+    apiService = ApiServices(mt5, SELECTTIME, ASSET,SECONDS,PHONENUMBER)
     print()
     print(products.date_of_Day())
     #print(productsService.dayForconvert())
@@ -50,7 +52,10 @@ def main():
     #ui.eomGraphNow()
     #ui.adGraphNow()
     #screenShot.printScreen()
-    adbConect.adbConect()
+    #adbConect.adbConect()
+    print(products.hoursImgName())
+    apiService.callScreenShoot()
+    apiConect.sendImage()
     
     
 '''

@@ -11,6 +11,7 @@ class Apiconect():
     def readTxt(self):
         return self.adb.readMsgOfChat()
     
+    #send image in watssap web
     def sendImage(self):
         self.adb.sendImagens(self.product.hoursImgName())
         
@@ -19,6 +20,7 @@ class Apiconect():
         self.enumsGraph.selectUIgrap(self.readTxt())
         
         
+    
         
         
         

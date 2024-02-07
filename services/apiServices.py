@@ -1,24 +1,26 @@
-from products import Apiconect
-from products import Screenshot
-#from products.Adb import 
+from products.Apiconect import Apiconect
+from products.Screenshot import Screenshot
 from ui.ui import UI
-from service import Service
-from enums.enumsGraphics import enumsGraph
+from services.service import Service
+from enums.enumsGraphics import EnumsGraph
 from products.Apiconect import Apiconect
 from products.product import Products
+import threading
+import time
+
 
 class ApiServices():  
-    def __init__(self, mt5, selecTime, ASSET, SECONDS, valueStr) :
+    def __init__(self, mt5, selecTime, ASSET, SECONDS, PHONENUMBER) :
         self.mt5 = mt5
         self.selecTime = selecTime
         self.ASSET = ASSET
         self.SECONDS = SECONDS
-        self.valueStr = valueStr
+        self.phone = PHONENUMBER
         self.product = Products(self.mt5, self.SECONDS, self.ASSET)
         self.ui = UI(self.mt5, self.selecTime, self.ASSET, self.SECONDS)
         self.services = Service(self.mt5, self.selecTime, self.ASSET)
-        self.enumsGraph = enumsGraph(self.ui)
-        self.apiConect = Apiconect(self.product, self.ui)
+        self.enumsGraph = EnumsGraph(self.ui)
+        self.apiConect = Apiconect(self.mt5,self.selecTime,self.ASSET,self.phone,self.ui)
         
     def selectGraph(self):
         valueStr = self.apiConect.readTxt()
@@ -33,5 +35,14 @@ class ApiServices():
         else:
             print("Action error")
             
-    
+    def callScreenShoot(self):
+        apiConect = Apiconect(self.mt5, self.selecTime, self.ASSET, self.phone, self.ui)
+        th1  = threading.Thread(target=apiConect.selecGraph)
+        screenShot = Screenshot(self.product.hoursImgName())
+        th2 = threading.Thread(target=screenShot.printScreen)
+        time.sleep(1.0)
+        th1.start()
+        th2.start()
+        
+        
     

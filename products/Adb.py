@@ -7,13 +7,12 @@ import pyautogui
 
 # BETA
 class Adbconect():
-   
-    def __init__(self, PHONENUMBER, product, ui) -> None:
+    def __init__(self, PHONENUMBER):
         self.PHONENUMBER = PHONENUMBER
-        self.driver = webdriver.Chrome()
         
-    def adbConect(self):
         # Creating the driver (browser)
+    def adbConect(self):
+        self.driver = webdriver.Chrome()
         self.driver.maximize_window()
         self.driver.get("https://web.whatsapp.com/")
         conect = False
@@ -25,7 +24,6 @@ class Adbconect():
         #Open chat here
         self.sendMsgStandard("Open chat")
         time.sleep(13.0)
-        print("teste myself")
         self.sendMsg('Finish?')
         self.readMsgOfChat()
         print("of chat ^ on chat v")
@@ -57,7 +55,7 @@ class Adbconect():
         send_link = f"https://web.whatsapp.com/send?phone={self.PHONENUMBER}&text={textUrll}"
         self.driver.get(send_link)
         
-        #read msg in closed chat
+        #read msg of chat
     def readMsgOfChat(self):
         read = self.driver.find_element(By.CLASS_NAME, '_2KKXC ')
         time.sleep(3.0)
@@ -93,4 +91,4 @@ class Adbconect():
         img.send_keys(absImg)
         self.clickSendImg()
         time.sleep(10.0)
-        print("testee img")
+        
