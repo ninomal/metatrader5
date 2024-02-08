@@ -19,9 +19,9 @@ change name of ASSETS in app.py
 change seconds that the graphics will be shown
 ![secoindsGraficos](https://github.com/ninomal/metatrader5/assets/137447782/9e4ae5bc-dadf-4fac-bdfe-6720abe74d8f)
 
+
 change time 
-![seletime](https://github.com/ninomal/metatrader5/assets/137447782/15f76c24-fe2d-4c1c-ac57-82bc0e491753)
-allowed
+![selec](https://github.com/ninomal/metatrader5/assets/137447782/9311f3e9-27a2-45fc-9874-eb9678cc2809)
             Minuts: "1" "2" "3" "4" "5" "6" "10" "12" "15" "20" "30" 
             Hours : "1h" "2h"          
             Day: "1d" "2d"  
@@ -30,22 +30,34 @@ allowed
 
 
 change start of market in
+![hoursstart](https://github.com/ninomal/metatrader5/assets/137447782/f7c33e67-ed74-4d19-8130-dcb100a1111c)
 
-![classprodu](https://github.com/ninomal/metatrader5/assets/137447782/62329ec3-53d1-4fc1-86eb-051f889695e6)
 
-![current](https://github.com/ninomal/metatrader5/assets/137447782/ba613e3c-84d7-4b20-a8b9-0ea9a16980be)
-![nove](https://github.com/ninomal/metatrader5/assets/137447782/d95180f1-c9bc-4912-b384-f343667d8319)
- (day+' 9:00:00 <-here')
-
+enter in watssap web number phone for send imagens and txt
+![phonenumber](https://github.com/ninomal/metatrader5/assets/137447782/608a5cdc-252f-4cd1-8363-a71a425b7d52)
 
 # Tools
 
 
 take screenshot dynamic
-![scrennshot](https://github.com/ninomal/metatrader5/assets/137447782/326fdaa3-fbd9-44ab-9d1f-d6da3e0a2298)
+![printscrenpng](https://github.com/ninomal/metatrader5/assets/137447782/30f943f8-cf73-4173-ad97-fcb9656ef11c)
+
 
 connect watssap number need local number 
 ![watssap](https://github.com/ninomal/metatrader5/assets/137447782/198b883a-f97f-473d-90c1-f74f6e2912bc)
+
+
+read text in watssap web
+![readtxt](https://github.com/ninomal/metatrader5/assets/137447782/4a54562a-b0e5-4b6c-a067-e267f0ef12cb)
+
+
+read txt in watssap web and enter grafics, you need send names grafics in watssap
+![apiselec](https://github.com/ninomal/metatrader5/assets/137447782/ea3efec7-2489-45e4-921d-298a5aa6cff1)
+
+
+send imagen in watssap web automatic
+![apisendimagen](https://github.com/ninomal/metatrader5/assets/137447782/9267f337-f22c-49b0-83e7-f81cc0223bd9)
+
 
 # Graphics
 
