@@ -5,7 +5,7 @@ from enums.enumsGraphics import EnumsGraph
 class Apiconect():
     def __init__(self, mt5, timeframe, asset, phonenumber, ui) :
         self.product = Products(mt5, timeframe, asset)
-        self.adb = Adbconect(phonenumber, self.product, ui)
+        self.adb = Adbconect(phonenumber)
         self.enumsGraph = EnumsGraph(ui)
               
     def readTxt(self):

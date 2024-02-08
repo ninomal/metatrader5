@@ -15,7 +15,7 @@ from services.apiServices import ApiServices
 SELECTTIME = "1" #select time here, string type exp '2' or '3'
 ASSET = "WING24" #Change name of ASSETS HERE exemple :"WDOc1"
 SECONDS = 2 # seconds that the graphs will be shown here 
-PHONENUMBER = "you watssap number "
+PHONENUMBER = "you watssap number"
 
 
 os.system('cls')
@@ -29,7 +29,7 @@ def main():
     ui = UI(mt5, SELECTTIME, ASSET, SECONDS)
     screenShot = Screenshot(products)
     apiConect = Apiconect(mt5, SELECTTIME, ASSET, "214550", ui)
-    adbConect = Adbconect(PHONENUMBER, products, ui)
+    adbConect = Adbconect(PHONENUMBER)
     apiService = ApiServices(mt5, SELECTTIME, ASSET,SECONDS,PHONENUMBER)
     print()
     print(products.date_of_Day())
@@ -52,9 +52,10 @@ def main():
     #ui.eomGraphNow()
     #ui.adGraphNow()
     #screenShot.printScreen()
-    #adbConect.adbConect()
+    adbConect.adbConect()
     print(products.hoursImgName())
     apiService.callScreenShoot()
+    time.sleep(10.0)
     apiConect.sendImage()
     
     

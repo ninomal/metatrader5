@@ -22,8 +22,6 @@ class Adbconect():
             time.sleep(1.0)
         time.sleep(3.0)
         #Open chat here
-        self.sendMsgStandard("Open chat")
-        time.sleep(13.0)
         self.sendMsg('Finish?')
         self.readMsgOfChat()
         print("of chat ^ on chat v")
@@ -35,15 +33,16 @@ class Adbconect():
         text = urllib.parse.quote(textStr)
         time.sleep(12.0)
         self.sendMsgStandard(text)
+        time.sleep(3.0)
         self.clickSendMsg()
         
         #click in Msg
     def clickSendMsg(self):
-        #driver.find_element(By.XPATH,).click() <- another away 
-        print(3)
-        localClick = pyautogui.locateCenterOnScreen("products\click.png")
-        pyautogui.click(localClick[0], localClick[1])
-        time.sleep(4.0)
+        self.driver.find_element(By.XPATH,
+        '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[2]/button/span').click() 
+        #localClick = pyautogui.locateCenterOnScreen("products\click.png")
+        #pyautogui.click(localClick[0], localClick[1])
+        #time.sleep(4.0)
         
     def clickSendImg(self): 
         time.sleep(6.0)   
@@ -63,12 +62,10 @@ class Adbconect():
         
         #Beta read msg in chat open 
     def readMsgOnChat(self): 
-        read = self.driver.find_elements(By.CLASS_NAME, 'row')
         time.sleep(3.0)
-        print(len(read))
-        #read = read[0]
-        #print(read.text)
-        print("Read teste 2")
+        read3 = self.driver.find_element(By.XPATH,
+        '//*[@id="pane-side"]/div[1]/div/div/div[3]/div/div/div/div[2]/div[2]/div[1]/span/span')
+        print(read3.text, "read3")
         #_1DETJ copyable-text
         #span
         # _11JPr selectable-text copyable-text
