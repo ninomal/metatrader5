@@ -7,8 +7,8 @@ from datetime import datetime
 import time
 
 class UI(ProductsServices):
-    def __init__(self, mt5, timeFrameStr, ASSET, seconds):
-        super().__init__(mt5, timeFrameStr, ASSET)
+    def __init__(self, mt5, timeFrameStr, ASSET, seconds, HOURSSTART):
+        super().__init__(mt5, timeFrameStr, ASSET, HOURSSTART)
         self.seconds = seconds
         self.dataframe = self.priceVol()
         self.time = self.dataTime()

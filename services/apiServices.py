@@ -10,17 +10,17 @@ import time
 
 
 class ApiServices():  
-    def __init__(self, mt5, selecTime, ASSET, SECONDS, PHONENUMBER) :
+    def __init__(self, mt5, selecTime, ASSET, SECONDS, PHONENUMBER, HOURSSTART) :
         self.mt5 = mt5
         self.selecTime = selecTime
         self.ASSET = ASSET
         self.SECONDS = SECONDS
         self.phone = PHONENUMBER
-        self.product = Products(self.mt5, self.SECONDS, self.ASSET)
-        self.ui = UI(self.mt5, self.selecTime, self.ASSET, self.SECONDS)
+        self.product = Products(self.mt5, self.SECONDS, self.ASSET, HOURSSTART)
+        self.ui = UI(self.mt5, self.selecTime, self.ASSET, self.SECONDS, HOURSSTART)
         self.services = Service(self.mt5, self.selecTime, self.ASSET)
         self.enumsGraph = EnumsGraph(self.ui)
-        self.apiConect = Apiconect(self.mt5,self.selecTime,self.ASSET,self.phone,self.ui)
+        self.apiConect = Apiconect(self.mt5,self.selecTime,self.ASSET,self.phone,self.ui,HOURSSTART)
         
     def selectGraph(self):
         valueStr = self.apiConect.readTxt()

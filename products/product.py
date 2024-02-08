@@ -9,7 +9,7 @@ POS = 0  #position bar
 COUNT = 0 #position count 
 
 class Products:
-    def __init__(self, mt5, timeFramesStr, ASSET):
+    def __init__(self, mt5, timeFramesStr, ASSET, HOURSSTART):
         self.mt5 = mt5
         self.timeFramesStr = timeFramesStr
         self.TIMEFRAME = self.enumsTimeProducts()
@@ -18,6 +18,7 @@ class Products:
         self.POS = POS
         self.daTime = self.dateTime()        
         self.dados = self.colectDate()
+        self.HOURSSTART = HOURSSTART
         
     def enumsTimeProducts(self):
         enumsTimeIns = enumsTime.Timeframe(self.mt5, self.timeFramesStr)
@@ -67,13 +68,15 @@ class Products:
         return timeDay
            
     def current_day(self):
-       day = self.date_of_Day()
-       times = self.selectBar('time')
-       day_raw = times.where(times== (day+' 9:00:00')).dropna()
-       day_nowList = day_raw.axes
-       day_now = day_nowList[0][0]
-       day_now_conv = day_now.item()
-       return day_now_conv
+        if self.HOURSSTART != '':
+            day = self.date_of_Day()
+            times = self.selectBar('time')
+            day_raw = times.where(times== (day+ " " + self.HOURSSTART)).dropna()
+            day_nowList = day_raw.axes
+            day_now = day_nowList[0][0]
+            day_now_conv = day_now.item()
+            print(day_now_conv)
+            return day_now_conv
        
     def timeSleepNow(self):
         dateTime = datetime.now()

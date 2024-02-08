@@ -3,8 +3,8 @@ from products.product import Products
 from enums.enumsGraphics import EnumsGraph
 
 class Apiconect():
-    def __init__(self, mt5, timeframe, asset, phonenumber, ui) :
-        self.product = Products(mt5, timeframe, asset)
+    def __init__(self, mt5, timeframe, asset, phonenumber, ui, HOURSSTART) :
+        self.product = Products(mt5, timeframe, asset, HOURSSTART)
         self.adb = Adbconect(phonenumber)
         self.enumsGraph = EnumsGraph(ui)
               

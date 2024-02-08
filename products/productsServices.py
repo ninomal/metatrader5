@@ -5,11 +5,10 @@ from functools import cache
 import time
 from datetime import datetime
 
-class ProductsServices:
-       
-    def __init__(self, mt5, timeFrame, ASSET):
+class ProductsServices:  
+    def __init__(self, mt5, timeFrame, ASSET, HOURSSTART):
         self.mt5 = mt5
-        self.Products = Products(self.mt5, timeFrame, ASSET)
+        self.Products = Products(self.mt5, timeFrame, ASSET, HOURSSTART)
         self.pd = pd
        
     def toTimeFrame(self):
