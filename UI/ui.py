@@ -14,6 +14,7 @@ class UI(ProductsServices):
         self.time = self.dataTime()
         self.pvol = self.dataPvol() 
         self.POSITION = range(0, 50)
+        self.HOURSSART = HOURSSTART
         self.conts = 1
                
     def dataTime(self):
@@ -82,10 +83,14 @@ class UI(ProductsServices):
     
     def sortedRedBarIntraday(self):
         plt.subplots(layout='constrained', figsize = (50 , 6))
-        maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 1
+        if self.HOURSSART != '':
+            maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 1
+            index = self.dayForconvert()
+        else:
+            index = len(self.pvol) -50
+            maxindex = len(self.pvol)-50
         totalFrame = (len(self.pvol) /50) 
         firstFifty = 0
-        index = self.dayForconvert()
         indexPlus = index + 50
         plt.ion() 
         if (len(self.pvol) - index) <50:
@@ -116,7 +121,15 @@ class UI(ProductsServices):
                 self.uiBar(pvolsSorted, timeSorted)
                 self.conts +=1
                 index += 50
-                indexPlus +=50        
+                indexPlus +=50
+        elif self.HOURSSART == '':
+            while self.conts != 1000:
+                pvolsNotConv = self.pvol[index:indexPlus]
+                pvolsSorted = sorted(pvolsNotConv, reverse=True)
+                timeDic = self.convertToDic(self.pvol, self.dataTime())
+                timeSorted = list(map(lambda n : timeDic[n] , pvolsSorted))
+                self.uiBar(pvolsSorted, timeSorted) 
+                self.timeSleepNow()          
         else:
             print("data error")
         plt.ioff()   
@@ -173,7 +186,10 @@ class UI(ProductsServices):
     #graph dynamic with redBar
     @cache    
     def graphIntraDay(self):
-        maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 3
+        if self.HOURSSART != '':
+            maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 3
+        else:
+            maxindex = len(self.pvol)-50
         totalFrame = (len(self.pvol) /50) 
         plt.ion() 
         if maxindex < 1:
@@ -189,6 +205,7 @@ class UI(ProductsServices):
             self.minutesInGraph()
         plt.ioff()   
         plt.show()
+        
     #calc minuts in real time    
     def minutesInGraph(self):
         dateTime = datetime.now()
@@ -245,7 +262,7 @@ class UI(ProductsServices):
             self.conts += 1
         plt.ioff()   
         plt.show()
-                  
+               
     def scatterLineGraph(self, data, time, TITLE):
         plt.clf()
         plt.cla()
@@ -259,10 +276,14 @@ class UI(ProductsServices):
     def allDataGraph(self, valueGraph , title):
         plt.subplots(layout='constrained', figsize = (50 , 6))
         value = valueGraph
-        maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 2
+        if self.HOURSSART != '':
+            maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 2
+            index = self.dayForconvert()
+        else:
+            index = len(self.pvol) - 50
+            maxindex = len(self.pvol)-50
         totalFrame = (len(self.pvol) /50) 
         firstFifty = 0
-        index = self.dayForconvert()
         indexPlus = index + 50
         valueList = []
         next50 = True
@@ -300,70 +321,27 @@ class UI(ProductsServices):
             if self.conts == 11:
                 timeIndex = timeList[index:indexPlus]
                 valueIndex = value[index:indexPlus]
-                self.scatterLineGraph(valueIndex, timeIndex, title)              
-        else:
-            print("data error") 
-        plt.ioff() 
-        plt.show()
-        
-    def dataGraphNow(self, value, title):
-        plt.subplots(layout='constrained', figsize = (50 , 6))
-        maxindex = (((len(self.pvol))-self.dayForconvert()) /50) - 2
-        totalFrame = (len(self.pvol) /50) 
-        firstFifty = 0
-        index = self.dayForconvert()
-        indexPlus = index + 50
-        valueList = []
-        plt.ion() 
-        if (len(self.pvol) - index) <50:
-            plt.ion()
-            while firstFifty != 50:
-                valueSlice = value[index:indexPlus]
-                pvolTime = self.pvol[index:indexPlus]
-                for x in valueSlice:
-                        valueList.append(x)    
-                timeDic = self.convertToDic(pvolTime, self.dataTime())
-                timeList= list(map(lambda n : timeDic[n] , timeDic))
-                dateTime = datetime.now()
-                minuts = 50 - dateTime.minute 
-                for x in range(minuts-1):
-                    timeList.append(0)
-                    valueList.append(0)
-                self.scatterLineGraph(valueList, timeList, title)
-                index = self.dayForconvert()
-                indexPlus = index + 50
-                firstFifty += 1
-            self.conts+= 1
-        elif maxindex < totalFrame:
-            while self.conts != 12:
-                lastIndex = len(self.eom()) -50
-                valueSlice = value[lastIndex:]
+                self.scatterLineGraph(valueIndex, timeIndex, title) 
+        elif self.HOURSSART == '':
+            while self.conts != 1000:
                 timeDic = self.convertToDic(self.pvol, self.dataTime())
                 timeList = list(map(lambda n : timeDic[n] , timeDic))
-                timeLastIndex = timeList[lastIndex:]
-                self.scatterLineGraph(valueSlice, timeLastIndex, title)   
-                self.conts += 1   
+                timeIndex = timeList[index:indexPlus]
+                valueIndex = value[index:indexPlus]
+                self.scatterLineGraph(valueIndex, timeIndex, title) 
                 self.timeSleepNow()
-            plt.show()       
+                timeList.clear()
         else:
             print("data error") 
         plt.ioff() 
         plt.show()
-        
+           
     def adGraph(self):
         ad = self.ad()
         self.allDataGraph(ad, "Ad Graph")
-        self.adGraphNow()
         
     def eomGraph(self):
         eom = self.eom()
         self.allDataGraph(eom, "Eom Graph")
-        self.eomGraphNow()
+
                            
-    def eomGraphNow(self):
-        eom = self.eom()
-        self.dataGraphNow(eom, "Eom Graph Now")
-        
-    def adGraphNow(self):
-        ad = self.ad()
-        self.dataGraphNow(ad, "Ad Graph Now")
