@@ -97,3 +97,11 @@ class ProductsServices:
     
     def teste(self):
         help(ta.eom)
+        
+    def calcV(self):
+        before = []
+        now = []
+        future = []
+        before.append(float(self.selectBar('close')))
+        future.append(float(self.selectBar('close')) + self.selectBar('close') * 80 * 100)
+        
