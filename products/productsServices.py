@@ -97,11 +97,23 @@ class ProductsServices:
     
     def teste(self):
         help(ta.eom)
-        
+    
+    #Beta  
     def calcV(self):
+        calc = True
         before = []
-        now = []
-        future = []
-        before.append(float(self.selectBar('close')))
-        future.append(float(self.selectBar('close')) + self.selectBar('close') * 80 * 100)
-        
+        v = []
+        futureNegative = []
+        futurePositive = [] 
+        while calc :
+            before.append(float(self.selectBar('close')))
+            for first in len(before):
+                if first >= (first * 2):  
+                    futurePositive.append(float(self.selectBar('close')))
+                elif first <= (first * 2):
+                    futureNegative.append(before)
+            v = list(filter(lambda n : n < n * 0,8 , futurePositive))
+            v = list(filter(lambda n : n > n * 0,8 , futureNegative))
+            if len(v) > 1 :
+                print(v)
+                calc = False
