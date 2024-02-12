@@ -37,7 +37,7 @@ def main():
     #print(productsService.dayForconvert())
     #print(products.lastBar())
     #ui.lastGraph('true')
-    ui.allGraph()
+    #ui.allGraph()
     #ui.graphIntraDay()  
     #ui.allRedBar()
     #ui.sortedRedBarIntraday()
@@ -55,7 +55,8 @@ def main():
     #apiService.callScreenShoot()
     #time.sleep(10.0)
     #apiConect.sendImage()
-    
+    #ui.calcV()
+    productsService.teste()
     
 '''
 th1 = threading.Thread(target=main)

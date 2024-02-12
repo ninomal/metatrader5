@@ -96,24 +96,36 @@ class ProductsServices:
         return eomData
     
     def teste(self):
-        help(ta.eom)
-    
+        print(self.selectBar('close'))
+        print(type(self.selectBar('close')))
+        calc = self.convertToList(self.selectBar('close'))
+        print(type(calc))
+        self.calcV(calc)
+        
     #Beta  
-    def calcV(self):
+    def calcV(self, data):
         calc = True
         before = []
         v = []
         futureNegative = []
         futurePositive = [] 
         while calc :
-            before.append(float(self.selectBar('close')))
-            for first in len(before):
+            for datas in data :
+                before.append(datas)
+            for first in before:
                 if first >= (first * 2):  
                     futurePositive.append(float(self.selectBar('close')))
                 elif first <= (first * 2):
                     futureNegative.append(before)
-            v = list(filter(lambda n : n < n * 0,8 , futurePositive))
-            v = list(filter(lambda n : n > n * 0,8 , futureNegative))
+            for futureP in futurePositive:
+                if futureP <= (futureP *0.8):
+                    v.append(futureP)
+            for i in futureNegative:
+                print(i)
+                if i >= (i * 8):
+                    print(i * 8 )
+                    v.append(i)
             if len(v) > 1 :
-                print(v)
-                calc = False
+                print(v[0])
+            print(v)
+            calc = False

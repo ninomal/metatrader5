@@ -344,4 +344,6 @@ class UI(ProductsServices):
         eom = self.eom()
         self.allDataGraph(eom, "Eom Graph")
 
-                           
+    def calcV(self):
+        calcv = self.calcV()
+        calcv

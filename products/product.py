@@ -46,6 +46,7 @@ class Products:
         named_tuple = time.localtime() 
         timeframe = time.strftime("%m/%d/%Y, %H:%M:%S", named_tuple)
         return timeframe
+    
     @cache
     def lastBar(self):
         lastBarDF = self.dados
