@@ -10,6 +10,13 @@ class ProductsServices:
         self.mt5 = mt5
         self.Products = Products(self.mt5, timeFrame, ASSET, HOURSSTART)
         self.pd = pd
+        self.vList =  []
+        self.futureNegativeList = []
+        self.futurePositiveList = []
+        self.dataList = []
+        self.positive = False
+        self.negative = False
+
        
     def toTimeFrame(self):
         return self.Products.tOtimeFrame()
@@ -96,36 +103,38 @@ class ProductsServices:
         return eomData
     
     def teste(self):
-        print(self.selectBar('close'))
-        print(type(self.selectBar('close')))
         calc = self.convertToList(self.selectBar('close'))
-        print(type(calc))
-        self.calcV(calc)
+        print(calc)
+        for data in calc:
+            self.calcV(data)
         
     #Beta  
+    @cache
     def calcV(self, data):
-        calc = True
-        before = []
-        v = []
-        futureNegative = []
-        futurePositive = [] 
-        while calc :
-            for datas in data :
-                before.append(datas)
-            for first in before:
-                if first >= (first * 2):  
-                    futurePositive.append(float(self.selectBar('close')))
-                elif first <= (first * 2):
-                    futureNegative.append(before)
-            for futureP in futurePositive:
-                if futureP <= (futureP *0.8):
-                    v.append(futureP)
-            for i in futureNegative:
-                print(i)
-                if i >= (i * 8):
-                    print(i * 8 )
-                    v.append(i)
-            if len(v) > 1 :
-                print(v[0])
-            print(v)
-            calc = False
+        self.dataList.append(data)
+        dataPosi = data +  ((data * 1.40)/100)
+        self.futurePositiveList.append(dataPosi)
+        dataNega = (data - (data * 1.40)/100)
+        self.futureNegativeList.append(dataNega)
+        for indice in self.dataList:
+            if indice > self.futurePositiveList[0]:
+                newIndice = (indice - (indice* 1.40)/100)
+                self.vList.append(newIndice)
+                self.positive = True
+            elif indice < self.futureNegativeList[0]:
+                newIndice = (indice + (indice* 1.40)/100)
+                self.vList.append(newIndice)
+                self.negative = True
+            elif len(self.vList) > 1 and self.positive:
+                if indice < self.vList[0]:
+                    return indice
+            elif len(self.vList) > 1 and self.negative:
+                if indice > self.vList[0]:
+                    return indice          
+            else:
+                print("")
+                print(indice)
+                print("")
+                print(self.futureNegativeList[0])
+                print(self.futurePositiveList[0])
+                
