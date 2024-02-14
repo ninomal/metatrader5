@@ -13,7 +13,7 @@ from products.Apiconect import Apiconect
 from services.apiServices import ApiServices
 
 SELECTTIME = "1" #select time here, string type exp '2' or '3'
-ASSET = "WING24" #Change name of ASSETS HERE exemple :"WDOc1"
+ASSET = "WINJ24" #Change name of ASSETS HERE exemple :"WDOc1"
 SECONDS = 2 # seconds that the graphs will be shown here 
 PHONENUMBER = "you watssap number"
 HOURSSTART = '' # IF you wish market start hours exemple '9:00:00'
@@ -56,7 +56,7 @@ def main():
     #time.sleep(10.0)
     #apiConect.sendImage()
     #ui.calcV()
-    productsService.teste()
+    productsService.calcVfunc()
     
 '''
 th1 = threading.Thread(target=main)
