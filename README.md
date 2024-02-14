@@ -58,6 +58,9 @@ read txt in watssap web and enter grafics, you need send names grafics in watssa
 send imagen in watssap web automatic
 ![apisendimagen](https://github.com/ninomal/metatrader5/assets/137447782/9267f337-f22c-49b0-83e7-f81cc0223bd9)
 
+calculate pattern v
+![calcv](https://github.com/ninomal/metatrader5/assets/137447782/451699f7-3274-47e6-a78e-e59ac7cbc82f)
+
 
 # Graphics
 
