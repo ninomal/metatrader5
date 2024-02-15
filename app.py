@@ -16,7 +16,7 @@ SELECTTIME = "1" #select time here, string type exp '2' or '3'
 ASSET = "WINJ24" #Change name of ASSETS HERE exemple :"WDOc1"
 SECONDS = 2 # seconds that the graphs will be shown here 
 PHONENUMBER = "you watssap number"
-HOURSSTART = '' # IF you wish market start hours exemple '9:00:00'
+HOURSSTART = '9:00:00' # IF you wish market start hours exemple '9:00:00'
 
 
 os.system('cls')
@@ -56,7 +56,9 @@ def main():
     #time.sleep(10.0)
     #apiConect.sendImage()
     #ui.calcV()
-    productsService.calcVfunc()
+    #productsService.calcVfunc()
+    ui.mt5Graf()
+    
     
 '''
 th1 = threading.Thread(target=main)

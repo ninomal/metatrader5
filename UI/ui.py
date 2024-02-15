@@ -12,13 +12,13 @@ class UI(ProductsServices):
         self.seconds = seconds
         self.dataframe = self.priceVol()
         self.time = self.dataTime()
-        self.pvol = self.dataPvol() 
+        self.pvol = self.dataPvol()
+        self.closedData = self.convertToList(self.selectBar('close')) 
         self.POSITION = range(0, 50)
         self.HOURSSART = HOURSSTART
         self.conts = 1
                
     def dataTime(self):
-        dfvalues = self.priceVol()
         dfindex = self.toTimeFrame()
         time = self.convertToList(dfindex['time'])
         return time
@@ -36,6 +36,7 @@ class UI(ProductsServices):
         self.showGraphBar(self.POSITION, pvol, time)
         plt.pause(self.seconds)        
                
+    #list o bigger candle
     def redBar(self, x, sort):
         maxLen = len(sort)
         reList = []
@@ -347,3 +348,21 @@ class UI(ProductsServices):
     def calcV(self):
         calcv = self.calcV()
         calcv
+        
+   #Mt5 grafics
+    def mt5Graf(self):
+        plt.subplots(layout='constrained', figsize = (50 , 7))
+        closed = self.lastIndex(self.closedData)
+        dataTime = self.lastIndex(self.time)
+        #closedSorted = sorted(closed)
+        #redbar = self.redBar(closed, closedSorted) 
+        plt.scatter(self.POSITION, closed, c= "black")
+        plt.plot(self.POSITION, closed)
+        plt.xticks(self.POSITION, dataTime, rotation = 90)    
+        plt.yticks(closed)
+        plt.title("Mt5 Grafics")
+        plt.pause(10.0)
+        plt.show()
+        
+        
+    

@@ -116,9 +116,11 @@ class ProductsServices:
         elif data < self.futurePositive and self.positive:
             self.futurePositive = 0
             self.positive = False
+            return True
         elif data > self.futureNegative and self.negative:  
             self.futureNegative = 0
-            self.negative = False        
+            self.negative = False  
+            return True      
         elif data > self.futurePositive:
             if self.positive == False:
                 self.futurePositive = (data - (data * 0.48)/100)
