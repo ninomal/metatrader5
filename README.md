@@ -67,6 +67,10 @@ calculate pattern v
 Volume in indice 50 in graph
 red candle for highest volume 
 
+ui.mt5Graf()
+![mt5grafics](https://github.com/ninomal/metatrader5/assets/137447782/7cf5574b-903c-45e0-bcc3-351cac7367ad)
+mt5 normal grafics
+
 ui.allGraph()
 ![allgraph](https://github.com/ninomal/metatrader5/assets/137447782/0c3ff3f8-b172-4997-9cdc-25d5ae97ae8b)
 all day PVOL ,while no stop graph change in 5 seconds 
