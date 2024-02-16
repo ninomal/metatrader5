@@ -15,7 +15,7 @@ from services.apiServices import ApiServices
 SELECTTIME = "1" #select time here, string type exp '2' or '3'
 ASSET = "WINJ24" #Change name of ASSETS HERE exemple :"WDOc1"
 SECONDS = 2 # seconds that the graphs will be shown here 
-PHONENUMBER = "you watssap number"
+PHONENUMBER = "you watsap number"
 HOURSSTART = '9:00:00' # IF you wish market start hours exemple '9:00:00'
 
 
@@ -29,7 +29,7 @@ def main():
     services = Service(mt5, SELECTTIME, ASSET)
     ui = UI(mt5, SELECTTIME, ASSET, SECONDS, HOURSSTART)
     screenShot = Screenshot(products)
-    apiConect = Apiconect(mt5, SELECTTIME, ASSET, "214550", ui, HOURSSTART)
+    apiConect = Apiconect(mt5, SELECTTIME, ASSET, PHONENUMBER, ui, HOURSSTART)
     adbConect = Adbconect(PHONENUMBER)
     apiService = ApiServices(mt5, SELECTTIME, ASSET,SECONDS,PHONENUMBER, HOURSSTART)
     print()
@@ -59,19 +59,13 @@ def main():
     #productsService.calcVfunc()
     #ui.mt5Graf()
     apiService.calcvScreen()
+    time.sleep(10.0)
+    products.clearAllimage()
     
     
-'''
-th1 = threading.Thread(target=main)
-mt5.initialize()
-products = product.Products(mt5, SELECTTIME, ASSET)
-screenShot = Screenshot.Screenshot(products.hoursImgName())
-th2 = threading.Thread(target=screenShot.printScreen)
 
-th1.start()
-th2.start()
-    
-    '''
+
+
     
 if __name__ == "__main__":
     main()

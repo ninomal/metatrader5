@@ -26,15 +26,14 @@ class Adbconect():
         self.readMsgOfChat()
         print("of chat ^ on chat v")
         self.readMsgOnChat()
-        time.sleep(3.0)
-        self.sendMsg("gg")
+        
               
     def sendMsg(self, textStr):
         text = urllib.parse.quote(textStr)
         time.sleep(12.0)
         self.sendMsgStandard(text)
-        time.sleep(3.0)
-        self.clickSendMsg()
+        time.sleep(6.0)
+        self.readMsgOnChat()
         
         #click in Msg
     def clickSendMsg(self):
@@ -45,7 +44,7 @@ class Adbconect():
         #time.sleep(4.0)
         
     def clickSendImg(self): 
-        time.sleep(6.0)   
+        time.sleep(10.0)   
         self.driver.find_element(By.XPATH,
         '//*[@id="app"]/div/div[2]/div[2]/div[2]/span/div/span/div/div/div[2]/div/div[2]/div[2]/div/div/span').click() 
         

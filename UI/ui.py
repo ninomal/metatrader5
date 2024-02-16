@@ -362,7 +362,7 @@ class UI(ProductsServices):
         plt.yticks(closed)
         plt.title("Mt5 Grafics")
         plt.pause(10.0)
-        plt.show()
+        
         
         
     

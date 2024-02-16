@@ -19,7 +19,8 @@ class Apiconect():
     def selecGraph(self):
         self.enumsGraph.selectUIgrap(self.readTxt())
         
-   
+    def apiConectZap(self):
+        self.adb.adbConect()
         
     
         

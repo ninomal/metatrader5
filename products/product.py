@@ -80,7 +80,8 @@ class Products:
             day_now_conv = day_now.item()
             print(day_now_conv)
             return day_now_conv
-       
+    
+    #time seconds calculator
     def timeSleepNow(self):
         dateTime = datetime.now()
         timeSecond = 60.0 - dateTime.second 
@@ -93,6 +94,7 @@ class Products:
         values = value[day: maxindex]
         return values
     
+    #slice max index grafics
     def lastIndex(self, value): 
         maxindex = len(value)
         base = maxindex - 50
@@ -128,7 +130,8 @@ class Products:
     
     def defineSleep(self, value):
         time.sleep(value)
-        
+     
+    # define name of screenShoot to send watssap path   
     def hoursImgName(self):
         time = self.dateTime()
         newTime = ""
@@ -143,11 +146,13 @@ class Products:
         self.listOfImage.append(newTime)
         return newTime
     
+    #list all imagen of hoursimage
     def listAllimage(self):
         image = self.listOfImage[self.imageCount]
         self.imageCount += 1
         return image
     
+    #clear list
     def clearAllimage(self):
         self.listOfImage.clear()
     
