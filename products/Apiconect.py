@@ -19,6 +19,7 @@ class Apiconect():
     def selecGraph(self):
         self.enumsGraph.selectUIgrap(self.readTxt())
         
+   
         
     
         

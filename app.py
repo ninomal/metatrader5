@@ -57,7 +57,8 @@ def main():
     #apiConect.sendImage()
     #ui.calcV()
     #productsService.calcVfunc()
-    ui.mt5Graf()
+    #ui.mt5Graf()
+    apiService.calcvScreen()
     
     
 '''

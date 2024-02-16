@@ -19,6 +19,8 @@ class Products:
         self.daTime = self.dateTime()        
         self.dados = self.colectDate()
         self.HOURSSTART = HOURSSTART
+        self.listOfImage = []
+        self.imageCount = 0
         
     def enumsTimeProducts(self):
         enumsTimeIns = enumsTime.Timeframe(self.mt5, self.timeFramesStr)
@@ -138,7 +140,18 @@ class Products:
             else:
                 newTime += times[0]
         newTime += ".png"
+        self.listOfImage.append(newTime)
         return newTime
+    
+    def listAllimage(self):
+        image = self.listOfImage[self.imageCount]
+        self.imageCount += 1
+        return image
+    
+    def clearAllimage(self):
+        self.listOfImage.clear()
+    
+            
     
     
    

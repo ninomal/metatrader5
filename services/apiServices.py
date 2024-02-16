@@ -45,12 +45,14 @@ class ApiServices():
         time.sleep(1.0)
         th1.start()
         th2.start()
-        
-        
+         
     def calcvScreen(self):
-        if self.productService.calcVfunc():
-            #self.ui.mt5Graf()
-            #th1  = threading.Thread(target=self.mt5Graf())
-            #screenShot = Screenshot(self.product.hoursImgName())
-            #th2 = threading.Thread(target=screenShot.printScreen)
-            pass
+        #if self.productService.calcVfunc():
+        if self.productService.teste():
+            th1  = threading.Thread(target=self.ui.mt5Graf)
+            screenShot = Screenshot(self.product.hoursImgName())
+            th2 = threading.Thread(target=screenShot.printScreen)
+            time.sleep(1.0)
+            th1.start()
+            th2.start()
+        self.apiConect.sendImage()

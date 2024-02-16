@@ -129,5 +129,8 @@ class ProductsServices:
             if self.negative == False:
                 self.futureNegative = (data + (data* 0.48)/100)
                 print(self.futureNegative)
-                self.negative = True         
+                self.negative = True        
+                
+    def teste(self):
+        return True 
             

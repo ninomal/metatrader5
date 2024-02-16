@@ -3,8 +3,9 @@ import time
 
 class Screenshot():
     def __init__(self, imgName) :
-        self.imgName = imgName
+        self.imgName = imgName 
     
+    #take screenshot
     def printScreen(self):
         time.sleep(13.0)
         im1 = pyautogui.screenshot()

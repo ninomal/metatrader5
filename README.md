@@ -34,7 +34,8 @@ change start of market in
 
 
 enter in watssap web number phone for send imagens and txt
-![phonenumber](https://github.com/ninomal/metatrader5/assets/137447782/608a5cdc-252f-4cd1-8363-a71a425b7d52)
+![watssap](https://github.com/ninomal/metatrader5/assets/137447782/198b883a-f97f-473d-90c1-f74f6e2912bc)
+
 
 # Tools
 
