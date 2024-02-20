@@ -4,6 +4,7 @@ import numpy as np
 from products.productsServices import ProductsServices
 from functools import cache
 from datetime import datetime
+from mplfinance import mplfinance as mpf
 import time
 
 class UI(ProductsServices):
@@ -351,17 +352,18 @@ class UI(ProductsServices):
         
    #Mt5 grafics
     def mt5Graf(self):
-        plt.subplots(layout='constrained', figsize = (50 , 7))
-        closed = self.lastIndex(self.closedData)
-        dataTime = self.lastIndex(self.time)
+        #plt.subplots(type='candle', figsize = (50 , 7))
+        closed = self.Products.colectDataMpf()
+        #dataTime = self.lastIndex(self.time)
         #closedSorted = sorted(closed)
         #redbar = self.redBar(closed, closedSorted) 
-        plt.scatter(self.POSITION, closed, c= "black")
-        plt.plot(self.POSITION, closed)
-        plt.xticks(self.POSITION, dataTime, rotation = 90)    
-        plt.yticks(closed)
-        plt.title("Mt5 Grafics")
-        plt.pause(10.0)
+        teste = mpf.make_addplot(closed)
+        mpf.plot(teste)
+        #plt.xticks(self.POSITION, dataTime, rotation = 90)    
+        #plt.yticks(closed)
+        #plt.title("Mt5 Grafics")
+        #plt.pause(10.0)
+       
         
         
         

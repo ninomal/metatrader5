@@ -156,8 +156,23 @@ class Products:
     def clearAllimage(self):
         self.listOfImage.clear()
     
-            
-    
+    def colectDataMpf(self, count = 0):
+        date =self.mt5.copy_rates_from_pos(self.SYMBOL,self.TIMEFRAME, self.POS, count)
+        dateDf = pd.DataFrame(date)
+        ateConvDf = self.convertDateHour(dateDf)
+        #print(dateDf)
+        print("jgpawsdas")
+        print(ateConvDf)
+        #ateConvDf.index.name = 'Date'
+        ateConvDf.set_index('time')
+        #dateDf.shape
+        #dateDf.head(3)
+        #dateDf.tail(3)
+        #print(dateDf)
+        print(ateConvDf)
+        print(ateConvDf.info())
+        print(ateConvDf.columns)
+        return ateConvDf
     
    
         

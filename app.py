@@ -23,7 +23,8 @@ os.system('cls')
 def main():    
     #Start
     mt5.initialize() 
-    #mt5.terminal_info()     
+    #mt5.terminal_info()
+    time.sleep(10.0)     
     products = Products(mt5, SELECTTIME, ASSET, HOURSSTART)
     productsService = ProductsServices(mt5, SELECTTIME, ASSET, HOURSSTART)
     services = Service(mt5, SELECTTIME, ASSET)
@@ -48,7 +49,7 @@ def main():
     #ui.pizzaGraphForce()
     #productsService.teste()
     #ui.adGraph()
-    #ui.eomGraph()
+    ui.eomGraph()
     #screenShot.printScreen()
     #adbConect.adbConect()
     #print(products.hoursImgName())
@@ -57,10 +58,10 @@ def main():
     #apiConect.sendImage()
     #ui.calcV()
     #productsService.calcVfunc()
-    #ui.mt5Graf()
-    apiService.calcvScreen()
-    time.sleep(10.0)
-    products.clearAllimage()
+    #ui.mt5Graf() need fix
+    #apiService.calcvScreen()
+    #time.sleep(10.0)
+    #products.clearAllimage()
     
     
 
