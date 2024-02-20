@@ -160,19 +160,14 @@ class Products:
         date =self.mt5.copy_rates_from_pos(self.SYMBOL,self.TIMEFRAME, self.POS, count)
         dateDf = pd.DataFrame(date)
         ateConvDf = self.convertDateHour(dateDf)
-        #print(dateDf)
-        print("jgpawsdas")
-        print(ateConvDf)
-        #ateConvDf.index.name = 'Date'
-        ateConvDf.set_index('time')
-        #dateDf.shape
-        #dateDf.head(3)
-        #dateDf.tail(3)
-        #print(dateDf)
-        print(ateConvDf)
-        print(ateConvDf.info())
-        print(ateConvDf.columns)
-        return ateConvDf
+        dataConv = pd.DataFrame(ateConvDf)
+        dataConv = dataConv.set_index('time')
+        dataConv.shape
+        dataConv.head(3)
+        dataConv.tail(3)
+        print(dataConv)
+        print(type(dataConv))
+        return dataConv
     
    
         
