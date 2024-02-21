@@ -165,8 +165,6 @@ class Products:
         dataConv.shape
         dataConv.head(3)
         dataConv.tail(3)
-        print(dataConv)
-        print(type(dataConv))
         return dataConv
     
    
