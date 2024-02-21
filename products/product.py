@@ -159,7 +159,8 @@ class Products:
     def colectDataMpf(self, count = 0):
         date =self.mt5.copy_rates_from_pos(self.SYMBOL,self.TIMEFRAME, self.POS, count)
         dateDf = pd.DataFrame(date)
-        ateConvDf = self.convertDateHour(dateDf)
+        dateDfslice = dateDf.iloc[950: 1000]
+        ateConvDf = self.convertDateHour(dateDfslice)
         dataConv = pd.DataFrame(ateConvDf)
         dataConv = dataConv.set_index('time')
         dataConv.shape

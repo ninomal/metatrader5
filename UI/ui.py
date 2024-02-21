@@ -366,9 +366,11 @@ class UI(ProductsServices):
         mpfStyle = mpf.make_mpf_style(base_mpf_style = 'binancedark',
                                       marketcolors = colors)
         
-        mpf.plot(closed,type='candle', style = mpfStyle, mav = (2, 4, 12), show_nontrading=True)
+        mpf.plot(closed,type='candle', style = mpfStyle, mav = (2, 4, 12), show_nontrading=True,
+                figratio=(27,8),figscale=10.0)
         #mpf.plot(closed,figratio=(300,100),style = mpfStyle, mav = (2, 4, 12), show_nontrading=True )
-        #mpf.plot(closed,figratio=(27,8),figscale=10.0, style = mpfStyle, mav = (2, 4, 12), show_nontrading=True)
+        #mpf.plot(closed,figratio=(27,8),figscale=10.0, style = mpfStyle, mav = (2, 4, 12),
+        # show_nontrading=True)
         #print(mpf.available_styles())
         #plt.xticks(self.POSITION, dataTime, rotation = 90)    
         #plt.yticks(closed)

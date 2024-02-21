@@ -9,7 +9,7 @@ class Apiconect():
         self.enumsGraph = EnumsGraph(ui)
               
     def readTxt(self):
-        return self.adb.readMsgOfChat()
+        self.adb.readMsgOfChat()
     
     #send image in watssap web
     def sendImage(self):

@@ -15,7 +15,7 @@ from services.apiServices import ApiServices
 SELECTTIME = "1" #select time here, string type exp '2' or '3'
 ASSET = "WINJ24" #Change name of ASSETS HERE exemple :"WDOc1"
 SECONDS = 2 # seconds that the graphs will be shown here 
-PHONENUMBER = "you watsap number"
+PHONENUMBER = " watssap number"
 HOURSSTART = '9:00:00' # IF you wish market start hours exemple '9:00:00'
 
 
@@ -50,14 +50,12 @@ def main():
     #ui.adGraph()
     #ui.eomGraph()
     #screenShot.printScreen()
-    #adbConect.adbConect()
-    #print(products.hoursImgName())
-    #apiService.callScreenShoot()
-    #time.sleep(10.0)
-    #apiConect.sendImage()
+    adbConect.adbConect()
+    apiService.callScreenShoot()
+    apiConect.sendImage()
     #ui.calcV()
     #productsService.calcVfunc()
-    ui.mt5Graf() 
+    #ui.mt5Graf() 
     #apiService.calcvScreen()
     #time.sleep(10.0)
     #products.clearAllimage()

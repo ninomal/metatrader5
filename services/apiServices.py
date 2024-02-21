@@ -17,6 +17,7 @@ class ApiServices():
         self.ASSET = ASSET
         self.SECONDS = SECONDS
         self.phone = PHONENUMBER
+        self.HOURSSTART = HOURSSTART
         self.product = Products(self.mt5, self.SECONDS, self.ASSET, HOURSSTART)
         self.ui = UI(self.mt5, self.selecTime, self.ASSET, self.SECONDS, HOURSSTART)
         self.services = Service(self.mt5, self.selecTime, self.ASSET)
@@ -38,7 +39,7 @@ class ApiServices():
             print("Action error")
             
     def callScreenShoot(self):
-        apiConect = Apiconect(self.mt5, self.selecTime, self.ASSET, self.phone, self.ui)
+        apiConect = Apiconect(self.mt5, self.selecTime, self.ASSET, self.phone, self.ui, self.HOURSSTART)
         th1  = threading.Thread(target=apiConect.selecGraph)
         screenShot = Screenshot(self.product.hoursImgName())
         th2 = threading.Thread(target=screenShot.printScreen)
@@ -47,7 +48,7 @@ class ApiServices():
         th2.start()
          
     def calcvScreen(self):
-        #if self.productService.calcVfunc():
+        #if self.productService.calcV():
         if self.productService.teste():
             th3 = threading.Thread(target= self.apiConect.apiConectZap)
             th3.start()

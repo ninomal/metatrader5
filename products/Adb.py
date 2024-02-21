@@ -61,10 +61,11 @@ class Adbconect():
         
         #Beta read msg in chat open 
     def readMsgOnChat(self): 
-        time.sleep(3.0)
+        time.sleep(10.0)
         read3 = self.driver.find_element(By.XPATH,
         '//*[@id="pane-side"]/div[1]/div/div/div[3]/div/div/div/div[2]/div[2]/div[1]/span/span')
         print(read3.text, "read3")
+        return read3
         #_1DETJ copyable-text
         #span
         # _11JPr selectable-text copyable-text
