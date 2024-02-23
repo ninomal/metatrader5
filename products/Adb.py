@@ -9,15 +9,15 @@ import pyautogui
 class Adbconect():
     def __init__(self, PHONENUMBER):
         self.PHONENUMBER = PHONENUMBER
+        self.conect = False
         
         # Creating the driver (browser)
     def adbConect(self):
         self.driver = webdriver.Chrome()
         self.driver.maximize_window()
         self.driver.get("https://web.whatsapp.com/")
-        conect = False
-        while conect != True:
-            conect = bool(self.driver.find_elements(By.XPATH, 
+        while self.conect != True:
+            self.conect = bool(self.driver.find_elements(By.XPATH, 
                 '//*[@id="app"]/div/div[2]/div[3]/header/div[2]/div/span/div[5]/div/span'))
             time.sleep(1.0)
         time.sleep(3.0)
@@ -33,7 +33,6 @@ class Adbconect():
         time.sleep(12.0)
         self.sendMsgStandard(text)
         time.sleep(6.0)
-        self.readMsgOnChat()
         
         #click in Msg
     def clickSendMsg(self):
@@ -51,6 +50,10 @@ class Adbconect():
         #standard text not converted input
     def sendMsgStandard(self, textUrll):
         send_link = f"https://web.whatsapp.com/send?phone={self.PHONENUMBER}&text={textUrll}"
+        while self.conect != True:
+            self.conect = bool(self.driver.find_elements(By.XPATH, 
+                '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[1]/div/div/div/div/span'))
+            time.sleep(1.0)
         self.driver.get(send_link)
         
         #read msg of chat
@@ -62,16 +65,23 @@ class Adbconect():
         #Beta read msg in chat open 
     def readMsgOnChat(self): 
         time.sleep(10.0)
-        read3 = self.driver.find_element(By.XPATH,
-        '//*[@id="pane-side"]/div[1]/div/div/div[3]/div/div/div/div[2]/div[2]/div[1]/span/span')
-        print(read3.text, "read3")
-        return read3
-        #_1DETJ copyable-text
-        #span
-        # _11JPr selectable-text copyable-text
-        #_1DETJ copyable-text
-        
-        # Close the browser
+        user_name = "Meu numero"
+        #In above variable at place of `Anurag Kushwaha` pass Name or number of Your Teacher
+        # who going to sent you zoom meeting link same as you have in your contact list.
+        user = self.driver.find_element('//span[@title="{}"]'.format(user_name))
+        user.click()
+        # For getting message to perform action 
+        message = self.driver.find_elements("//span[@class='_3-8er selectable-text copyable-text']") 
+        # In the above line Change the xpath's class name from the current time class name by inspecting span element
+        # which containing received text message of any chat room.
+        for i in message:
+            try:
+                if "zoom.us" in str(i.text):
+                # Here you can use you code to preform action according to your need
+                 print("Perform Your Action")
+            except:   
+                pass
+            
     def closedWeb(self):
         time.sleep(12.0)
         self.driver.quit()
