@@ -15,7 +15,6 @@ class ProductsServices:
         self.positive = False
         self.negative = False
 
-       
     def toTimeFrame(self):
         return self.Products.tOtimeFrame()
               
@@ -133,4 +132,5 @@ class ProductsServices:
                 
     def teste(self):
         return True 
-            
+                           
+   

@@ -55,8 +55,8 @@ def main():
     #apiConect.sendImage()
     #ui.calcV()
     #productsService.calcVfunc()
-    #ui.mt5Graf() 
-    apiService.calcvScreen()
+    ui.mt5Graf() 
+    #apiService.calcvScreen()
     #time.sleep(10.0)
     #products.clearAllimage()
     

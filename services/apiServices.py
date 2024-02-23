@@ -65,3 +65,5 @@ class ApiServices():
             time.sleep(60.0)
             th4 = threading.Thread(target=self.apiConect.sendImage)
             th4.start()        
+                   
+    

@@ -65,22 +65,27 @@ class Adbconect():
         #Beta read msg in chat open 
     def readMsgOnChat(self): 
         time.sleep(10.0)
-        user_name = "Meu numero"
+        user_name = "Meu Numero"
         #In above variable at place of `Anurag Kushwaha` pass Name or number of Your Teacher
         # who going to sent you zoom meeting link same as you have in your contact list.
-        user = self.driver.find_element('//span[@title="{}"]'.format(user_name))
-        user.click()
+        time.sleep(5.0)
+        try:
+            #user = self.driver.find_element(By.PARTIAL_LINK_TEXT,'//span[@title="{}"]'.format(user_name))
+            #user.click()
         # For getting message to perform action 
-        message = self.driver.find_elements("//span[@class='_3-8er selectable-text copyable-text']") 
+            message = self.driver.find_elements(By.XPATH, "//span[@class='_3-8er selectable-text copyable-text']") 
         # In the above line Change the xpath's class name from the current time class name by inspecting span element
         # which containing received text message of any chat room.
-        for i in message:
-            try:
-                if "zoom.us" in str(i.text):
-                # Here you can use you code to preform action according to your need
-                 print("Perform Your Action")
-            except:   
-                pass
+            for i in message:
+                try:
+                    if "zoom.us" in str(i.text):
+                    # Here you can use you code to preform action according to your need
+                        print("Perform Your Action")
+                except:   
+                    pass
+            
+        except:
+            print("Error read msg")
             
     def closedWeb(self):
         time.sleep(12.0)

@@ -350,8 +350,8 @@ class UI(ProductsServices):
         calcv = self.calcV()
         calcv
         
-   #Mt5 grafics
-    def mt5Graf(self):
+   #Mt5 grafics in mpf
+    def mt5GrafInMpf(self):
         #plt.subplots(type='candle', figsize = (50 , 7))
         closed = self.Products.colectDataMpf()
         #dataTime = self.lastIndex(self.time)
@@ -376,7 +376,25 @@ class UI(ProductsServices):
         #plt.yticks(closed)
         #plt.title("Mt5 Grafics")
         #plt.pause(10.0)
-       
+    def confirImgSend(self, boll):
+         return boll
+        
+    def mt5Graf(self):
+        plt.subplots(layout='constrained', figsize = (50 , 7))
+        plt.ion()
+        closed = self.lastIndex(self.closedData)
+        dataTime = self.lastIndex(self.time)
+        #closedSorted = sorted(closed)
+        #redbar = self.redBar(closed, closedSorted) 
+        plt.scatter(self.POSITION, closed, c= "black")
+        plt.plot(self.POSITION, closed)
+        plt.xticks(self.POSITION, dataTime, rotation = 90)    
+        plt.yticks(closed)
+        plt.title("Mt5 Grafics")
+        plt.pause(1.0)
+        time.sleep(25.0)
+        plt.ioff()
+        plt.close()
         
         
         
