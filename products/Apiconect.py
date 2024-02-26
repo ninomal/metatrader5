@@ -13,9 +13,9 @@ class Apiconect():
     
     #send image in watssap web
     def sendImage(self):
-        self.adb.sendImagens(self.product.hoursImgName())
-        self.imgSendComfir(1)
-        
+        img = self.product.hoursImgName()
+        self.adb.sendImagens(img) 
+        self.product.deleteImg(img) 
         
     #read text in watsapp web and transfer for UI graphics
     def selecGraph(self):
@@ -24,7 +24,7 @@ class Apiconect():
     def apiConectZap(self):
         self.adb.adbConect()
         
-   
+    
         
     
         

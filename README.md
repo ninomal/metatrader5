@@ -17,7 +17,7 @@ change name of ASSETS in app.py
 ![asset](https://github.com/ninomal/metatrader5/assets/137447782/c2de19df-ca85-48ca-9a51-c8d7f8284b53)
 
 change seconds that the graphics will be shown
-![secoindsGraficos](https://github.com/ninomal/metatrader5/assets/137447782/9e4ae5bc-dadf-4fac-bdfe-6720abe74d8f)
+![seconds n](https://github.com/ninomal/metatrader5/assets/137447782/53d677e9-9388-4c37-b985-a90dfdfda708)
 
 
 change time 
@@ -41,7 +41,7 @@ enter in watssap web number phone for send imagens and txt
 
 
 take screenshot dynamic
-![printscrenpng](https://github.com/ninomal/metatrader5/assets/137447782/30f943f8-cf73-4173-ad97-fcb9656ef11c)
+![screnshoot n](https://github.com/ninomal/metatrader5/assets/137447782/60aa3a23-4efc-434e-a42c-86dd3ffb82ba)
 
 
 connect watssap number need local number 
@@ -49,15 +49,14 @@ connect watssap number need local number
 
 
 read text in watssap web
-![readtxt](https://github.com/ninomal/metatrader5/assets/137447782/4a54562a-b0e5-4b6c-a067-e267f0ef12cb)
+![apiread n](https://github.com/ninomal/metatrader5/assets/137447782/34f599df-2488-4110-8e5f-a779c1c578f5)
 
 
 read txt in watssap web and enter grafics, you need send names grafics in watssap
-![apiselec](https://github.com/ninomal/metatrader5/assets/137447782/ea3efec7-2489-45e4-921d-298a5aa6cff1)
-
+![apiselect n](https://github.com/ninomal/metatrader5/assets/137447782/613c2ae6-9459-400e-bdf5-d19f4b35786f)
 
 send imagen in watssap web automatic
-![apisendimagen](https://github.com/ninomal/metatrader5/assets/137447782/9267f337-f22c-49b0-83e7-f81cc0223bd9)
+![apisend n](https://github.com/ninomal/metatrader5/assets/137447782/207d72b0-4d56-4a3f-ae41-e28adfe2221d)
 
 calculate pattern v
 ![calcv](https://github.com/ninomal/metatrader5/assets/137447782/451699f7-3274-47e6-a78e-e59ac7cbc82f)
@@ -71,6 +70,10 @@ red candle for highest volume
 ui.mt5Graf()
 ![mt5grafics](https://github.com/ninomal/metatrader5/assets/137447782/7cf5574b-903c-45e0-bcc3-351cac7367ad)
 mt5 normal grafics
+
+ui.mt5GrafInMpf()
+![mpf candle](https://github.com/ninomal/metatrader5/assets/137447782/20ada820-bdd9-4232-bbd5-d05ffb9a973f)
+mt5 grafics in mpf candle 
 
 ui.allGraph()
 ![allgraph](https://github.com/ninomal/metatrader5/assets/137447782/0c3ff3f8-b172-4997-9cdc-25d5ae97ae8b)

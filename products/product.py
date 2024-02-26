@@ -4,6 +4,7 @@ import time
 from datetime import datetime
 from functools import cache
 from enums import enumsTime
+import os
 
 POS = 0  #position bar
 COUNT = 0 #position count 
@@ -168,7 +169,9 @@ class Products:
         dataConv.tail(3)
         return dataConv
     
-   
+    #for delete img afeter sending
+    def deleteImg(self, path):
+        os.remove(path)
         
         
         
