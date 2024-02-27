@@ -7,6 +7,7 @@ class Apiconect():
         self.product = Products(mt5, timeframe, asset, HOURSSTART)
         self.adb = Adbconect(phonenumber)
         self.enumsGraph = EnumsGraph(ui)
+        self.ui = ui
               
     def readTxt(self):
         self.adb.readMsgOfChat()
@@ -15,6 +16,7 @@ class Apiconect():
     def sendImage(self):
         img = self.product.hoursImgName()
         self.adb.sendImagens(img) 
+        self.ui.closedPlt()
         self.product.deleteImg(img) 
         
     #read text in watsapp web and transfer for UI graphics
@@ -24,6 +26,7 @@ class Apiconect():
     def apiConectZap(self):
         self.adb.adbConect()
         
+    
     
         
     

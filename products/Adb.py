@@ -23,9 +23,9 @@ class Adbconect():
         time.sleep(3.0)
         #Open chat here
         self.sendMsg('Finish?')
-        self.readMsgOfChat()
-        print("of chat ^ on chat v")
-        self.readMsgOnChat()
+        #self.readMsgOfChat()
+        #print("of chat ^ on chat v")
+        #self.readMsgOnChat()
         
               
     def sendMsg(self, textStr):

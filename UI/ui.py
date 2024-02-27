@@ -381,7 +381,7 @@ class UI(ProductsServices):
         
     def mt5Graf(self):
         plt.subplots(layout='constrained', figsize = (50 , 7))
-        plt.ion()
+        #plt.ion()
         closed = self.lastIndex(self.closedData)
         dataTime = self.lastIndex(self.time)
         #closedSorted = sorted(closed)
@@ -391,11 +391,12 @@ class UI(ProductsServices):
         plt.xticks(self.POSITION, dataTime, rotation = 90)    
         plt.yticks(closed)
         plt.title("Mt5 Grafics")
-        plt.pause(1.0)
-        time.sleep(25.0)
-        plt.ioff()
+        #plt.pause(10.0)
+        plt.show()
+            
+    def closedPlt(self):
+        time.sleep(15.0)
+        #plt.ioff()
         plt.close()
-        
-        
         
     

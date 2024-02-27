@@ -56,8 +56,8 @@ def main():
     #ui.calcV()
     #productsService.calcVfunc()
     #ui.mt5Graf() 
-    ui.mt5GrafInMpf()
-    #apiService.calcvScreen()
+    #ui.mt5GrafInMpf()
+    apiService.calcvScreen()
     #time.sleep(10.0)
     #products.clearAllimage()
     
