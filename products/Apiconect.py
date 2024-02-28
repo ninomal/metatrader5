@@ -22,7 +22,7 @@ class Apiconect():
     #read text in watsapp web and transfer for UI graphics
     def selecGraph(self):
         #self.readTxt()
-        teste = 'pizza'
+        teste = 'ad'
         self.enumsGraph.selectUIgrap(teste)
         
     def apiConectZap(self):

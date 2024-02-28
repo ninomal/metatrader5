@@ -68,14 +68,14 @@ class ApiServices():
                       
     def graficsSelectApiUi(self): 
         th3 = threading.Thread(target= self.apiConect.apiConectZap)
-        th1  = threading.Thread(target=self.apiConect.selecGraph)
+        th1  = threading.Thread(target=self.apiConect.selecGraph, daemon=True)
         screenShot = Screenshot(self.product.hoursImgName())
         th2 = threading.Thread(target=screenShot.printScreen)
         time.sleep(1.0)
         th1.start()
         th2.start()
-        time.sleep(20)
+        time.sleep(10)
         th3.start()
-        time.sleep(40.0)     
+        time.sleep(30.0)     
         th4 = threading.Thread(target=self.apiConect.sendImage)
         th4.start()        
