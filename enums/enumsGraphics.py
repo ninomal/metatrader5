@@ -1,3 +1,4 @@
+from threading import Thread
 class EnumsGraph():
     def __init__( self, ui):
         self.ui = ui
@@ -16,14 +17,12 @@ class EnumsGraph():
         elif nameGraph == "allredintra":
             return self.ui.sortedRedBarIntraday()
         elif nameGraph == "pizza":
-            return self.ui.pizzaGraphForce()
+            self.ui.pizzaGraphForce()
+            self.ui.closedPlt()
         elif nameGraph == "ad":
             return self.ui.adGraph()
         elif nameGraph == "eom":
             return self.ui.eomGraph()
-        elif nameGraph == "eomnow":
-            return self.ui.eomGraphNow()
-        elif nameGraph == "adnow":  
-            return self.ui.adGraphNow()
         else:
             return print("Name error")
+        
