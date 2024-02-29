@@ -63,6 +63,7 @@ calculate pattern v
 
 ![apiselecService](https://github.com/ninomal/metatrader5/assets/137447782/bdd4de4b-c1c9-42e9-9cea-a856931fefc7)
 
+grafics Select
 ![apiSelectGraph](https://github.com/ninomal/metatrader5/assets/137447782/d968ebf7-aaef-4904-a6a7-b4b4eaecfe4e)
 chose grafics in msg  watssap send image for you number
 

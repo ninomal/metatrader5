@@ -58,6 +58,7 @@ class Adbconect():
         
         #read msg of chat
     def readMsgOfChat(self):
+        #readHtml = self.driver.find_element(By.)
         read = self.driver.find_element(By.CLASS_NAME, '_2KKXC ')
         time.sleep(3.0)
         print(read.text)

@@ -21,9 +21,7 @@ class Apiconect():
         
     #read text in watsapp web and transfer for UI graphics
     def selecGraph(self):
-        #self.readTxt()
-        teste = 'ad'
-        self.enumsGraph.selectUIgrap(teste)
+        self.enumsGraph.selectUIgrap(self.readTxt())
         
     def apiConectZap(self):
         self.adb.adbConect()

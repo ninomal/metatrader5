@@ -337,7 +337,25 @@ class UI(ProductsServices):
             print("data error") 
         plt.ioff() 
         plt.show()
-           
+        
+    def grafEomAdNow(self,valueGraph, title):
+        plt.subplots(layout='constrained', figsize = (50 , 6))
+        value = valueGraph
+        timeDic = self.convertToDic(self.pvol, self.dataTime())
+        timeList = list(map(lambda n : timeDic[n] , timeDic))
+        timeIndex = timeList[949: 1000]
+        valueIndex = value[950: 1000]
+        self.scatterLineGraph(valueIndex, timeIndex, title)
+        plt.show()
+        
+    def eomGraphNow(self):
+        eom = self.eom()
+        self.grafEomAdNow(eom, 'Eom Grafics Now') 
+        
+    def adGraphNow(self):
+        ad = self.ad()
+        self.grafEomAdNow(ad, 'Ad Grafics now')
+               
     def adGraph(self):
         ad = self.ad()
         self.allDataGraph(ad, "Ad Graph")
@@ -349,7 +367,7 @@ class UI(ProductsServices):
     def calcV(self):
         calcv = self.calcV()
         calcv
-        
+           
    #Mt5 grafics in mpf
     def mt5GrafInMpf(self):
         #plt.subplots(type='candle', figsize = (50 , 7))
