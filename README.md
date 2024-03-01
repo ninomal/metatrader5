@@ -132,6 +132,13 @@ Ease of Movement (EOM)
     https://www.motivewave.com/studies/ease_of_movement.htm
     https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:ease_of_movement_emv
 
+ui.eomGraphNow()
+![eomdynamic](https://github.com/ninomal/metatrader5/assets/137447782/b598daf5-21f5-4a6e-b7c7-50340c3bfce7)
+both ui.eomGraph() then dynamic in real time
+
+ui.adGraphNow()
+![adgraph](https://github.com/ninomal/metatrader5/assets/137447782/4315ad7a-da87-4d2d-8563-2650a9012deb)
+both ui.adGraphNow() then dynamic in real time
 
 
 # TECHNOLOGIES

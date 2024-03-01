@@ -60,7 +60,8 @@ def main():
     #apiService.calcvScreen()
     #apiService.graficsSelectApiUi()
     #ui.eomGraphNow()
-    ui.adGraphNow()
+    #ui.adGraphNow()
+    apiConect.testao()
     
      
 
