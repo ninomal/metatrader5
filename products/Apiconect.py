@@ -11,7 +11,8 @@ class Apiconect():
         self.ui = ui
               
     def readTxt(self):
-        self.adb.readMsgOfChat()
+        #self.adb.readMsgOfChat()
+        self.adb.readMsgOnChat()
     
     #send image in watssap web
     def sendImage(self):
@@ -32,7 +33,7 @@ class Apiconect():
         
     def testao(self):
         self.apiConectZap()
-        time.sleep(25.0)
+        time.sleep(15.0)
         self.readTxt()
     
     
