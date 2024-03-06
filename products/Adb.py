@@ -70,15 +70,24 @@ class Adbconect():
         user_name = "Meu Numero"
         #In above variable at place of `Anurag Kushwaha` pass Name or number of Your Teacher
         # who going to sent you zoom meeting link same as you have in your contact list.
-        time.sleep(5.0)
         try:
             #user = self.driver.find_element(By.PARTIAL_LINK_TEXT,'//span[@title="{}"]'.format(user_name))
             #user.click()
         # For getting message to perform action 
-            message = self.driver.find_elements(By.XPATH, "//span[@class='_11JPr selectable-text copyable-text']") 
+            message = self.driver.find_element(By.XPATH,
+            '//*[@id="main"]/div[3]/div/div[2]/div[3]/div[12]/div/div/div[1]/div[1]/div[1]/div/div[1]') 
         # In the above line Change the xpath's class name from the current time class name by inspecting span element
         # which containing received text message of any chat room.
             print(message.text)
+            for i in range(13, 23):
+                j = str(i)     
+                message = self.driver.find_element(By.XPATH,
+            f'//*[@id="main"]/div[3]/div/div[2]/div[3]/div[{j}]/div/div/div[1]/div[1]/div[1]/div/div[1]')
+                try:
+                    print(message.text)
+                except:
+                    print("error msg")
+                
             for i in message:
                 try:
                     print("foi")

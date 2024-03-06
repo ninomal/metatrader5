@@ -33,7 +33,7 @@ class Apiconect():
         
     def testao(self):
         self.apiConectZap()
-        time.sleep(15.0)
+        time.sleep(13.0)
         self.readTxt()
     
     
