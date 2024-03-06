@@ -65,40 +65,19 @@ class Adbconect():
         
         #Beta read msg in chat open 
     def readMsgOnChat(self): 
-        time.sleep(10.0)
-        print("gg")
-        user_name = "Meu Numero"
-        #In above variable at place of `Anurag Kushwaha` pass Name or number of Your Teacher
-        # who going to sent you zoom meeting link same as you have in your contact list.
+        time.sleep(8.0)
         try:
-            #user = self.driver.find_element(By.PARTIAL_LINK_TEXT,'//span[@title="{}"]'.format(user_name))
-            #user.click()
-        # For getting message to perform action 
             message = self.driver.find_element(By.XPATH,
-            '//*[@id="main"]/div[3]/div/div[2]/div[3]/div[12]/div/div/div[1]/div[1]/div[1]/div/div[1]') 
-        # In the above line Change the xpath's class name from the current time class name by inspecting span element
-        # which containing received text message of any chat room.
+        '//*[@id="main"]/div[3]/div/div[2]/div[3]/div[20]/div/div/div[1]') 
             print(message.text)
-            for i in range(13, 23):
-                j = str(i)     
-                message = self.driver.find_element(By.XPATH,
-            f'//*[@id="main"]/div[3]/div/div[2]/div[3]/div[{j}]/div/div/div[1]/div[1]/div[1]/div/div[1]')
+            for i in range(20, 24):    
+                print(i)
+                xpath = f'//*[@id="main"]/div[3]/div/div[2]/div[3]/div[{i}]/div/div/div[1]'
+                message = self.driver.find_element(By.XPATH, xpath)
                 try:
                     print(message.text)
                 except:
-                    print("error msg")
-                
-            for i in message:
-                try:
-                    print("foi")
-                    print(i.text)
-                    print("teste")
-                    if "zoom.us" in str(i.text):
-                    # Here you can use you code to preform action according to your need
-                        print("Perform Your Action")
-                except:   
-                    pass
-            
+                    print("error msg")        
         except:
             print("Error read msg")
             
