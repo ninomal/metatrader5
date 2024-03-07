@@ -31,10 +31,7 @@ class Apiconect():
     def closedPltEnums(self):
         self.enumsGraph.pltClosed()
         
-    def testao(self):
-        self.apiConectZap()
-        time.sleep(13.0)
-        self.readTxt()
+
     
     
         

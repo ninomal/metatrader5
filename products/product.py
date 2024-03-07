@@ -146,17 +146,7 @@ class Products:
         newTime += ".png"
         self.listOfImage.append(newTime)
         return newTime
-    
-    #list all imagen of hoursimage
-    def listAllimage(self):
-        image = self.listOfImage[self.imageCount]
-        self.imageCount += 1
-        return image
-    
-    #clear list
-    def clearAllimage(self):
-        self.listOfImage.clear()
-    
+     
     def colectDataMpf(self, count = 0):
         date =self.mt5.copy_rates_from_pos(self.SYMBOL,self.TIMEFRAME, self.POS, count)
         dateDf = pd.DataFrame(date)

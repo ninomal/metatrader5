@@ -30,13 +30,18 @@ class ApiServices():
         self.enumsGraph.selectUIgrap(valueStr)
         
     def actions(self):
-        valueStr = self.apiConect.readTxt()
-        if valueStr == "buy":
-            self.services.buy()
-        elif valueStr == "sell":
-            self.services.sell()
-        else:
-            print("Action error")
+        while valueStr != 'exit':
+            valueStr = self.apiConect.readTxt()
+            if valueStr == "buy":
+                self.services.buy()
+            elif valueStr == "sell":
+                self.services.sell()
+            elif valueStr == 'selecgraph':
+                self.graficsSelectApiUi()
+            elif valueStr == 'calcv':
+                self.calcvScreen()
+            else:
+                print("Action error")
             
     def callScreenShoot(self):
         apiConect = Apiconect(self.mt5, self.selecTime, self.ASSET, self.phone, self.ui, self.HOURSSTART)
