@@ -83,6 +83,7 @@ class Products:
             return day_now_conv
     
     #time seconds calculator
+    @cache
     def timeSleepNow(self):
         dateTime = datetime.now()
         timeSecond = 60.0 - dateTime.second 

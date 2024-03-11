@@ -34,6 +34,7 @@ def main():
     apiService = ApiServices(mt5, SELECTTIME, ASSET,SECONDS,PHONENUMBER, HOURSSTART)
     print()
     print(products.date_of_Day())
+    apiConect.apiConectZap()
     #print(productsService.dayForconvert())
     #print(products.lastBar())
     #ui.lastGraph('true')
@@ -61,7 +62,8 @@ def main():
     #apiService.graficsSelectApiUi()
     #ui.eomGraphNow()
     #ui.adGraphNow()
-    apiConect.testao()
+    
+    
     
      
 

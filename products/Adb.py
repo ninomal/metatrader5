@@ -23,11 +23,7 @@ class Adbconect():
         time.sleep(3.0)
         #Open chat here
         self.sendMsg('Finish?')
-        #self.readMsgOfChat()
-        #print("of chat ^ on chat v")
-        #self.readMsgOnChat()
-        
-              
+                    
     def sendMsg(self, textStr):
         text = urllib.parse.quote(textStr)
         time.sleep(12.0)
