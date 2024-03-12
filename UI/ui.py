@@ -379,11 +379,9 @@ class UI(ProductsServices):
                                        down = '#ff0000',
                                        wick = 'inherit',
                                        edge = 'inherit',
-                                       volume = 'in')
-        
+                                       volume = 'in') 
         mpfStyle = mpf.make_mpf_style(base_mpf_style = 'binancedark',
-                                      marketcolors = colors)
-        
+                                      marketcolors = colors)    
         mpf.plot(closed,type='candle', style = mpfStyle, mav = (2, 4, 12), show_nontrading=True,
                 figratio=(27,8),figscale=10.0)
         #mpf.plot(closed,figratio=(300,100),style = mpfStyle, mav = (2, 4, 12), show_nontrading=True )

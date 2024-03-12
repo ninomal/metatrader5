@@ -72,7 +72,7 @@ class Service():
         self.mt5.order_send(request)
         result = self.mt5.order_send(request)
         self.sellOrders += -1
-        self.mt5.rates_total()
+        self.mt5.orders_total()
         print(result)
   
     def lastick(self):

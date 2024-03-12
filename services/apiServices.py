@@ -41,7 +41,7 @@ class ApiServices():
             elif valueStr == 'calcv':
                 self.calcvScreen()
             else:
-                print("Action error")
+                pass
             
     def callScreenShoot(self):
         #apiConect = Apiconect(self.mt5, self.selecTime, self.ASSET, self.phone, self.ui, self.HOURSSTART)
@@ -71,7 +71,7 @@ class ApiServices():
             th4.start()        
                       
     def graficsSelectApiUi(self): 
-        th3 = threading.Thread(target= self.apiConect.apiConectZap)
+        #th3 = threading.Thread(target= self.apiConect.apiConectZap)
         th1  = threading.Thread(target=self.apiConect.selecGraph, daemon=True)
         screenShot = Screenshot(self.product.hoursImgName())
         th2 = threading.Thread(target=screenShot.printScreen)
@@ -79,7 +79,7 @@ class ApiServices():
         th1.start()
         th2.start()
         time.sleep(10)
-        th3.start()
+        #th3.start()
         time.sleep(30.0)     
         th4 = threading.Thread(target=self.apiConect.sendImage)
         th4.start()        
