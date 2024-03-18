@@ -11,13 +11,14 @@ from products.Adb import Adbconect
 import threading
 from products.Apiconect import Apiconect
 from services.apiServices import ApiServices
+from services.servicesMql import ServicesMql
 
 SELECTTIME = "1" #select time here, string type exp '2' or '3'
 ASSET = "WINJ24" #Change name of ASSETS HERE exemple :"WDOc1"
 SECONDS = 2 # seconds that the graphs will be shown here 
 PHONENUMBER = "You watssap number"
 HOURSSTART = '9:00:00' # IF you wish market start hours exemple '9:00:00'
-
+SIZESYMBOLS = 10 # size of the asset name output
 
 os.system('cls')
 def main():    
@@ -32,9 +33,10 @@ def main():
     apiConect = Apiconect(mt5, SELECTTIME, ASSET, PHONENUMBER, ui, HOURSSTART)
     adbConect = Adbconect(PHONENUMBER)
     apiService = ApiServices(mt5, SELECTTIME, ASSET,SECONDS,PHONENUMBER, HOURSSTART)
+    servicesMql = ServicesMql()
     print()
     print(products.date_of_Day())
-    apiConect.apiConectZap()
+    #apiConect.apiConectZap()
     #print(productsService.dayForconvert())
     #print(products.lastBar())
     #ui.lastGraph('true')
@@ -62,6 +64,7 @@ def main():
     #apiService.graficsSelectApiUi()
     #ui.eomGraphNow()
     #ui.adGraphNow()
+    servicesMql.getSymbols(SIZESYMBOLS)
     
     
     

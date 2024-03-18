@@ -4,12 +4,10 @@ import pandas as pd
 class Infos:
     def __init__(self, mt5) -> None:
         self.mt5 = mt5
-    
-    def infos(self):
-        # display data on the MetaTrader 5 package
         print("MetaTrader5 package author: ",self.mt5.__author__)
         print("MetaTrader5 package version: ",self.mt5.__version__)
         
+    def infos(self):
         # establish connection to the MetaTrader 5 terminal
         if not self.mt5.initialize():
             print("initialize() failed, error code =",self.mt5.last_error())
