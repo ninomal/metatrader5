@@ -18,7 +18,7 @@ ASSET = "WINJ24" #Change name of ASSETS HERE exemple :"WDOc1"
 SECONDS = 2 # seconds that the graphs will be shown here 
 PHONENUMBER = "You watssap number"
 HOURSSTART = '9:00:00' # IF you wish market start hours exemple '9:00:00'
-SIZESYMBOLS = 10 # size of the asset name output
+SIZESYMBOLS = 20 # size of the asset name output
 
 os.system('cls')
 def main():    

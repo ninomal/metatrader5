@@ -61,11 +61,14 @@ send imagen in watssap web automatic
 calculate pattern v
 ![calcv](https://github.com/ninomal/metatrader5/assets/137447782/451699f7-3274-47e6-a78e-e59ac7cbc82f)
 
+grafics Select
 ![apiselecService](https://github.com/ninomal/metatrader5/assets/137447782/bdd4de4b-c1c9-42e9-9cea-a856931fefc7)
 
-grafics Select
 ![apiSelectGraph](https://github.com/ninomal/metatrader5/assets/137447782/d968ebf7-aaef-4904-a6a7-b4b4eaecfe4e)
 chose grafics in msg  watssap send image for you number
+
+![symbols](https://github.com/ninomal/metatrader5/assets/137447782/7e2ca709-3e22-4681-86d0-80771c9925b9)
+take name of symbols in mql5
 
 # Graphics
 
