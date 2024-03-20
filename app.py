@@ -18,7 +18,12 @@ ASSET = "WINJ24" #Change name of ASSETS HERE exemple :"WDOc1"
 SECONDS = 2 # seconds that the graphs will be shown here 
 PHONENUMBER = "You watssap number"
 HOURSSTART = '9:00:00' # IF you wish market start hours exemple '9:00:00'
+#TOLLS constant
 SIZESYMBOLS = 20 # size of the asset name output
+DAY = 20 
+MONTH = 3
+YEAR = 2024
+POSITIONID = 0 # name of asset id
 
 os.system('cls')
 def main():    
@@ -64,8 +69,8 @@ def main():
     #apiService.graficsSelectApiUi()
     #ui.eomGraphNow()
     #ui.adGraphNow()
-    servicesMql.getSymbols(SIZESYMBOLS)
-    
+    #servicesMql.getSymbols(SIZESYMBOLS)
+    servicesMql.historyOrdersGet(YEAR, MONTH, DAY, ASSET, POSITIONID)
     
     
      
