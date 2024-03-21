@@ -36,6 +36,10 @@ change start of market in
 enter in watssap web number phone for send imagens and txt
 ![watssap](https://github.com/ninomal/metatrader5/assets/137447782/198b883a-f97f-473d-90c1-f74f6e2912bc)
 
+Constant Tools
+![tollsconts](https://github.com/ninomal/metatrader5/assets/137447782/1bf560a7-fc2c-45b2-a0d8-be0f7eb8135c)
+for get information
+
 
 # Tools
 
@@ -69,6 +73,9 @@ chose grafics in msg  watssap send image for you number
 
 ![symbols](https://github.com/ninomal/metatrader5/assets/137447782/7e2ca709-3e22-4681-86d0-80771c9925b9)
 take name of symbols in mql5
+
+![historygetordes](https://github.com/ninomal/metatrader5/assets/137447782/48e0d0cb-5ba7-452f-93b1-ae855161cac8)
+get historic assets
 
 # Graphics
 
