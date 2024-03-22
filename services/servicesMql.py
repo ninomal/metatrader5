@@ -69,3 +69,24 @@ class ServicesMql():
             df['time_setup'] = pd.to_datetime(df['time_setup'], unit='s')
             df['time_done'] = pd.to_datetime(df['time_done'], unit='s')
             print(df)
+            
+    def symbolInfo(self, asset):   
+        selected=mt5.symbol_select(f"{asset}",True)
+        if not selected:
+            print(f"Failed to select {asset}, error code =",mt5.last_error())
+        else:
+            symbol_info=mt5.symbol_info(f"{asset}")
+            print(symbol_info)
+            print(f"{asset}: currency_base =",symbol_info.currency_base,"  currency_profit =",symbol_info.currency_profit,"  currency_margin =",symbol_info.currency_margin)
+            print()
+            # get symbol properties in the form of a dictionary
+            print("Show symbol_info()._asdict():")
+            symbol_info_dict = symbol_info._asdict()
+            for prop in symbol_info_dict:
+                print("  {}={}".format(prop, symbol_info_dict[prop]))
+            print()
+            # convert the dictionary into DataFrame and print
+            df=pd.DataFrame(list(symbol_info_dict.items()),columns=['property','value'])
+            print("symbol_info_dict() as dataframe:")
+            print(df)
+            

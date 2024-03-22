@@ -70,8 +70,8 @@ def main():
     #ui.eomGraphNow()
     #ui.adGraphNow()
     #servicesMql.getSymbols(SIZESYMBOLS)
-    servicesMql.historyOrdersGet(YEAR, MONTH, DAY, ASSET, POSITIONID)
-    
+    #servicesMql.historyOrdersGet(YEAR, MONTH, DAY, ASSET, POSITIONID)
+    servicesMql.symbolInfo(ASSET)
     
      
 
