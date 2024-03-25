@@ -164,5 +164,19 @@ class Products:
     def deleteImg(self, path):
         os.remove(path)
         
-    
+    def copyFromDate(self, asset, enumsFrame, dateStart, dateStop):
+        pd.set_option('display.max_columns', 500) # number of columns to be displayed
+        pd.set_option('display.width', 1500)      # max table width to display
+        if not self.mt5.initialize():
+            print("initialize() failed, error code =",self.mt5.last_error())
+            quit() 
+        rates = self.mt5.copy_rates_from_pos(f"{asset}", enumsFrame, dateStart, dateStop)
+        print("Display obtained data 'as is'")
+        for rate in rates:
+            print(rate)
+        rates_frame = pd.DataFrame(rates)
+        rates_frame['time']=pd.to_datetime(rates_frame['time'], unit='s')
+        print("\nDisplay dataframe with data")
+        print(rates_frame) 
+        return rates_frame
         
