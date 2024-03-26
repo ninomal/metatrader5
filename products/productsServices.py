@@ -32,6 +32,11 @@ class ProductsServices:
     def calcEma(self):
         mov = ta.ema(self.selectBar('close'), length=10)
         return mov
+      
+    def copyFromRates(self, mt5, asset, enumsFrame, rangeStart, rangeStop):
+        copyRatesRange = self.Products.copyFromRates(mt5, asset, enumsFrame, 
+                            rangeStart, rangeStop)   
+        return copyRatesRange
           
     #fixing  
     def vwap(self):
@@ -130,7 +135,5 @@ class ProductsServices:
                 print(self.futureNegative)
                 self.negative = True        
                 
-    def teste(self):
-        return True 
                            
    

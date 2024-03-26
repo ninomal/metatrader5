@@ -71,8 +71,8 @@ def main():
     #ui.adGraphNow()
     #servicesMql.getSymbols(SIZESYMBOLS)
     #servicesMql.historyOrdersGet(YEAR, MONTH, DAY, ASSET, POSITIONID)
-    servicesMql.symbolInfo(ASSET)
-    
+    #servicesMql.symbolInfo(ASSET) 
+    productsService.copyFromRates(mt5, ASSET, mt5.TIMEFRAME_D1, 0, 300)
      
 
 
