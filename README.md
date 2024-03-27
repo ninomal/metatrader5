@@ -77,6 +77,9 @@ take name of symbols in mql5
 ![historygetordes](https://github.com/ninomal/metatrader5/assets/137447782/48e0d0cb-5ba7-452f-93b1-ae855161cac8)
 get historic assets
 
+![copyratesfrom;png](https://github.com/ninomal/metatrader5/assets/137447782/e9376bc3-4e72-4ed3-8252-94f3513a4850)
+take most the candles graphics in determinate range 
+
 # Graphics
 
 Volume in indice 50 in graph
