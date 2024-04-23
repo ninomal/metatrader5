@@ -14,9 +14,9 @@ from services.apiServices import ApiServices
 from services.servicesMql import ServicesMql
 
 SELECTTIME = "1" #select time here, string type exp '2' or '3'
-ASSET = "WINJ24" #Change name of ASSETS HERE exemple :"WDOc1"
+ASSET = "WINM24" #Change name of ASSETS HERE exemple :"WDOc1"
 SECONDS = 2 # seconds that the graphs will be shown here 
-PHONENUMBER = "You watssap number"
+PHONENUMBER = 4444444
 HOURSSTART = '9:00:00' # IF you wish market start hours exemple '9:00:00'
 #TOLLS constant
 SIZESYMBOLS = 20 # size of the asset name output
@@ -37,8 +37,8 @@ def main():
     screenShot = Screenshot(products)
     apiConect = Apiconect(mt5, SELECTTIME, ASSET, PHONENUMBER, ui, HOURSSTART)
     adbConect = Adbconect(PHONENUMBER)
-    apiService = ApiServices(mt5, SELECTTIME, ASSET,SECONDS,PHONENUMBER, HOURSSTART)
-    servicesMql = ServicesMql()
+    #apiService = ApiServices(mt5, SELECTTIME, ASSET,SECONDS,PHONENUMBER, HOURSSTART) need repair
+    #servicesMql = ServicesMql()
     print()
     print(products.date_of_Day())
     #apiConect.apiConectZap()
@@ -55,7 +55,7 @@ def main():
     #services.buy()
     #ui.pizzaGraphForce()
     #productsService.teste()
-    #ui.adGraph()
+    ui.adGraph()
     #ui.eomGraph()
     #screenShot.printScreen()
     #adbConect.adbConect()
