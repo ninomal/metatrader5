@@ -37,11 +37,11 @@ def main():
     screenShot = Screenshot(products)
     apiConect = Apiconect(mt5, SELECTTIME, ASSET, PHONENUMBER, ui, HOURSSTART)
     adbConect = Adbconect(PHONENUMBER)
-    #apiService = ApiServices(mt5, SELECTTIME, ASSET,SECONDS,PHONENUMBER, HOURSSTART) need repair
+    apiService = ApiServices(mt5, SELECTTIME, ASSET,SECONDS,PHONENUMBER, HOURSSTART) 
     #servicesMql = ServicesMql()
     print()
     print(products.date_of_Day())
-    #apiConect.apiConectZap()
+    apiConect.apiConectZap()
     #print(productsService.dayForconvert())
     #print(products.lastBar())
     #ui.lastGraph('true')
@@ -72,7 +72,7 @@ def main():
     #servicesMql.getSymbols(SIZESYMBOLS)
     #servicesMql.historyOrdersGet(YEAR, MONTH, DAY, ASSET, POSITIONID)
     #servicesMql.symbolInfo(ASSET) 
-    productsService.copyFromRates(mt5, ASSET, mt5.TIMEFRAME_D1, 0, 300)
+    #productsService.copyFromRates(mt5, ASSET, mt5.TIMEFRAME_D1, 0, 300)
      
 
 

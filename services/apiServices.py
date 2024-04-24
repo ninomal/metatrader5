@@ -18,7 +18,7 @@ class ApiServices():
         self.SECONDS = SECONDS
         self.phone = PHONENUMBER
         self.HOURSSTART = HOURSSTART
-        self.product = Products(self.mt5, self.SECONDS, self.ASSET, HOURSSTART)
+        self.product = Products(self.mt5, self.selecTime, self.ASSET, HOURSSTART)
         self.ui = UI(self.mt5, self.selecTime, self.ASSET, self.SECONDS, HOURSSTART)
         self.services = Service(self.mt5, self.selecTime, self.ASSET)
         self.enumsGraph = EnumsGraph(self.ui)
