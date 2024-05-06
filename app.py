@@ -12,6 +12,7 @@ import threading
 from products.Apiconect import Apiconect
 from services.apiServices import ApiServices
 from services.servicesMql import ServicesMql
+from Ai.Ai import Ai
 
 SELECTTIME = "1" #select time here, string type exp '2' or '3'
 ASSET = "WINM24" #Change name of ASSETS HERE exemple :"WDOc1"
@@ -37,11 +38,13 @@ def main():
     screenShot = Screenshot(products)
     apiConect = Apiconect(mt5, SELECTTIME, ASSET, PHONENUMBER, ui, HOURSSTART)
     adbConect = Adbconect(PHONENUMBER)
-    apiService = ApiServices(mt5, SELECTTIME, ASSET,SECONDS,PHONENUMBER, HOURSSTART) 
+    apiService = ApiServices(mt5, SELECTTIME, ASSET,SECONDS,PHONENUMBER, HOURSSTART)
+    testo = "TEST test"
+    ai = Ai(testo ,True)
     #servicesMql = ServicesMql()
     print()
     print(products.date_of_Day())
-    apiConect.apiConectZap()
+    #apiConect.apiConectZap()
     #print(productsService.dayForconvert())
     #print(products.lastBar())
     #ui.lastGraph('true')
@@ -55,7 +58,7 @@ def main():
     #services.buy()
     #ui.pizzaGraphForce()
     #productsService.teste()
-    ui.adGraph()
+    #ui.adGraph()
     #ui.eomGraph()
     #screenShot.printScreen()
     #adbConect.adbConect()
@@ -73,6 +76,10 @@ def main():
     #servicesMql.historyOrdersGet(YEAR, MONTH, DAY, ASSET, POSITIONID)
     #servicesMql.symbolInfo(ASSET) 
     #productsService.copyFromRates(mt5, ASSET, mt5.TIMEFRAME_D1, 0, 300)
+    
+    #print(ai.textRead())
+    ai.textReadSelect()
+    
      
 
 
