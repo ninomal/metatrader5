@@ -1,23 +1,27 @@
 
 
 class Ai():
-    def __init__(self, text, request):
-        self.text = text
-        self.resquest = request
-        self.textSelect = self.textReadSelect()
+    def __init__(self):
+        pass
     
-    #def whyMethode(self,ValueX, valueY ,request ):
-        #if(self.resquest == True and ):
-         
-            #print()
+    def whyAsnew(self,nameOfMethod, value ,request , getQuizZap):
+        if (request == True and getQuizZap == "WHY"):
+            print("Why method ", nameOfMethod, " reached the point: ", value )
     
-    def textReadList(self):
-        strText = str(self.text)
+    def howAsnew(self,nameOfMethod, value ,request ,getQuizZap):
+        if (request == True and getQuizZap == "HOW"):
+            print("When method ", nameOfMethod, " reaches the value: ", value )
+    
+    def zapTextReadList(self, text ):
+        strText = str(text)
         listText = strText.split(" ")
         return listText
         
-    def textReadSelect(self):
-        text = self.textReadList()
+    def textReadSelect(self, text):
+        text = self.zapTextReadList(text)
         textSplitSelec = list(filter
                 (lambda textLam: textLam.upper() == "WHY" or textLam == "HOW", text))
         print(textSplitSelec)
+        return textSplitSelec[0].upper()
+        
+   
