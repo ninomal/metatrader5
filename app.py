@@ -12,7 +12,9 @@ import threading
 from products.Apiconect import Apiconect
 from services.apiServices import ApiServices
 from services.servicesMql import ServicesMql
-from Ai.Ai import Ai
+from Ai.Ai import Ai 
+from Ai.AiColect import AiColect
+
 
 SELECTTIME = "1" #select time here, string type exp '2' or '3'
 ASSET = "WINM24" #Change name of ASSETS HERE exemple :"WDOc1"
@@ -40,6 +42,7 @@ def main():
     adbConect = Adbconect(PHONENUMBER)
     apiService = ApiServices(mt5, SELECTTIME, ASSET,SECONDS,PHONENUMBER, HOURSSTART)
     ai = Ai()
+    aiColect = AiColect()
     #servicesMql = ServicesMql()
     print()
     print(products.date_of_Day())
@@ -76,14 +79,21 @@ def main():
     #servicesMql.symbolInfo(ASSET) 
     #productsService.copyFromRates(mt5, ASSET, mt5.TIMEFRAME_D1, 0, 300)
     
-    test = "WHY"
+    """
+     test = "WHY"
     test1 = "HOW"
     first = ai.textReadSelect(test)
     first1 = ai.textReadSelect(test1)
     ai.whyAsnew("V", 123456, True, first)
     ai.howAsnew("V", 123456, True, first1)
+    """
+    aiColect.colectID("Sell", 123456, 4506, 2000)
+    aiColect.colectMethod("V", 123457)
 
-
+    
+    
+    
+    
 
     
 if __name__ == "__main__":

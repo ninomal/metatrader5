@@ -21,7 +21,7 @@ class Ai():
         text = self.zapTextReadList(text)
         textSplitSelec = list(filter
                 (lambda textLam: textLam.upper() == "WHY" or textLam == "HOW", text))
-        print(textSplitSelec)
-        return textSplitSelec[0].upper()
+        print(textSplitSelec[0])
+        return textSplitSelec[0]
         
    
