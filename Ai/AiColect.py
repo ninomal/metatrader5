@@ -4,17 +4,12 @@
 class AiColect():
     def __init__(self) -> None:
         self.aiDict = {}
-        self.methodName = {}
         
-    def colectID(self, action, value, valueBuy, valueSell):
+    def colectID(self, action, value, valueBuy, valueSell,priceNow, method, operationMethod):
         valueStr = str(value)
-        self.aiDict[action + " in " + valueStr] = valueBuy
+        self.aiDict[action + " in " + valueStr] = [valueBuy, valueSell,priceNow, method, operationMethod]
         return self.aiDict
     
-    def colectMethod(self, method, hit):
-        hitStr = str(hit)
-        self.methodName[method] = hitStr
-        return self.methodName
             
          
 

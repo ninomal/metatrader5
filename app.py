@@ -14,6 +14,7 @@ from services.apiServices import ApiServices
 from services.servicesMql import ServicesMql
 from Ai.Ai import Ai 
 from Ai.AiColect import AiColect
+from Ai.AIConect import AiConect
 
 
 SELECTTIME = "1" #select time here, string type exp '2' or '3'
@@ -43,6 +44,7 @@ def main():
     apiService = ApiServices(mt5, SELECTTIME, ASSET,SECONDS,PHONENUMBER, HOURSSTART)
     ai = Ai()
     aiColect = AiColect()
+    aiconect = AiConect(ai, aiColect, apiConect)
     #servicesMql = ServicesMql()
     print()
     print(products.date_of_Day())

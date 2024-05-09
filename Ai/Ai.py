@@ -24,4 +24,7 @@ class Ai():
         print(textSplitSelec[0])
         return textSplitSelec[0]
         
+    def getText(self, text):
+        return text
+        
    

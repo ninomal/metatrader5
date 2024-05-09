@@ -1,6 +1,7 @@
 from products.Adb import Adbconect
 from products.product import Products
 from enums.enumsGraphics import EnumsGraph
+
 import time
 
 class Apiconect():
@@ -30,6 +31,10 @@ class Apiconect():
         
     def closedPltEnums(self):
         self.enumsGraph.pltClosed()
+        
+    def conectAiTxt(self, text):
+        self.adb.sendMsg(text)
+        
         
 
     
