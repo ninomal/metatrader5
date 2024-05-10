@@ -4,6 +4,7 @@ import pandas as pd
 from functools import cache
 import time
 from datetime import datetime
+from Ai.AiColect import AiColect
 
 class ProductsServices:  
     def __init__(self, mt5, timeFrame, ASSET, HOURSSTART):
@@ -14,6 +15,7 @@ class ProductsServices:
         self.futurePositive = 0
         self.positive = False
         self.negative = False
+        self.aiColect = AiColect()
 
     def toTimeFrame(self):
         return self.Products.tOtimeFrame()
@@ -112,16 +114,17 @@ class ProductsServices:
             self.timeSleepNow()
         
     #Beta  calcV method
-    @cache
     def calcV(self, data):
         if self.futureNegative == 0:
             self.futurePositive = data +  ((data * 0.69)/100)
             self.futureNegative = (data - (data * 0.69)/100)
         elif data < self.futurePositive and self.positive:
+            self.aiColect.colectID("Buy", self.futurePositive, data , "", data, "Calcv") #Ai 
             self.futurePositive = 0
             self.positive = False
             return True
-        elif data > self.futureNegative and self.negative:  
+        elif data > self.futureNegative and self.negative: 
+            self.aiColect.colectID("Sell", self.futurePositive, "" , data , data, "Calcv") #Ai 
             self.futureNegative = 0
             self.negative = False  
             return True      

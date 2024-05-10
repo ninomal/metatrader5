@@ -89,8 +89,8 @@ def main():
     ai.whyAsnew("V", 123456, True, first)
     ai.howAsnew("V", 123456, True, first1)
     """
-    aiColect.colectID("Sell", 123456, 4506, 2000)
-    aiColect.colectMethod("V", 123457)
+    #aiColect.colectID("Sell", 123456, 4506, 2000)
+    #aiColect.colectMethod("V", 123457)
 
     
     

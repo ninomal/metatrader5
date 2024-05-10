@@ -1,13 +1,17 @@
 #this class colect the date in dict mode
 
-
 class AiColect():
     def __init__(self) -> None:
         self.aiDict = {}
-        
-    def colectID(self, action, value, valueBuy, valueSell,priceNow, method, operationMethod):
-        valueStr = str(value)
-        self.aiDict[action + " in " + valueStr] = [valueBuy, valueSell,priceNow, method, operationMethod]
+    
+    # return list whit sting price and method  
+    def colectID(self, action, valueMethod, valueBuy, valueSell,priceNow, method):
+        valueMethodStr = str(valueMethod)
+        valueBuyStr = str(valueBuy)
+        valueSellStr = str(valueSell)
+        priceNowStr = str(priceNow)
+        self.aiDict[action + " in " + valueMethodStr] = [valueBuyStr
+                                        , valueSellStr,priceNowStr, method]
         return self.aiDict
     
             
