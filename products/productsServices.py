@@ -119,12 +119,14 @@ class ProductsServices:
             self.futurePositive = data +  ((data * 0.69)/100)
             self.futureNegative = (data - (data * 0.69)/100)
         elif data < self.futurePositive and self.positive:
-            self.aiColect.colectID("Buy", self.futurePositive, data , "", data, "Calcv") #Ai 
+            self.aiColect.colectID("Buy", self.futurePositive, data , "none",
+                             data, "Calcv", "why") #Ai 
             self.futurePositive = 0
             self.positive = False
             return True
         elif data > self.futureNegative and self.negative: 
-            self.aiColect.colectID("Sell", self.futurePositive, "" , data , data, "Calcv") #Ai 
+            self.aiColect.colectID("Sell", self.futurePositive, "none" , data , 
+                            data,"Calcv", "why") #Ai 
             self.futureNegative = 0
             self.negative = False  
             return True      
@@ -132,11 +134,15 @@ class ProductsServices:
             if self.positive == False:
                 self.futurePositive = (data - (data * 0.48)/100)
                 self.positive = True
+                self.aiColect.colectID("Buy", self.futurePositive, data,
+                            "none","none", "Calv","how") #Ai
         elif data < self.futureNegative:
             if self.negative == False:
                 self.futureNegative = (data + (data* 0.48)/100)
                 print(self.futureNegative)
-                self.negative = True        
+                self.negative = True
+                self.aiColect.colectID("Sell", self.futureNegative, "none",
+                            data,"none", "Calv","how") #Ai
                 
                            
    

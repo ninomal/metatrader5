@@ -1,12 +1,16 @@
-from AiColect import AiColect
+
 
 class Ai():
     def __init__(self):
         pass
     
-    def whyAsnew(self,nameOfMethod, value , getQuizZap):
-        if (getQuizZap == "WHY"):
-            print("Why method ", nameOfMethod, " reached the point: ", value )
+    def questionAsnwer(self, valueDic):
+        if valueDic[valueDic.keys()][0].upper() == "WHY":
+            print("foiiii")
+            self.whyAsnew()
+    
+    def whyAsnew(self, value ):
+            print("Why method ",  " reached the point: ", value )
     
     def howAsnew(self,nameOfMethod, value , getQuizZap):
         if (getQuizZap == "HOW"):

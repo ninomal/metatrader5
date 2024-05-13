@@ -91,6 +91,9 @@ def main():
     """
     #aiColect.colectID("Sell", 123456, 4506, 2000)
     #aiColect.colectMethod("V", 123457)
+    value = aiColect.colectID("Sell", 12345, "none" ,123  , 
+                            1345,"Calcv", "why")
+    #ai.questionAsnwer(value) NEED TEST
 
     
     
