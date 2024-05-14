@@ -2,19 +2,33 @@
 
 class Ai():
     def __init__(self):
-        pass
+        self.actionValue = 0
     
-    def questionAsnwer(self, valueDic):
-        if valueDic[valueDic.keys()][0].upper() == "WHY":
-            print("foiiii")
-            self.whyAsnew()
+    def questionAsnwer(self, valueDict):
+        if valueDict["question"].upper() == "WHY": 
+            self.whyAsnew(valueDict)
+        elif valueDict["question"].upper() == "HOW": 
+            self.howAsnew(valueDict)
+        else:
+            return print("Error")
     
-    def whyAsnew(self, value ):
-            print("Why method ",  " reached the point: ", value )
+    def whyAsnew(self, valueDict ): 
+        if valueDict['valueBuy'] == "none":
+            self.actionValue = valueDict['valueSell']
+        else:
+            self.actionValue = valueDict['valueBuy']
+        return print("Why method",valueDict['method'], 
+            "reached the point:", valueDict['valueMethod'],
+            "and", valueDict['action'] ,"in price:", self.actionValue )
     
-    def howAsnew(self,nameOfMethod, value , getQuizZap):
-        if (getQuizZap == "HOW"):
-            print("When method ", nameOfMethod, " reaches the value: ", value )
+    def howAsnew(self, valueDict ): 
+        if valueDict['valueBuy'] == "none":
+            self.actionValue = valueDict['valueSell']
+        else:
+            self.actionValue = valueDict['valueBuy']
+        return print("When method", valueDict['method'], 
+            "not reaches the value:",self.actionValue,
+            "you are not going to", valueDict['action'])
     
     def zapTextReadList(self, text ):
         strText = str(text)

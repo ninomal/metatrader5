@@ -80,20 +80,16 @@ def main():
     #servicesMql.historyOrdersGet(YEAR, MONTH, DAY, ASSET, POSITIONID)
     #servicesMql.symbolInfo(ASSET) 
     #productsService.copyFromRates(mt5, ASSET, mt5.TIMEFRAME_D1, 0, 300)
-    
-    """
-     test = "WHY"
-    test1 = "HOW"
-    first = ai.textReadSelect(test)
-    first1 = ai.textReadSelect(test1)
-    ai.whyAsnew("V", 123456, True, first)
-    ai.howAsnew("V", 123456, True, first1)
-    """
+   
+   #Test AI Beta
+   
     #aiColect.colectID("Sell", 123456, 4506, 2000)
     #aiColect.colectMethod("V", 123457)
-    value = aiColect.colectID("Sell", 12345, "none" ,123  , 
-                            1345,"Calcv", "why")
-    #ai.questionAsnwer(value) NEED TEST
+    """value = aiColect.colectID("Sell", 12345, "none" ,123  , 
+                            1345,"Calcv", "why")"""
+    value = aiColect.colectID("Buy", "none", 1234 ,123  , 
+                            1345,"Calcv", "how")
+    ai.questionAsnwer(value)
 
     
     
